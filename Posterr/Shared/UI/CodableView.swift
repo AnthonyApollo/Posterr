@@ -25,4 +25,6 @@ extension CodableView {
         configConstraints()
     }
     
+    func configViews() {}
+    
 }
