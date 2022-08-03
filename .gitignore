@@ -28,6 +28,9 @@ playground.xcworkspace
 ## User settings
 xcuserdata/
 
+## Workspace settings
+IDEWorkspaceChecks.plist
+
 ## Xcode build files
 DerivedData/
 build/
