@@ -10,10 +10,27 @@ import UIKit
 
 class HomeTabBarController: UITabBarController {
     
+    private let feedViewController: UIViewController = {
+        let viewController = FeedViewController()
+        viewController.tabBarItem = .init(title: "Feed", image: UIImage(systemName: "message"), tag: 0)
+        return viewController
+    }()
+    
+    private let userProfileViewController: UIViewController = {
+        let viewController = UserProfileViewController()
+        viewController.tabBarItem = .init(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
+        return viewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        configTabBar()
+    }
+    
+    private func configTabBar() {
+        viewControllers = [feedViewController, userProfileViewController]
+        tabBar.backgroundColor = .white
     }
     
 }

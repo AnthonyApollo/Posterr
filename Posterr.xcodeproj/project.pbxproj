@@ -15,6 +15,8 @@
 		156A6FCE2899F70C003F75AE /* PosterrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCD2899F70C003F75AE /* PosterrUITests.swift */; };
 		156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */; };
 		1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* HomeTabBarController.swift */; };
+		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
+		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		156A6FCD2899F70C003F75AE /* PosterrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITests.swift; sourceTree = "<group>"; };
 		156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1581D76D2899FCB5009C6593 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +129,9 @@
 		1581D7692899FB55009C6593 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1581D76F2899FE04009C6593 /* Feed */,
 				1581D76A2899FB66009C6593 /* Home */,
+				1581D7702899FE0C009C6593 /* UserProfile */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -154,6 +160,22 @@
 				156A6FB72899F70B003F75AE /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		1581D76F2899FE04009C6593 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				1581D7712899FE4F009C6593 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		1581D7702899FE0C009C6593 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1581D7732899FE60009C6593 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */,
+				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
+				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
