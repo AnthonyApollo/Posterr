@@ -10,7 +10,9 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
     
-    private lazy var profileView: UserProfileView = .init(user: .dummy())
+    var tableViewManager = PostsTableViewManager(posts: Post.dummies())
+    
+    private lazy var profileView: UserProfileView = .init(user: .dummy(), tableViewManager: tableViewManager)
     
     override func loadView() {
         view = profileView

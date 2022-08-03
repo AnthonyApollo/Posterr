@@ -10,7 +10,7 @@ import SnapKit
 
 class FeedView: UIView {
     
-    let tableViewManager: PostsTableViewManager
+    private let tableViewManager: PostsTableViewManager
     
     private lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)

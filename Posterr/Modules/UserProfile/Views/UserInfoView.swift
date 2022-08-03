@@ -92,6 +92,7 @@ extension UserInfoView: CodableView {
             make.leading.equalTo(usernameLabel.snp.leading)
             make.top.equalTo(repostCountView.snp.bottom).offset(8)
             make.trailing.equalTo(usernameLabel.snp.trailing)
+            make.bottom.equalToSuperview()
         }
     }
     
