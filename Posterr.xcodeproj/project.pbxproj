@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155AE4EA289B00B600D18F6B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 155AE4E9289B00B600D18F6B /* SnapKit */; };
+		155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */; };
+		155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EF289B052B00D18F6B /* FeedProtocols.swift */; };
+		155AE4F5289B065200D18F6B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4F4289B065200D18F6B /* Post.swift */; };
+		155AE4F7289B09EF00D18F6B /* PostsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4F6289B09EF00D18F6B /* PostsTableViewManager.swift */; };
+		155AE4FA289B123C00D18F6B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */; };
+		155AE4FD289B25DC00D18F6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4FC289B25DC00D18F6B /* User.swift */; };
 		156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FAC2899F70A003F75AE /* AppDelegate.swift */; };
 		156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FAE2899F70A003F75AE /* SceneDelegate.swift */; };
 		156A6FB62899F70B003F75AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156A6FB52899F70B003F75AE /* Assets.xcassets */; };
@@ -39,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
+		155AE4EF289B052B00D18F6B /* FeedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProtocols.swift; sourceTree = "<group>"; };
+		155AE4F4289B065200D18F6B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		155AE4F6289B09EF00D18F6B /* PostsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewManager.swift; sourceTree = "<group>"; };
+		155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		155AE4FC289B25DC00D18F6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		156A6FA92899F70A003F75AE /* Posterr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Posterr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156A6FAC2899F70A003F75AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		156A6FAE2899F70A003F75AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155AE4EA289B00B600D18F6B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +96,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		155AE4EB289B04E200D18F6B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		155AE4EE289B051200D18F6B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4EF289B052B00D18F6B /* FeedProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		155AE4F1289B05BF00D18F6B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4F2289B062F00D18F6B /* Models */,
+				1581D779289A0DC8009C6593 /* UI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		155AE4F2289B062F00D18F6B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4FB289B25BE00D18F6B /* User */,
+				155AE4F3289B063D00D18F6B /* Post */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		155AE4F3289B063D00D18F6B /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4F4289B065200D18F6B /* Post.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		155AE4F8289B0A2C00D18F6B /* PostsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4F6289B09EF00D18F6B /* PostsTableViewManager.swift */,
+				155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */,
+			);
+			path = PostsTableView;
+			sourceTree = "<group>";
+		};
+		155AE4FB289B25BE00D18F6B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4FC289B25DC00D18F6B /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		156A6FA02899F70A003F75AE = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +180,7 @@
 			children = (
 				1581D76B2899FC18009C6593 /* Base */,
 				1581D7692899FB55009C6593 /* Modules */,
-				1581D779289A0DC8009C6593 /* UI */,
+				155AE4F1289B05BF00D18F6B /* Shared */,
 				156A6FB52899F70B003F75AE /* Assets.xcassets */,
 				156A6FBA2899F70B003F75AE /* Info.plist */,
 			);
@@ -171,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				1581D775289A0C73009C6593 /* Controller */,
+				155AE4EB289B04E200D18F6B /* Presenter */,
+				155AE4EE289B051200D18F6B /* Protocols */,
 				1581D776289A0C7F009C6593 /* Views */,
 			);
 			path = Feed;
@@ -203,6 +278,7 @@
 		1581D779289A0DC8009C6593 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				155AE4F8289B0A2C00D18F6B /* PostsTableView */,
 				1581D77A289A0DE4009C6593 /* CodableView.swift */,
 			);
 			path = UI;
@@ -224,6 +300,9 @@
 			dependencies = (
 			);
 			name = Posterr;
+			packageProductDependencies = (
+				155AE4E9289B00B600D18F6B /* SnapKit */,
+			);
 			productName = Posterr;
 			productReference = 156A6FA92899F70A003F75AE /* Posterr.app */;
 			productType = "com.apple.product-type.application";
@@ -296,6 +375,9 @@
 				Base,
 			);
 			mainGroup = 156A6FA02899F70A003F75AE;
+			packageReferences = (
+				155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 156A6FAA2899F70A003F75AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -338,13 +420,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155AE4FD289B25DC00D18F6B /* User.swift in Sources */,
+				155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
 				1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */,
+				155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */,
 				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
 				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
 				1581D778289A0DB7009C6593 /* FeedView.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,
+				155AE4F7289B09EF00D18F6B /* PostsTableViewManager.swift in Sources */,
+				155AE4F5289B065200D18F6B /* Post.swift in Sources */,
+				155AE4FA289B123C00D18F6B /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +764,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		155AE4E9289B00B600D18F6B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 156A6FA12899F70A003F75AE /* Project object */;
 }

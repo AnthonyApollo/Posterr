@@ -6,10 +6,24 @@
 //
 
 import UIKit
+import SnapKit
 
 class FeedView: UIView {
     
-    init() {
+    let tableViewManager: PostsTableViewManager
+    
+    private lazy var postsTableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.dataSource = tableViewManager
+        tableView.delegate = tableViewManager
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
+        
+        return tableView
+    }()
+    
+    init(tableViewManager: PostsTableViewManager) {
+        self.tableViewManager = tableViewManager
+        
         super.init(frame: .zero)
         
         setupViews()
@@ -25,15 +39,17 @@ class FeedView: UIView {
 extension FeedView: CodableView {
     
     func configViews() {
-        backgroundColor = .blue
+        backgroundColor = .white
     }
     
     func buildViews() {
-        // TODO: Add implementation
+        addSubview(postsTableView)
     }
     
     func configConstraints() {
-        // TODO: Add implementation
+        postsTableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
 }

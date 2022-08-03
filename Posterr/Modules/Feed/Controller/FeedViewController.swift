@@ -10,7 +10,9 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let feedView: FeedView = .init()
+    var tableViewManager = PostsTableViewManager(posts: Post.dummies())
+    
+    private lazy var feedView: FeedView = .init(tableViewManager: tableViewManager)
     
     override func loadView() {
         view = feedView
