@@ -9,11 +9,15 @@ import Foundation
 import UIKit
 
 class FeedViewController: UIViewController {
- 
+    
+    private let feedView: FeedView = .init()
+    
+    override func loadView() {
+        view = feedView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .blue
     }
     
 }
