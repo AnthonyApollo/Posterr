@@ -12,6 +12,10 @@ class FeedView: UIView {
     
     private let tableViewManager: PostsTableViewManager
     
+    private lazy var postCreationView: PostCreationView = {
+        .init()
+    }()
+    
     private lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.dataSource = tableViewManager
@@ -43,12 +47,20 @@ extension FeedView: CodableView {
     }
     
     func buildViews() {
+        addSubview(postCreationView)
         addSubview(postsTableView)
     }
     
     func configConstraints() {
+        postCreationView.snp.makeConstraints { make in
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(8)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(8)
+        }
+        
         postsTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(postCreationView.snp.bottom).offset(8)
         }
     }
     
