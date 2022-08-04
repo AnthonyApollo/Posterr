@@ -43,8 +43,7 @@ extension PostTableViewCell: CodableView {
     }
     
     func buildViews() {
-        addSubview(authorUsernameLabel)
-        addSubview(messageLabel)
+        addSubviews(authorUsernameLabel, messageLabel)
     }
     
     func configConstraints() {

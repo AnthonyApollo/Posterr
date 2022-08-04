@@ -45,8 +45,7 @@ class PostCountView: UIView {
 extension PostCountView: CodableView {
     
     func buildViews() {
-        addSubview(countIcon)
-        addSubview(countLabel)
+        addSubviews(countIcon, countLabel)
     }
     
     func configConstraints() {

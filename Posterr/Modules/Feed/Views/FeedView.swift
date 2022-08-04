@@ -47,8 +47,7 @@ extension FeedView: CodableView {
     }
     
     func buildViews() {
-        addSubview(postCreationView)
-        addSubview(postsTableView)
+        addSubviews(postCreationView, postsTableView)
     }
     
     func configConstraints() {

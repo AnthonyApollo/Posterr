@@ -51,9 +51,7 @@ extension PostCreationView: CodableView {
     }
     
     func buildViews() {
-        addSubview(textView)
-        addSubview(remainingCharactersLabel)
-        addSubview(postButton)
+        addSubviews(textView, remainingCharactersLabel, postButton)
     }
     
     func configConstraints() {

@@ -44,8 +44,7 @@ class UserProfileView: UIView {
 extension UserProfileView: CodableView {
     
     func buildViews() {
-        addSubview(infoView)
-        addSubview(userPostsTableView)
+        addSubviews(infoView, userPostsTableView)
     }
     
     func configConstraints() {

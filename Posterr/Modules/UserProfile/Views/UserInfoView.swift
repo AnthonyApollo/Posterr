@@ -57,11 +57,7 @@ class UserInfoView: UIView {
 extension UserInfoView: CodableView {
     
     func buildViews() {
-        addSubview(usernameLabel)
-        addSubview(joinDateLabel)
-        addSubview(postCountView)
-        addSubview(repostCountView)
-        addSubview(quotePostCountView)
+        addSubviews(usernameLabel, joinDateLabel, postCountView, repostCountView, quotePostCountView)
     }
     
     func configConstraints() {
