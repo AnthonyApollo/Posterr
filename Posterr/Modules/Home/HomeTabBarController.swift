@@ -12,15 +12,15 @@ class HomeTabBarController: UITabBarController {
     
     private let feedViewController: UIViewController = {
         let viewController = FeedViewController()
-        viewController.tabBarItem = .init(title: "Feed", image: UIImage(systemName: "message"), tag: 0)
-        viewController.tabBarItem.selectedImage = .init(systemName: "message.fill")
+        viewController.tabBarItem = .init(title: "Feed", image: UIImage(systemName: "bubble.left"), tag: 0)
+        viewController.tabBarItem.selectedImage = .init(systemName: "bubble.left.fill")
         return viewController
     }()
     
     private let userProfileViewController: UIViewController = {
         let viewController = UserProfileViewController()
-        viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person"), tag: 1)
-        viewController.tabBarItem.selectedImage = .init(systemName: "person.fill")
+        viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person.text.rectangle"), tag: 1)
+        viewController.tabBarItem.selectedImage = .init(systemName: "person.text.rectangle.fill")
         return viewController
     }()
     
