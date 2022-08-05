@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155AE4EA289B00B600D18F6B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 155AE4E9289B00B600D18F6B /* SnapKit */; };
 		155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */; };
 		155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EF289B052B00D18F6B /* FeedProtocols.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		155AE4EF289B052B00D18F6B /* FeedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProtocols.swift; sourceTree = "<group>"; };
 		155AE4F4289B065200D18F6B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				155AE4F1289B05BF00D18F6B /* Shared */,
 				156A6FB52899F70B003F75AE /* Assets.xcassets */,
 				156A6FBA2899F70B003F75AE /* Info.plist */,
+				15419253289D998D005B907A /* Posterr.xcdatamodeld */,
 			);
 			path = Posterr;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				155AE4FD289B25DC00D18F6B /* User.swift in Sources */,
 				155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
+				15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */,
 				1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */,
 				155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */,
 				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
@@ -831,6 +835,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		15419253289D998D005B907A /* Posterr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				15419254289D998D005B907A /* Posterr.xcdatamodel */,
+			);
+			currentVersion = 15419254289D998D005B907A /* Posterr.xcdatamodel */;
+			path = Posterr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 156A6FA12899F70A003F75AE /* Project object */;
 }
