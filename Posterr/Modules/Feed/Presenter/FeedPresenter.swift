@@ -7,8 +7,27 @@
 
 import Foundation
 
-class FeedPresenter: FeedPresenterProtocol {
+final class FeedPresenter: FeedPresenterProtocol {
     
+    weak var view: FeedViewProtocol?
+    private let interactor: FeedInteractorProtocol
     
+    let tableViewManager = PostsTableViewManager()
+    
+    init(interactor: FeedInteractorProtocol) {
+        self.interactor = interactor
+    }
+    
+    func setup() {
+        interactor.getPosts()
+    }
+    
+}
+
+extension FeedPresenter: FeedInteractorOutputProtocol {
+    
+    func getPostsSuccess(result: [Post]) {
+        tableViewManager.posts = result
+    }
     
 }

@@ -19,7 +19,6 @@ class FeedView: UIView {
     private lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.dataSource = tableViewManager
-        tableView.delegate = tableViewManager
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         
         return tableView
@@ -36,6 +35,10 @@ class FeedView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func reload() {
+        postsTableView.reloadData()
     }
     
 }

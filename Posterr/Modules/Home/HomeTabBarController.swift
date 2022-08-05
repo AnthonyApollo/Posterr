@@ -11,9 +11,16 @@ import UIKit
 class HomeTabBarController: UITabBarController {
     
     private let feedViewController: UIViewController = {
-        let viewController = FeedViewController()
+        let interactor = FeedInteractor()
+        let presenter = FeedPresenter(interactor: interactor)
+        let viewController = FeedViewController(presenter: presenter)
+        
+        interactor.output = presenter
+        presenter.view = viewController
+        
         viewController.tabBarItem = .init(title: "Feed", image: UIImage(systemName: "bubble.left"), tag: 0)
         viewController.tabBarItem.selectedImage = .init(systemName: "bubble.left.fill")
+        
         return viewController
     }()
     
@@ -21,6 +28,7 @@ class HomeTabBarController: UITabBarController {
         let viewController = UserProfileViewController()
         viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person.text.rectangle"), tag: 1)
         viewController.tabBarItem.selectedImage = .init(systemName: "person.text.rectangle.fill")
+        
         return viewController
     }()
     

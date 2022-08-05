@@ -20,7 +20,6 @@ class UserProfileView: UIView {
     private lazy var userPostsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.dataSource = tableViewManager
-        tableView.delegate = tableViewManager
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         
         return tableView

@@ -5,14 +5,24 @@
 //  Created by Anthony Apollo on 02/08/22.
 //
 
-import Foundation
 import UIKit
 
-class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController {
     
-    var tableViewManager = PostsTableViewManager(posts: Post.dummies())
+    private let presenter: FeedPresenterProtocol
+    private let feedView: FeedView
     
-    private lazy var feedView: FeedView = .init(tableViewManager: tableViewManager)
+    init(presenter: FeedPresenterProtocol) {
+        self.presenter = presenter
+        self.feedView = .init(tableViewManager: presenter.tableViewManager)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = feedView
@@ -20,6 +30,16 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.setup()
+    }
+    
+}
+
+extension FeedViewController: FeedViewProtocol {
+    
+    func reloadFeed() {
+        feedView.reload()
     }
     
 }
