@@ -24,7 +24,7 @@ final class UserProfilePresenter: UserProfilePresenterProtocol {
 
 extension UserProfilePresenter: UserProfileInteractorOutputProtocol {
     
-    func getDefaultUserSucceeded(with result: UserEntity) {
+    func getDefaultUserSucceeded(with result: User) {
         view?.updateProfile(with: result)
     }
     

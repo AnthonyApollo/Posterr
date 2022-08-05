@@ -32,7 +32,7 @@ final class UserProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(with user: UserEntity) {
+    func update(with user: User) {
         infoView.update(with: user)
     }
     

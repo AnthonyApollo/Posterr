@@ -38,7 +38,7 @@ final class UserProfileViewController: UIViewController {
 
 extension UserProfileViewController: UserProfileViewProtocol {
     
-    func updateProfile(with user: UserEntity) {
+    func updateProfile(with user: User) {
         profileView.update(with: user)
     }
     

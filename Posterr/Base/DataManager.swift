@@ -13,7 +13,7 @@ protocol AppDataSourceProtocol: AnyObject {
     func addNewPost(for: String)
     func getPosts() -> [Post]
     func addNewUser(for: String)
-    func getUsers() -> [UserEntity]
+    func getUsers() -> [User]
     
 }
 
@@ -98,17 +98,17 @@ extension DataManager {
 extension DataManager {
 
     func addNewUser(for username: String) {
-        let entity = UserEntity(context: persistentContainer.viewContext)
+        let entity = User(context: persistentContainer.viewContext)
         entity.username = username
         entity.joinedDate = .init()
         
         saveContext()
     }
     
-    func getUsers() -> [UserEntity] {
-        let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+    func getUsers() -> [User] {
+        let request: NSFetchRequest<User> = User.fetchRequest()
         
-        var fetchedUsers: [UserEntity] = []
+        var fetchedUsers: [User] = []
         
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)

@@ -47,7 +47,7 @@ final class UserInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(with user: UserEntity) {
+    func update(with user: User) {
         usernameLabel.text = user.username
         postCountView.update(with: 0)
         repostCountView.update(with: 0)
