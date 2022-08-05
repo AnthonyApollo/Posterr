@@ -157,6 +157,7 @@
 		155AE4F1289B05BF00D18F6B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				15C0B261289DE143007C54B8 /* DataSource */,
 				155BD3AE289C4D820030B27A /* Extensions */,
 				155BD3AF289C4D900030B27A /* Protocols */,
 			);
@@ -234,7 +235,6 @@
 				155AE4F1289B05BF00D18F6B /* Shared */,
 				156A6FB52899F70B003F75AE /* Assets.xcassets */,
 				156A6FBA2899F70B003F75AE /* Info.plist */,
-				15419253289D998D005B907A /* Posterr.xcdatamodeld */,
 			);
 			path = Posterr;
 			sourceTree = "<group>";
@@ -280,7 +280,6 @@
 				1581D76C2899FC87009C6593 /* LaunchScreen */,
 				156A6FAC2899F70A003F75AE /* AppDelegate.swift */,
 				156A6FAE2899F70A003F75AE /* SceneDelegate.swift */,
-				15E28809289DA68800905E1A /* DataManager.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -333,6 +332,15 @@
 				155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		15C0B261289DE143007C54B8 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				15E28809289DA68800905E1A /* DataManager.swift */,
+				15419253289D998D005B907A /* Posterr.xcdatamodeld */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
