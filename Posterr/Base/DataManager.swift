@@ -8,17 +8,14 @@
 import Foundation
 import CoreData
 
-protocol DataManagerProtocol: AnyObject {
+protocol AppDataSourceProtocol: AnyObject {
     
-    var persistentContainer: NSPersistentContainer { get }
-    
-    func saveContext()
     func post(_: String)
-    func posts() -> [Post]
+    func getPosts() -> [Post]
     
 }
 
-final class DataManager: DataManagerProtocol {
+final class DataManager: AppDataSourceProtocol {
     
     // MARK: - Core Data stack
 
@@ -74,9 +71,11 @@ extension DataManager {
     func post(_ message: String) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
+        
+        saveContext()
     }
     
-    func posts() -> [Post] {
+    func getPosts() -> [Post] {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         
         var fetchedPosts: [Post] = []
