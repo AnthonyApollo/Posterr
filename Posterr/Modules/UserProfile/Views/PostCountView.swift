@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PostCountView: UIView {
+final class PostCountView: UIView {
     
     let count: Int
     let type: PostType

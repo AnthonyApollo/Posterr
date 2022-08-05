@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HomeTabBarController: UITabBarController {
+final class HomeTabBarController: UITabBarController {
     
     private let feedViewController: UIViewController = {
         let interactor = FeedInteractor()

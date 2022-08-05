@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UserProfileViewController: UIViewController {
+final class UserProfileViewController: UIViewController {
     
     private lazy var profileView: UserProfileView = .init(user: .dummy())
     

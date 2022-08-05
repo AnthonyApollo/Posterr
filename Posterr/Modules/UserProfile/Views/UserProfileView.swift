@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class UserProfileView: UIView {
+final class UserProfileView: UIView {
     
     private let user: User
     

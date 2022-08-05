@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PostTableViewCell: UITableViewCell {
+final class PostTableViewCell: UITableViewCell {
     
     private var post: Post?
     

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FeedView: UIView {
+final class FeedView: UIView {
     
     lazy var postCreationView: PostCreationView = .init()
     
