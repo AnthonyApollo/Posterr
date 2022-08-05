@@ -14,7 +14,7 @@ protocol UserProfileViewProtocol: AnyObject {
 protocol UserProfilePresenterProtocol: AnyObject {
     
     var interactor: UserProfileInteractorProtocol { get }
-    var view: UserProfileViewProtocol { get set }
+    var view: UserProfileViewProtocol? { get set }
     
     func setup()
     
@@ -22,7 +22,7 @@ protocol UserProfilePresenterProtocol: AnyObject {
 
 protocol UserProfileInteractorProtocol: AnyObject {
     
-    var output: UserProfileInteractorOutputProtocol { get set }
+    var output: UserProfileInteractorOutputProtocol? { get set }
     
     func getDefaultUser()
     

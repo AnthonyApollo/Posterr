@@ -25,7 +25,13 @@ final class HomeTabBarController: UITabBarController {
     }()
     
     private let userProfileViewController: UIViewController = {
-        let viewController = UserProfileViewController()
+        let interactor = UserProfileInteractor()
+        let presenter = UserProfilePresenter(interactor: interactor)
+        let viewController = UserProfileViewController(presenter: presenter)
+        
+        interactor.output = presenter
+        presenter.view = viewController
+        
         viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person.text.rectangle"), tag: 1)
         viewController.tabBarItem.selectedImage = .init(systemName: "person.text.rectangle.fill")
         
