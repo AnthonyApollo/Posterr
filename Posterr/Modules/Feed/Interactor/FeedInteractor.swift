@@ -17,13 +17,15 @@ final class FeedInteractor: FeedInteractorProtocol {
     }
     
     func getPosts() {
-        output?.getPostsSuccess(result: appDataSource.getPosts())
+        let result = appDataSource.getPosts()
+        
+        output?.getPostsSucceeded(with: result)
     }
     
-    func post(_ message: String) {
-        appDataSource.post(message)
+    func addNewPost(for message: String) {
+        appDataSource.addNewPost(for: message)
         
-        output?.postSuccess()
+        output?.addNewPostSucceeded()
     }
     
 }

@@ -38,19 +38,19 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
     }
     
     func post(_ message: String) {
-        interactor.post(message)
+        interactor.addNewPost(for: message)
     }
     
 }
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
     
-    func getPostsSuccess(result: [Post]) {
+    func getPostsSucceeded(with result: [Post]) {
         posts = result
         view?.reloadFeed()
     }
     
-    func postSuccess() {
+    func addNewPostSucceeded() {
         interactor.getPosts()
     }
     

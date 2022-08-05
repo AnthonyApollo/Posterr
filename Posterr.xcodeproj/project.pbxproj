@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */; };
 		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155AE4EA289B00B600D18F6B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 155AE4E9289B00B600D18F6B /* SnapKit */; };
 		155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */; };
-		155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EF289B052B00D18F6B /* FeedProtocols.swift */; };
+		155AE4F0289B052B00D18F6B /* Feed+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EF289B052B00D18F6B /* Feed+Protocols.swift */; };
 		155AE4FA289B123C00D18F6B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */; };
 		155AE4FD289B25DC00D18F6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4FC289B25DC00D18F6B /* User.swift */; };
 		155AE501289B2D4E00D18F6B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE500289B2D4E00D18F6B /* UserProfileView.swift */; };
@@ -53,9 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Protocols.swift"; sourceTree = "<group>"; };
 		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
-		155AE4EF289B052B00D18F6B /* FeedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProtocols.swift; sourceTree = "<group>"; };
+		155AE4EF289B052B00D18F6B /* Feed+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feed+Protocols.swift"; sourceTree = "<group>"; };
 		155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		155AE4FC289B25DC00D18F6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		155AE500289B2D4E00D18F6B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152F79CD289DCE13004AE4E1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		155AE4EB289B04E200D18F6B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +131,7 @@
 		155AE4EE289B051200D18F6B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				155AE4EF289B052B00D18F6B /* FeedProtocols.swift */,
+				155AE4EF289B052B00D18F6B /* Feed+Protocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -298,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
+				152F79CD289DCE13004AE4E1 /* Protocols */,
 				155AE4FF289B2D3B00D18F6B /* Views */,
 			);
 			path = UserProfile;
@@ -458,7 +469,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				155AE4FD289B25DC00D18F6B /* User.swift in Sources */,
-				155AE4F0289B052B00D18F6B /* FeedProtocols.swift in Sources */,
+				155AE4F0289B052B00D18F6B /* Feed+Protocols.swift in Sources */,
+				152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
 				15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */,
 				1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */,
