@@ -12,10 +12,14 @@ protocol AppDataSourceProtocol: AnyObject {
     
     func addNewPost(for: String)
     func getPosts() -> [Post]
+    func addNewUser(for: String)
+    func getUsers() -> [UserEntity]
     
 }
 
 final class DataManager: AppDataSourceProtocol {
+    
+    static let shared = DataManager()
     
     // MARK: - Core Data stack
 
@@ -64,9 +68,8 @@ final class DataManager: AppDataSourceProtocol {
     
 }
 
+// MARK: - Post requests
 extension DataManager {
-    
-    static let shared = DataManager()
     
     func addNewPost(for message: String) {
         let entity = Post(context: persistentContainer.viewContext)
@@ -87,6 +90,33 @@ extension DataManager {
         }
         
         return fetchedPosts
+    }
+    
+}
+
+// MARK: - User requests
+extension DataManager {
+
+    func addNewUser(for username: String) {
+        let entity = UserEntity(context: persistentContainer.viewContext)
+        entity.username = username
+        entity.joinedDate = .init()
+        
+        saveContext()
+    }
+    
+    func getUsers() -> [UserEntity] {
+        let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        
+        var fetchedUsers: [UserEntity] = []
+        
+        do {
+            fetchedUsers = try persistentContainer.viewContext.fetch(request)
+        } catch {
+            print("Erro fetching posts")
+        }
+        
+        return fetchedUsers
     }
     
 }

@@ -11,7 +11,7 @@ import UIKit
 final class UserProfileViewController: UIViewController {
     
     let presenter: UserProfilePresenterProtocol
-    private lazy var profileView: UserProfileView = .init(user: .dummy())
+    private lazy var profileView: UserProfileView = .init()
     
     init(presenter: UserProfilePresenterProtocol) {
         self.presenter = presenter
@@ -31,11 +31,15 @@ final class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        presenter.setup()
     }
     
 }
 
 extension UserProfileViewController: UserProfileViewProtocol {
+    
+    func updateProfile(with user: UserEntity) {
+        profileView.update(with: user)
+    }
     
 }

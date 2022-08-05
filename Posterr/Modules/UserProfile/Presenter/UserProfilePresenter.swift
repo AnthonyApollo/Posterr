@@ -17,15 +17,15 @@ final class UserProfilePresenter: UserProfilePresenterProtocol {
     }
     
     func setup() {
-        // TODO
+        interactor.getDefaultUser()
     }
     
 }
 
 extension UserProfilePresenter: UserProfileInteractorOutputProtocol {
     
-    func getDefaultUserSucceeded(with result: User) {
-        // TODO
+    func getDefaultUserSucceeded(with result: UserEntity) {
+        view?.updateProfile(with: result)
     }
     
 }

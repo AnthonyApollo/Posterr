@@ -9,6 +9,8 @@ protocol UserProfileViewProtocol: AnyObject {
     
     var presenter: UserProfilePresenterProtocol { get }
     
+    func updateProfile(with: UserEntity)
+    
 }
 
 protocol UserProfilePresenterProtocol: AnyObject {
@@ -30,6 +32,6 @@ protocol UserProfileInteractorProtocol: AnyObject {
 
 protocol UserProfileInteractorOutputProtocol: AnyObject {
     
-    func getDefaultUserSucceeded(with result: User)
+    func getDefaultUserSucceeded(with result: UserEntity)
     
 }

@@ -10,11 +10,8 @@ import SnapKit
 
 final class UserInfoView: UIView {
     
-    private let user: User
-    
     private lazy var usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = user.username
         label.numberOfLines = 1
      
         return label
@@ -29,20 +26,18 @@ final class UserInfoView: UIView {
     }()
     
     private lazy var postCountView: PostCountView = {
-        .init(count: user.postCount, type: .post)
+        .init(type: .post)
     }()
     
     private lazy var repostCountView: PostCountView = {
-        .init(count: user.repostCount, type: .repost)
+        .init(type: .repost)
     }()
     
     private lazy var quotePostCountView: PostCountView = {
-        .init(count: user.quotePostCount, type: .quotePost)
+        .init(type: .quotePost)
     }()
     
-    init(user: User) {
-        self.user = user
-        
+    init() {
         super.init(frame: .zero)
         
         setupViews()
@@ -50,6 +45,13 @@ final class UserInfoView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update(with user: UserEntity) {
+        usernameLabel.text = user.username
+        postCountView.update(with: 0)
+        repostCountView.update(with: 0)
+        quotePostCountView.update(with: 0)
     }
     
 }

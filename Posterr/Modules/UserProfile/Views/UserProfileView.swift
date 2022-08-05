@@ -10,11 +10,7 @@ import SnapKit
 
 final class UserProfileView: UIView {
     
-    private let user: User
-    
-    private lazy var infoView: UserInfoView = {
-        .init(user: user)
-    }()
+    private lazy var infoView: UserInfoView = .init()
     
     private lazy var feedViewController: FeedViewController = {
         let interactor = FeedInteractor()
@@ -26,9 +22,7 @@ final class UserProfileView: UIView {
         return viewController
     }()
     
-    init(user: User) {
-        self.user = user
-        
+    init() {
         super.init(frame: .zero)
         
         setupViews()
@@ -38,9 +32,17 @@ final class UserProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func update(with user: UserEntity) {
+        infoView.update(with: user)
+    }
+    
 }
 
 extension UserProfileView: CodableView {
+    
+    func configViews() {
+        backgroundColor = .white
+    }
     
     func buildViews() {
         addSubviews(infoView, feedViewController.view)
