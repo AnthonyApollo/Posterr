@@ -8,7 +8,17 @@
 import Foundation
 import CoreData
 
-final class DataManager {
+protocol DataManagerProtocol: AnyObject {
+    
+    var persistentContainer: NSPersistentContainer { get }
+    
+    func saveContext()
+    func post(_: String)
+    func posts() -> [Post]
+    
+}
+
+final class DataManager: DataManagerProtocol {
     
     // MARK: - Core Data stack
 
@@ -41,7 +51,7 @@ final class DataManager {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -61,11 +71,9 @@ extension DataManager {
     
     static let shared = DataManager()
     
-    func post(_ message: String) -> Post {
+    func post(_ message: String) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
-        
-        return entity
     }
     
     func posts() -> [Post] {

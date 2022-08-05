@@ -9,15 +9,20 @@ import Foundation
 
 final class FeedInteractor: FeedInteractorProtocol {
     
+    private let dataManager: DataManagerProtocol
     weak var output: FeedInteractorOutputProtocol?
+    
+    init(dataManager: DataManagerProtocol = DataManager.shared) {
+        self.dataManager = dataManager
+    }
     
     func getPosts() {
         output?.getPostsSuccess(result: DataManager.shared.posts())
     }
     
     func post(_ message: String) {
-        DataManager.shared.post(message)
-        DataManager.shared.saveContext()
+        dataManager.post(message)
+        dataManager.saveContext()
         
         output?.postSuccess()
     }
