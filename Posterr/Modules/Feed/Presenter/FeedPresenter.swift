@@ -5,13 +5,15 @@
 //  Created by Anthony Apollo on 03/08/22.
 //
 
-final class FeedPresenter: FeedPresenterProtocol {
+import UIKit
+
+final class FeedPresenter: NSObject, FeedPresenterProtocol {
     
     private let postMaximumCharacters = 777
     
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
-    let tableViewManager = PostsTableViewManager()
+    private var posts: [Post]?
     
     init(interactor: FeedInteractorProtocol) {
         self.interactor = interactor
@@ -25,7 +27,10 @@ final class FeedPresenter: FeedPresenterProtocol {
         guard shouldUpdateTextView(for: textLength) else { return }
         
         let text = textLength == 0 ? nil : String(postMaximumCharacters - textLength)
-        postCreationView.updateRemainingCharacters(with: text)
+        
+        DispatchQueue.main.async {
+            postCreationView.updateRemainingCharacters(with: text)
+        }
     }
     
     func shouldUpdateTextView(for length: Int) -> Bool {
@@ -37,7 +42,27 @@ final class FeedPresenter: FeedPresenterProtocol {
 extension FeedPresenter: FeedInteractorOutputProtocol {
     
     func getPostsSuccess(result: [Post]) {
-        tableViewManager.posts = result
+        posts = result
+        view?.reloadFeed()
+    }
+    
+}
+
+extension FeedPresenter: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        posts?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell,
+              let post = posts?[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        cell.setup(with: post)
+        
+        return cell
     }
     
 }

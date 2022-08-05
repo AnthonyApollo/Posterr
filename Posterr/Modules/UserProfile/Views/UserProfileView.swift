@@ -11,23 +11,23 @@ import SnapKit
 class UserProfileView: UIView {
     
     private let user: User
-    private let tableViewManager: PostsTableViewManager
     
     private lazy var infoView: UserInfoView = {
         .init(user: user)
     }()
     
-    private lazy var userPostsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
-        tableView.dataSource = tableViewManager
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
+    private lazy var feedViewController: FeedViewController = {
+        let interactor = FeedInteractor()
+        let presenter = FeedPresenter(interactor: interactor)
+        let viewController = FeedViewController(presenter: presenter)
+        interactor.output = presenter
+        presenter.view = viewController
         
-        return tableView
+        return viewController
     }()
     
-    init(user: User, tableViewManager: PostsTableViewManager) {
+    init(user: User) {
         self.user = user
-        self.tableViewManager = tableViewManager
         
         super.init(frame: .zero)
         
@@ -43,7 +43,7 @@ class UserProfileView: UIView {
 extension UserProfileView: CodableView {
     
     func buildViews() {
-        addSubviews(infoView, userPostsTableView)
+        addSubviews(infoView, feedViewController.view)
     }
     
     func configConstraints() {
@@ -53,13 +53,12 @@ extension UserProfileView: CodableView {
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
         }
         
-        userPostsTableView.snp.makeConstraints { make in
+        feedViewController.view.snp.makeConstraints { make in
             make.leading.equalTo(infoView.snp.leading)
             make.top.equalTo(infoView.snp.bottom).offset(8)
             make.trailing.equalTo(infoView.snp.trailing)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
-    
     
 }

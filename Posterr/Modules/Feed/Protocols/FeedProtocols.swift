@@ -15,7 +15,6 @@ protocol FeedViewProtocol: AnyObject {
 
 protocol FeedPresenterProtocol: AnyObject {
     
-    var tableViewManager: PostsTableViewManager { get }
     var view: FeedViewProtocol? { get set }
     
     func setup()

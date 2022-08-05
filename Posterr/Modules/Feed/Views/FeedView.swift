@@ -10,26 +10,16 @@ import SnapKit
 
 class FeedView: UIView {
     
-    private let tableViewManager: PostsTableViewManager
-    weak var postCreationDelegate: PostCreationViewDelegate? {
-        didSet {
-            postCreationView.delegate = postCreationDelegate
-        }
-    }
+    lazy var postCreationView: PostCreationView = .init()
     
-    private lazy var postCreationView: PostCreationView = .init()
-    
-    private lazy var postsTableView: UITableView = {
+    lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.dataSource = tableViewManager
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         
         return tableView
     }()
     
-    init(tableViewManager: PostsTableViewManager) {
-        self.tableViewManager = tableViewManager
-        
+    init() {
         super.init(frame: .zero)
         
         setupViews()

@@ -33,7 +33,7 @@ extension Post {
     }
     
     static func dummies() -> [Post] {
-        [.dummy(), .dummy(), .dummy()]
+        [.dummy(), .dummy(), .dummy(), .dummy(), .dummy(), .dummy()]
     }
     
 }

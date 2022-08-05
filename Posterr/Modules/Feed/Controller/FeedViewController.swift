@@ -14,11 +14,12 @@ final class FeedViewController: UIViewController {
     
     init(presenter: FeedPresenterProtocol) {
         self.presenter = presenter
-        self.feedView = .init(tableViewManager: presenter.tableViewManager)
+        self.feedView = .init()
         
         super.init(nibName: nil, bundle: nil)
         
-        feedView.postCreationDelegate = self
+        feedView.postCreationView.delegate = self
+        feedView.postsTableView.dataSource = presenter as? UITableViewDataSource
     }
     
     @available(*, unavailable)
