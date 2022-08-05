@@ -27,6 +27,8 @@ class PostCreationView: UIView {
         button.setTitle("Post", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         
+        button.addTarget(self, action: #selector(didTouchPostButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -42,6 +44,10 @@ class PostCreationView: UIView {
     
     func updateRemainingCharacters(with count: String?) {
         remainingCharactersLabel.text = count
+    }
+    
+    @objc func didTouchPostButton() {
+        print("post")
     }
     
 }

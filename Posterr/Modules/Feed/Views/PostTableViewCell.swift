@@ -33,6 +33,8 @@ class PostTableViewCell: UITableViewCell {
         button.setTitle("Repost", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         
+        button.addTarget(self, action: #selector(didTouchRepostButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -41,6 +43,8 @@ class PostTableViewCell: UITableViewCell {
         button.setTitle("Quote", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         
+        button.addTarget(self, action: #selector(didTouchQuoteButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -48,6 +52,14 @@ class PostTableViewCell: UITableViewCell {
         self.post = post
         
         setupViews()
+    }
+    
+    @objc func didTouchRepostButton() {
+        print("repost")
+    }
+    
+    @objc func didTouchQuoteButton() {
+        print("quote")
     }
     
 }
@@ -59,7 +71,7 @@ extension PostTableViewCell: CodableView {
     }
     
     func buildViews() {
-        addSubviews(authorUsernameLabel, messageLabel, repostButton, quoteButton)
+        contentView.addSubviews(authorUsernameLabel, messageLabel, repostButton, quoteButton)
     }
     
     func configConstraints() {
