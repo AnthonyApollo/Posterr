@@ -28,6 +28,22 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var repostButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Repost", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        
+        return button
+    }()
+    
+    private lazy var quoteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Quote", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        
+        return button
+    }()
+    
     func setup(with post: Post) {
         self.post = post
         
@@ -43,7 +59,7 @@ extension PostTableViewCell: CodableView {
     }
     
     func buildViews() {
-        addSubviews(authorUsernameLabel, messageLabel)
+        addSubviews(authorUsernameLabel, messageLabel, repostButton, quoteButton)
     }
     
     func configConstraints() {
@@ -54,10 +70,23 @@ extension PostTableViewCell: CodableView {
         }
         
         messageLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(8)
+            make.leading.equalTo(authorUsernameLabel.snp.leading)
             make.top.equalTo(authorUsernameLabel.snp.bottom).offset(8)
-            make.trailing.bottom.equalToSuperview().inset(8)
+            make.trailing.equalTo(authorUsernameLabel.snp.trailing)
         }
+        
+        repostButton.snp.makeConstraints { make in
+            make.top.equalTo(messageLabel.snp.bottom).offset(8)
+            make.trailing.equalTo(authorUsernameLabel.snp.trailing)
+            make.bottom.equalToSuperview().inset(8)
+        }
+        
+        quoteButton.snp.makeConstraints { make in
+            make.top.equalTo(repostButton.snp.top)
+            make.trailing.equalTo(repostButton.snp.leading).offset(-8)
+            make.bottom.equalTo(repostButton.snp.bottom)
+        }
+        
     }
     
 }
