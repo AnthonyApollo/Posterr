@@ -14,7 +14,7 @@ final class PostTableViewCell: UITableViewCell {
     
     private lazy var authorUsernameLabel: UILabel = {
         let label = UILabel()
-        label.text = post?.author.username ?? ""
+        label.text = "Author"
         label.numberOfLines = 1
         
         return label

@@ -37,6 +37,10 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         return length <= postMaximumCharacters
     }
     
+    func post(_ message: String) {
+        interactor.post(message)
+    }
+    
 }
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
@@ -44,6 +48,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     func getPostsSuccess(result: [Post]) {
         posts = result
         view?.reloadFeed()
+    }
+    
+    func postSuccess() {
+        interactor.getPosts()
     }
     
 }

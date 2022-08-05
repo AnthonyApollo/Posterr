@@ -12,7 +12,14 @@ final class FeedInteractor: FeedInteractorProtocol {
     weak var output: FeedInteractorOutputProtocol?
     
     func getPosts() {
-        output?.getPostsSuccess(result: Post.dummies())
+        output?.getPostsSuccess(result: DataManager.shared.posts())
+    }
+    
+    func post(_ message: String) {
+        DataManager.shared.post(message)
+        DataManager.shared.saveContext()
+        
+        output?.postSuccess()
     }
     
 }

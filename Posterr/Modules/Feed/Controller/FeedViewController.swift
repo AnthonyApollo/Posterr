@@ -49,6 +49,10 @@ extension FeedViewController: FeedViewProtocol {
 
 extension FeedViewController: PostCreationViewDelegate {
     
+    func didPost(_ message: String) {
+        presenter.post(message)
+    }
+    
     func postCreationView(_ postCreationView: PostCreationView, shouldChangeTextIn range: NSRange, with text: String, for textView: UITextView) -> Bool {
         let textViewLength = textView.text.count + (text.count - range.length)
         
