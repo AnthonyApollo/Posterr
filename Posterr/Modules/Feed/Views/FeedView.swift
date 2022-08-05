@@ -11,10 +11,13 @@ import SnapKit
 class FeedView: UIView {
     
     private let tableViewManager: PostsTableViewManager
+    weak var postCreationDelegate: PostCreationViewDelegate? {
+        didSet {
+            postCreationView.delegate = postCreationDelegate
+        }
+    }
     
-    private lazy var postCreationView: PostCreationView = {
-        .init()
-    }()
+    private lazy var postCreationView: PostCreationView = .init()
     
     private lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)

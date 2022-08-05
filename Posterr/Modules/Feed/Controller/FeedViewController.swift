@@ -17,6 +17,8 @@ final class FeedViewController: UIViewController {
         self.feedView = .init(tableViewManager: presenter.tableViewManager)
         
         super.init(nibName: nil, bundle: nil)
+        
+        feedView.postCreationDelegate = self
     }
     
     @available(*, unavailable)
@@ -40,6 +42,18 @@ extension FeedViewController: FeedViewProtocol {
     
     func reloadFeed() {
         feedView.reload()
+    }
+    
+}
+
+extension FeedViewController: PostCreationViewDelegate {
+    
+    func postCreationView(_ postCreationView: PostCreationView, shouldChangeTextIn range: NSRange, with text: String, for textView: UITextView) -> Bool {
+        let textViewLength = textView.text.count + (text.count - range.length)
+        
+        presenter.updateLabelIfNeeded(postCreationView, for: textViewLength)
+
+        return presenter.shouldUpdateTextView(for: textViewLength)
     }
     
 }

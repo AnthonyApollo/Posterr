@@ -5,6 +5,8 @@
 //  Created by Anthony Apollo on 03/08/22.
 //
 
+import UIKit
+
 protocol FeedViewProtocol: AnyObject {
     
     func reloadFeed()
@@ -17,6 +19,8 @@ protocol FeedPresenterProtocol: AnyObject {
     var view: FeedViewProtocol? { get set }
     
     func setup()
+    func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int)
+    func shouldUpdateTextView(for length: Int) -> Bool
     
 }
 
@@ -31,5 +35,11 @@ protocol FeedInteractorProtocol: AnyObject {
 protocol FeedInteractorOutputProtocol: AnyObject {
     
     func getPostsSuccess(result: [Post])
+    
+}
+
+protocol PostCreationViewDelegate: AnyObject {
+    
+    func postCreationView(_: PostCreationView, shouldChangeTextIn: NSRange, with: String, for: UITextView) -> Bool
     
 }

@@ -5,13 +5,12 @@
 //  Created by Anthony Apollo on 03/08/22.
 //
 
-import Foundation
-
 final class FeedPresenter: FeedPresenterProtocol {
+    
+    private let postMaximumCharacters = 777
     
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
-    
     let tableViewManager = PostsTableViewManager()
     
     init(interactor: FeedInteractorProtocol) {
@@ -20,6 +19,17 @@ final class FeedPresenter: FeedPresenterProtocol {
     
     func setup() {
         interactor.getPosts()
+    }
+    
+    func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int) {
+        guard shouldUpdateTextView(for: textLength) else { return }
+        
+        let text = textLength == 0 ? nil : String(postMaximumCharacters - textLength)
+        postCreationView.updateRemainingCharacters(with: text)
+    }
+    
+    func shouldUpdateTextView(for length: Int) -> Bool {
+        return length <= postMaximumCharacters
     }
     
 }

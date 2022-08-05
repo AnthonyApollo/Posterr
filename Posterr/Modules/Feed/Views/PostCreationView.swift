@@ -10,17 +10,17 @@ import SnapKit
 
 class PostCreationView: UIView {
     
+    weak var delegate: PostCreationViewDelegate?
+    
     // TODO: Add placeholder text
     private lazy var textView: UITextView = {
-        .init()
+        let textView = UITextView()
+        textView.delegate = self
+        
+        return textView
     }()
     
-    private lazy var remainingCharactersLabel: UILabel = {
-        let label = UILabel()
-        label.text = "777"
-        
-        return label
-    }()
+    private lazy var remainingCharactersLabel: UILabel = .init()
     
     private lazy var postButton: UIButton = {
         let button = UIButton()
@@ -38,6 +38,10 @@ class PostCreationView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateRemainingCharacters(with count: String?) {
+        remainingCharactersLabel.text = count
     }
     
 }
@@ -73,5 +77,13 @@ extension PostCreationView: CodableView {
         }
     }
     
+    
+}
+
+extension PostCreationView: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        delegate?.postCreationView(self, shouldChangeTextIn: range, with: text, for: textView) ?? false
+    }
     
 }
