@@ -50,6 +50,7 @@ final class PostCreationView: UIView {
         if !textView.text.isBlankOrEmpty {
             delegate?.didPost(textView.text)
             textView.clear()
+            remainingCharactersLabel.text = nil
         }
     }
     
