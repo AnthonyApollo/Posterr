@@ -36,7 +36,12 @@ final class PostMessageView: UIView {
     
     func setup(with post: Post) {
         authorUsernameLabel.text = post.author?.username
-        messageLabel.text = post.message
+        
+        if let message = post.message {
+            messageLabel.text = message
+        } else {
+            messageLabel.removeFromSuperview()
+        }
         
         setupViews()
     }

@@ -30,6 +30,7 @@
 		156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */; };
 		156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F2E289EE49700BB8795 /* PostMessageView.swift */; };
 		156B5F31289EF1AE00BB8795 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */; };
+		156B5F34289EFAE900BB8795 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F33289EFAE900BB8795 /* PostType.swift */; };
 		1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */; };
 		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
@@ -85,6 +86,7 @@
 		156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		156B5F2E289EE49700BB8795 /* PostMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageView.swift; sourceTree = "<group>"; };
 		156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		156B5F33289EFAE900BB8795 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		155AE4FE289B2D2500D18F6B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				155AE4FF289B2D3B00D18F6B /* Views */,
 				1581D7732899FE60009C6593 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
@@ -243,6 +246,14 @@
 			path = PosterrUITests;
 			sourceTree = "<group>";
 		};
+		156B5F32289EFADC00BB8795 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				156B5F33289EFAE900BB8795 /* PostType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		1581D7692899FB55009C6593 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,10 +297,10 @@
 			isa = PBXGroup;
 			children = (
 				1581D775289A0C73009C6593 /* Controller */,
+				156B5F32289EFADC00BB8795 /* Enums */,
 				155BD3BC289C881F0030B27A /* Interactor */,
 				155AE4EB289B04E200D18F6B /* Presenter */,
 				155AE4EE289B051200D18F6B /* Protocols */,
-				1581D776289A0C7F009C6593 /* Views */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -298,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
-				155AE4FF289B2D3B00D18F6B /* Views */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -306,6 +316,7 @@
 		1581D775289A0C73009C6593 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1581D776289A0C7F009C6593 /* Views */,
 				1581D7712899FE4F009C6593 /* FeedViewController.swift */,
 			);
 			path = Controller;
@@ -520,6 +531,7 @@
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Extensions.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
+				156B5F34289EFAE900BB8795 /* PostType.swift in Sources */,
 				1581D778289A0DB7009C6593 /* FeedView.swift in Sources */,
 				155BD3B2289C4DC30030B27A /* UIView+Extensions.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,

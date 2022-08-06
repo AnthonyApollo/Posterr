@@ -61,21 +61,3 @@ extension PostCountView: CodableView {
     }
     
 }
-
-enum PostType {
-    
-    case post, repost, quotePost
-    
-    var icon: UIImage {
-        switch self {
-        case .post:
-            //TODO: Remove force unwrap
-            return UIImage(systemName: "text.bubble")!
-        case .repost:
-            return UIImage(systemName: "bubble.left.and.bubble.right")!
-        case .quotePost:
-            return UIImage(systemName: "quote.bubble")!
-        }
-    }
-    
-}
