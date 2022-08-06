@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */; };
-		152F79D2289DD1D9004AE4E1 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */; };
 		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */; };
 		155A66E2289E10B3001A17AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66E1289E10B3001A17AC /* String+Extensions.swift */; };
@@ -59,8 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Protocols.swift"; sourceTree = "<group>"; };
-		152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		155A66E1289E10B3001A17AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -122,22 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		152F79CD289DCE13004AE4E1 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		152F79D0289DD109004AE4E1 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		155AE4EB289B04E200D18F6B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,8 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
-				152F79D0289DD109004AE4E1 /* Presenter */,
-				152F79CD289DCE13004AE4E1 /* Protocols */,
 				155AE4FF289B2D3B00D18F6B /* Views */,
 			);
 			path = UserProfile;
@@ -516,7 +494,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				155AE4F0289B052B00D18F6B /* Feed+Protocols.swift in Sources */,
-				152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
 				15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */,
 				1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */,
@@ -527,7 +504,6 @@
 				15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */,
 				155AE501289B2D4E00D18F6B /* UserProfileView.swift in Sources */,
 				155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */,
-				152F79D2289DD1D9004AE4E1 /* UserProfilePresenter.swift in Sources */,
 				15E2880A289DA68800905E1A /* DataManager.swift in Sources */,
 				155A66E2289E10B3001A17AC /* String+Extensions.swift in Sources */,
 				15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */,
