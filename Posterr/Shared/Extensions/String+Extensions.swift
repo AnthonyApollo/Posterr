@@ -11,4 +11,12 @@ extension String {
         return allSatisfy({ $0.isWhitespace })
     }
     
+    var isAlphanumeric: Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+    }
+    
+    var isValidUsername: Bool {
+        return isAlphanumeric && count <= 14
+    }
+    
 }

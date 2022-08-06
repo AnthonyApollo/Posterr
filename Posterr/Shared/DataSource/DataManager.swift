@@ -12,7 +12,7 @@ protocol AppDataSourceProtocol: AnyObject {
     
     func addNewPost(with: String, for: User)
     func getPosts() -> [Post]
-    func addNewUser(for: String)
+    func addNewUser(for: String) -> User?
     func getUsers() -> [User]
     
 }
@@ -101,16 +101,22 @@ extension DataManager {
 // MARK: - User requests
 extension DataManager {
 
-    func addNewUser(for username: String) {
+    func addNewUser(for username: String) -> User? {
+        guard username.isValidUsername else { return nil }
+        
         let entity = User(context: persistentContainer.viewContext)
         entity.username = username
         entity.joinedDate = .init()
         
         saveContext()
+        
+        return entity
     }
     
     func getUsers() -> [User] {
         let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "joinedDate", ascending: true)]
         
         var fetchedUsers: [User] = []
         

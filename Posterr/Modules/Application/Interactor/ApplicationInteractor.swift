@@ -12,19 +12,34 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
     
     init(appDataSource: AppDataSourceProtocol = DataManager.shared) {
         self.appDataSource = appDataSource
+        
+        injectMockedData()
     }
     
     func getCurrentUser() {
-        var users = appDataSource.getUsers()
-        
-        if users.isEmpty {
-            appDataSource.addNewUser(for: "defaultUser2022")
-            users = appDataSource.getUsers()
-        }
+        let users = appDataSource.getUsers()
         
         guard let result = users.first else { return }
         
         output?.getCurrentUserSucceeded(with: result)
+    }
+    
+}
+
+extension ApplicationInteractor {
+    
+    func injectMockedData() {
+        let user1 = appDataSource.addNewUser(for: "user2022")
+        appDataSource.addNewPost(with: "Trying my social network ;)", for: user1!)
+        
+        let user2 = appDataSource.addNewUser(for: "elonMusk")
+        appDataSource.addNewPost(with: "I wanna buy Posterr", for: user2!)
+        
+        let user3 = appDataSource.addNewUser(for: "bruceLee")
+        appDataSource.addNewPost(with: "Be water my friend", for: user3!)
+        
+        let user4 = appDataSource.addNewUser(for: "corleoneDon")
+        appDataSource.addNewPost(with: "I will make him an offer...", for: user4!)
     }
     
 }
