@@ -18,6 +18,7 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
         
         super.init(nibName: nil, bundle: nil)
         
+        self.presenter.view = self
         self.presenter.setup()
     }
     
@@ -45,12 +46,11 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
     }()
     
     private lazy var userProfileViewController: UIViewController = {
-        let interactor = UserProfileInteractor()
-        let presenter = UserProfilePresenter(interactor: interactor)
-        let viewController = UserProfileViewController(presenter: presenter)
+        guard let currentUser = currentUser else {
+            return UIViewController(nibName: nil, bundle: nil)
+        }
         
-        interactor.output = presenter
-        presenter.view = viewController
+        let viewController = UserProfileViewController(currentUser: currentUser)
         
         viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person.text.rectangle"), tag: 1)
         viewController.tabBarItem.selectedImage = .init(systemName: "person.text.rectangle.fill")
@@ -58,9 +58,8 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
         return viewController
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configTabBar()
     }
     

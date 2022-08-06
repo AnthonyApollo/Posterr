@@ -10,11 +10,11 @@ import UIKit
 
 final class UserProfileViewController: UIViewController {
     
-    let presenter: UserProfilePresenterProtocol
-    private lazy var profileView: UserProfileView = .init()
+    private let currentUser: User
+    private lazy var profileView: UserProfileView = .init(user: currentUser)
     
-    init(presenter: UserProfilePresenterProtocol) {
-        self.presenter = presenter
+    init(currentUser: User) {
+        self.currentUser = currentUser
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,21 +25,8 @@ final class UserProfileViewController: UIViewController {
     }
     
     override func loadView() {
+        super.loadView()
         view = profileView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        presenter.setup()
-    }
-    
-}
-
-extension UserProfileViewController: UserProfileViewProtocol {
-    
-    func updateProfile(with user: User) {
-        profileView.update(with: user)
     }
     
 }

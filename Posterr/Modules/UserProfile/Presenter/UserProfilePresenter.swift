@@ -9,23 +9,15 @@ import Foundation
 
 final class UserProfilePresenter: UserProfilePresenterProtocol {
     
-    let interactor: UserProfileInteractorProtocol
     weak var view: UserProfileViewProtocol?
+    private var currentUser: User
     
-    init(interactor: UserProfileInteractorProtocol) {
-        self.interactor = interactor
+    init(currentUser: User) {
+        self.currentUser = currentUser
     }
     
     func setup() {
-        interactor.getDefaultUser()
-    }
-    
-}
-
-extension UserProfilePresenter: UserProfileInteractorOutputProtocol {
-    
-    func getDefaultUserSucceeded(with result: User) {
-        view?.updateProfile(with: result)
+        view?.updateProfile(with: currentUser)
     }
     
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */; };
 		152F79D2289DD1D9004AE4E1 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */; };
-		152F79D5289DD267004AE4E1 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F79D4289DD267004AE4E1 /* UserProfileInteractor.swift */; };
 		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155AE4EA289B00B600D18F6B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 155AE4E9289B00B600D18F6B /* SnapKit */; };
 		155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */; };
@@ -60,7 +59,6 @@
 /* Begin PBXFileReference section */
 		152F79CE289DCE36004AE4E1 /* UserProfile+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Protocols.swift"; sourceTree = "<group>"; };
 		152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
-		152F79D4289DD267004AE4E1 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155AE4EC289B04FC00D18F6B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		155AE4EF289B052B00D18F6B /* Feed+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feed+Protocols.swift"; sourceTree = "<group>"; };
@@ -134,14 +132,6 @@
 				152F79D1289DD1D9004AE4E1 /* UserProfilePresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		152F79D3289DD245004AE4E1 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				152F79D4289DD267004AE4E1 /* UserProfileInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		155AE4EB289B04E200D18F6B /* Presenter */ = {
@@ -317,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
-				152F79D3289DD245004AE4E1 /* Interactor */,
 				152F79D0289DD109004AE4E1 /* Presenter */,
 				152F79CD289DCE13004AE4E1 /* Protocols */,
 				155AE4FF289B2D3B00D18F6B /* Views */,
@@ -536,7 +525,6 @@
 				15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */,
 				155AE505289B312000D18F6B /* PostCountView.swift in Sources */,
 				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
-				152F79D5289DD267004AE4E1 /* UserProfileInteractor.swift in Sources */,
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Extensions.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,

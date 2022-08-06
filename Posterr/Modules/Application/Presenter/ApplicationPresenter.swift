@@ -12,6 +12,8 @@ final class ApplicationPresenter: ApplicationPresenterProtocol {
     
     init(interactor: ApplicationInteractorProtocol) {
         self.interactor = interactor
+        
+        self.interactor.output = self
     }
     
     func setup() {
