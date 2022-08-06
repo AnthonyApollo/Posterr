@@ -132,12 +132,13 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		155AE4EE289B051200D18F6B /* Protocols */ = {
+		155AE4EE289B051200D18F6B /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				156B5F33289EFAE900BB8795 /* PostType.swift */,
 				155AE4EF289B052B00D18F6B /* Feed+Protocols.swift */,
 			);
-			path = Protocols;
+			path = Types;
 			sourceTree = "<group>";
 		};
 		155AE4F1289B05BF00D18F6B /* Shared */ = {
@@ -246,14 +247,6 @@
 			path = PosterrUITests;
 			sourceTree = "<group>";
 		};
-		156B5F32289EFADC00BB8795 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				156B5F33289EFAE900BB8795 /* PostType.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		1581D7692899FB55009C6593 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +263,7 @@
 				15C0B262289DE40A007C54B8 /* Controller */,
 				15C0B269289DE64B007C54B8 /* Interactor */,
 				15C0B266289DE5A0007C54B8 /* Presenter */,
-				15C0B263289DE427007C54B8 /* Protocols */,
+				15C0B263289DE427007C54B8 /* Types */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -297,10 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				1581D775289A0C73009C6593 /* Controller */,
-				156B5F32289EFADC00BB8795 /* Enums */,
 				155BD3BC289C881F0030B27A /* Interactor */,
 				155AE4EB289B04E200D18F6B /* Presenter */,
-				155AE4EE289B051200D18F6B /* Protocols */,
+				155AE4EE289B051200D18F6B /* Types */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -350,12 +342,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		15C0B263289DE427007C54B8 /* Protocols */ = {
+		15C0B263289DE427007C54B8 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				15C0B264289DE43F007C54B8 /* Application+Protocols.swift */,
 			);
-			path = Protocols;
+			path = Types;
 			sourceTree = "<group>";
 		};
 		15C0B266289DE5A0007C54B8 /* Presenter */ = {
