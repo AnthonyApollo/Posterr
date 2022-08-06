@@ -48,6 +48,7 @@ final class PostCreationView: UIView {
     
     @objc func didTouchPostButton() {
         delegate?.didPost(textView.text)
+        textView.clear()
     }
     
 }
