@@ -10,11 +10,8 @@ import SnapKit
 
 final class PostTableViewCell: UITableViewCell {
     
-    private var post: Post?
-    
     private lazy var authorUsernameLabel: UILabel = {
         let label = UILabel()
-        label.text = post?.author?.username
         label.numberOfLines = 1
         
         return label
@@ -22,7 +19,6 @@ final class PostTableViewCell: UITableViewCell {
     
     private lazy var messageLabel: UILabel = {
         let label = UILabel()
-        label.text = post?.message ?? ""
         label.numberOfLines = 0
         
         return label
@@ -49,7 +45,8 @@ final class PostTableViewCell: UITableViewCell {
     }()
     
     func setup(with post: Post) {
-        self.post = post
+        authorUsernameLabel.text = post.author?.username
+        messageLabel.text = post.message
         
         setupViews()
     }
@@ -75,7 +72,6 @@ extension PostTableViewCell: CodableView {
     }
     
     func configConstraints() {
-        
         authorUsernameLabel.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
@@ -98,7 +94,6 @@ extension PostTableViewCell: CodableView {
             make.trailing.equalTo(repostButton.snp.leading).offset(-8)
             make.bottom.equalTo(repostButton.snp.bottom)
         }
-        
     }
     
 }

@@ -75,12 +75,15 @@ extension DataManager {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
         entity.author = user
+        entity.date = .init()
         
         saveContext()
     }
     
     func getPosts() -> [Post] {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         var fetchedPosts: [Post] = []
         
