@@ -15,7 +15,7 @@ final class UserProfileView: UIView {
     
     private lazy var feedViewController: FeedViewController = {
         let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: user)
+        let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: true)
         let viewController = FeedViewController(presenter: presenter)
         interactor.output = presenter
         presenter.view = viewController

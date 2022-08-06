@@ -33,7 +33,7 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
         }
         
         let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: currentUser)
+        let presenter = FeedPresenter(interactor: interactor, currentUser: currentUser, shouldDisplayOnlyUserPosts: false)
         let viewController = FeedViewController(presenter: presenter)
         
         interactor.output = presenter

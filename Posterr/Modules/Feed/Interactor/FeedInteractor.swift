@@ -16,8 +16,8 @@ final class FeedInteractor: FeedInteractorProtocol {
         self.appDataSource = appDataSource
     }
     
-    func getPosts() {
-        let result = appDataSource.getPosts()
+    func getPosts(from user: User?) {
+        let result = appDataSource.getPosts(from: user)
         
         output?.getPostsSucceeded(with: result)
     }

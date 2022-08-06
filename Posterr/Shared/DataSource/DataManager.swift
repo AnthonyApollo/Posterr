@@ -11,7 +11,7 @@ import CoreData
 protocol AppDataSourceProtocol: AnyObject {
     
     func addNewPost(with: String, for: User)
-    func getPosts() -> [Post]
+    func getPosts(from: User?) -> [Post]
     func addNewUser(for: String) -> User?
     func getUsers() -> [User]
     
@@ -80,9 +80,12 @@ extension DataManager {
         saveContext()
     }
     
-    func getPosts() -> [Post] {
+    func getPosts(from user: User?) -> [Post] {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         
+        if let user = user {
+            request.predicate = NSPredicate(format: "author = %@", user)
+        }
         request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         var fetchedPosts: [Post] = []

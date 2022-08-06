@@ -15,14 +15,20 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
     private let interactor: FeedInteractorProtocol
     private var posts: [Post]?
     private var currentUser: User
+    private var shouldDisplayOnlyUserPosts: Bool
     
-    init(interactor: FeedInteractorProtocol, currentUser: User) {
+    init(interactor: FeedInteractorProtocol, currentUser: User, shouldDisplayOnlyUserPosts: Bool) {
         self.interactor = interactor
         self.currentUser = currentUser
+        self.shouldDisplayOnlyUserPosts = shouldDisplayOnlyUserPosts
     }
     
     func setup() {
-        interactor.getPosts()
+        getPosts()
+    }
+    
+    private func getPosts() {
+        interactor.getPosts(from: shouldDisplayOnlyUserPosts ? currentUser : nil)
     }
     
     func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int) {
@@ -53,7 +59,7 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     }
     
     func addNewPostSucceeded() {
-        interactor.getPosts()
+        getPosts()
     }
     
 }
