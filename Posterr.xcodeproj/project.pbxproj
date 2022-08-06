@@ -265,8 +265,8 @@
 		1581D7692899FB55009C6593 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1581D76F2899FE04009C6593 /* Feed */,
 				1581D76A2899FB66009C6593 /* Application */,
+				1581D76F2899FE04009C6593 /* Feed */,
 				1581D7702899FE0C009C6593 /* UserProfile */,
 			);
 			path = Modules;
