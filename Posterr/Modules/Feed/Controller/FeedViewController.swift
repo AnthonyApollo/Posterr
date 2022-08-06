@@ -31,9 +31,12 @@ final class FeedViewController: UIViewController {
         view = feedView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    func updateUI() {
         presenter.setup()
     }
     

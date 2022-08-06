@@ -35,6 +35,10 @@ final class UserProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateFeed() {
+        feedViewController.updateUI()
+    }
+    
 }
 
 extension UserProfileView: CodableView {

@@ -29,4 +29,9 @@ final class UserProfileViewController: UIViewController {
         view = profileView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileView.updateFeed()
+    }
+    
 }

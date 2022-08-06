@@ -29,6 +29,10 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
 extension ApplicationInteractor {
     
     func injectMockedData() {
+        let users = appDataSource.getUsers()
+        
+        guard users.isEmpty else { return }
+        
         let user1 = appDataSource.addNewUser(for: "user2022")
         appDataSource.addNewPost(with: "Trying my social network ;)", for: user1!)
         
