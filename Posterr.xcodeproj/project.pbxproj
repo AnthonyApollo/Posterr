@@ -32,6 +32,8 @@
 		156B5F31289EF1AE00BB8795 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */; };
 		156B5F34289EFAE900BB8795 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F33289EFAE900BB8795 /* PostType.swift */; };
 		156B5F36289F007F00BB8795 /* PostReplyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F35289F007F00BB8795 /* PostReplyMenu.swift */; };
+		156B5F39289F03DB00BB8795 /* RepostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F38289F03DB00BB8795 /* RepostTableViewCell.swift */; };
+		156B5F3B289F05AF00BB8795 /* RepostMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F3A289F05AF00BB8795 /* RepostMessageView.swift */; };
 		1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */; };
 		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
@@ -89,6 +91,8 @@
 		156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		156B5F33289EFAE900BB8795 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		156B5F35289F007F00BB8795 /* PostReplyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyMenu.swift; sourceTree = "<group>"; };
+		156B5F38289F03DB00BB8795 /* RepostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostTableViewCell.swift; sourceTree = "<group>"; };
+		156B5F3A289F05AF00BB8795 /* RepostMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostMessageView.swift; sourceTree = "<group>"; };
 		1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,15 @@
 			path = PosterrUITests;
 			sourceTree = "<group>";
 		};
+		156B5F37289F03C800BB8795 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */,
+				156B5F38289F03DB00BB8795 /* RepostTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		1581D7692899FB55009C6593 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,11 +332,12 @@
 		1581D776289A0C7F009C6593 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				156B5F37289F03C800BB8795 /* Cells */,
 				1581D777289A0DB7009C6593 /* FeedView.swift */,
 				155AE506289B4A6A00D18F6B /* PostCreationView.swift */,
-				155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */,
 				156B5F2E289EE49700BB8795 /* PostMessageView.swift */,
 				156B5F35289F007F00BB8795 /* PostReplyMenu.swift */,
+				156B5F3A289F05AF00BB8795 /* RepostMessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +528,7 @@
 				156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */,
 				155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */,
 				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
+				156B5F39289F03DB00BB8795 /* RepostTableViewCell.swift in Sources */,
 				155BD3BE289C883A0030B27A /* FeedInteractor.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
 				15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */,
@@ -525,6 +540,7 @@
 				155AE505289B312000D18F6B /* PostCountView.swift in Sources */,
 				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
+				156B5F3B289F05AF00BB8795 /* RepostMessageView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Extensions.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
 				156B5F34289EFAE900BB8795 /* PostType.swift in Sources */,
