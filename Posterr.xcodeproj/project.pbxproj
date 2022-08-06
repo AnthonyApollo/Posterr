@@ -31,6 +31,7 @@
 		156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F2E289EE49700BB8795 /* PostMessageView.swift */; };
 		156B5F31289EF1AE00BB8795 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */; };
 		156B5F34289EFAE900BB8795 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F33289EFAE900BB8795 /* PostType.swift */; };
+		156B5F36289F007F00BB8795 /* PostReplyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F35289F007F00BB8795 /* PostReplyMenu.swift */; };
 		1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */; };
 		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
@@ -87,6 +88,7 @@
 		156B5F2E289EE49700BB8795 /* PostMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageView.swift; sourceTree = "<group>"; };
 		156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		156B5F33289EFAE900BB8795 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
+		156B5F35289F007F00BB8795 /* PostReplyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyMenu.swift; sourceTree = "<group>"; };
 		1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				155AE506289B4A6A00D18F6B /* PostCreationView.swift */,
 				155AE4F9289B123C00D18F6B /* PostTableViewCell.swift */,
 				156B5F2E289EE49700BB8795 /* PostMessageView.swift */,
+				156B5F35289F007F00BB8795 /* PostReplyMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				155AE4F0289B052B00D18F6B /* Feed+Protocols.swift in Sources */,
+				156B5F36289F007F00BB8795 /* PostReplyMenu.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
 				156B5F31289EF1AE00BB8795 /* UIViewController+Extensions.swift in Sources */,
 				15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */,

@@ -14,44 +14,13 @@ final class PostTableViewCell: UITableViewCell {
     private var post: Post?
     
     private lazy var postMessageView: PostMessageView = .init()
-    
-    private lazy var repostButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Repost", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        
-        button.addTarget(self, action: #selector(didTouchRepostButton), for: .touchUpInside)
-        
-        return button
-    }()
-    
-    private lazy var quoteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Quote", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        
-        button.addTarget(self, action: #selector(didTouchQuoteButton), for: .touchUpInside)
-        
-        return button
-    }()
+    private lazy var postReplyMenu: PostReplyMenu = .init(with: self)
     
     func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
         
         setupViews()
-    }
-    
-    @objc func didTouchRepostButton() {
-        guard let post = post else { return }
-        
-        delegate?.didTapRepost(for: post)
-    }
-    
-    @objc func didTouchQuoteButton() {
-        guard let post = post else { return }
-        
-        delegate?.didTapQuote(for: post)
     }
     
 }
@@ -63,27 +32,36 @@ extension PostTableViewCell: CodableView {
     }
     
     func buildViews() {
-        contentView.addSubviews(postMessageView, repostButton, quoteButton)
+        contentView.addSubviews(postMessageView, postReplyMenu)
     }
     
     func configConstraints() {
-        
         postMessageView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
         }
         
-        repostButton.snp.makeConstraints { make in
+        postReplyMenu.snp.makeConstraints { make in
             make.top.equalTo(postMessageView.snp.bottom).offset(8)
             make.trailing.equalTo(postMessageView.snp.trailing)
             make.bottom.equalToSuperview().inset(8)
         }
+    }
+    
+}
+
+extension PostTableViewCell: PostReplyMenuDelegate {
+    
+    func didTapRepost() {
+        guard let post = post else { return }
         
-        quoteButton.snp.makeConstraints { make in
-            make.top.equalTo(repostButton.snp.top)
-            make.trailing.equalTo(repostButton.snp.leading).offset(-8)
-            make.bottom.equalTo(repostButton.snp.bottom)
-        }
+        delegate?.didTapRepost(for: post)
+    }
+    
+    func didTapQuote() {
+        guard let post = post else { return }
+        
+        delegate?.didTapQuote(for: post)
     }
     
 }

@@ -54,3 +54,10 @@ protocol PostTableViewCellDelegate: AnyObject {
     func didTapQuote(for: Post)
     
 }
+
+protocol PostReplyMenuDelegate: AnyObject {
+    
+    func didTapRepost()
+    func didTapQuote()
+    
+}
