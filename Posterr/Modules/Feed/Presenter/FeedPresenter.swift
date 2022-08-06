@@ -14,9 +14,11 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
     private var posts: [Post]?
+    private var currentUser: User
     
-    init(interactor: FeedInteractorProtocol) {
+    init(interactor: FeedInteractorProtocol, currentUser: User) {
         self.interactor = interactor
+        self.currentUser = currentUser
     }
     
     func setup() {
@@ -38,7 +40,7 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
     }
     
     func post(_ message: String) {
-        interactor.addNewPost(for: message)
+        interactor.addNewPost(with: message, for: currentUser)
     }
     
 }

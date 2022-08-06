@@ -22,8 +22,8 @@ final class FeedInteractor: FeedInteractorProtocol {
         output?.getPostsSucceeded(with: result)
     }
     
-    func addNewPost(for message: String) {
-        appDataSource.addNewPost(for: message)
+    func addNewPost(with message: String, for user: User) {
+        appDataSource.addNewPost(with: message, for: user)
         
         output?.addNewPostSucceeded()
     }

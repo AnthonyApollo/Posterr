@@ -10,7 +10,7 @@ import CoreData
 
 protocol AppDataSourceProtocol: AnyObject {
     
-    func addNewPost(for: String)
+    func addNewPost(with: String, for: User)
     func getPosts() -> [Post]
     func addNewUser(for: String)
     func getUsers() -> [User]
@@ -71,7 +71,7 @@ final class DataManager: AppDataSourceProtocol {
 // MARK: - Post requests
 extension DataManager {
     
-    func addNewPost(for message: String) {
+    func addNewPost(with message: String, for user: User) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
         

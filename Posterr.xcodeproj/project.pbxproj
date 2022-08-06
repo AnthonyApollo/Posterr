@@ -29,11 +29,14 @@
 		156A6FC42899F70C003F75AE /* PosterrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FC32899F70C003F75AE /* PosterrTests.swift */; };
 		156A6FCE2899F70C003F75AE /* PosterrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCD2899F70C003F75AE /* PosterrUITests.swift */; };
 		156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */; };
-		1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* HomeTabBarController.swift */; };
+		1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */; };
 		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
 		1581D778289A0DB7009C6593 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D777289A0DB7009C6593 /* FeedView.swift */; };
 		1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D77A289A0DE4009C6593 /* CodableView.swift */; };
+		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
+		15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */; };
+		15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */; };
 		15E2880A289DA68800905E1A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E28809289DA68800905E1A /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,11 +83,14 @@
 		156A6FC92899F70C003F75AE /* PosterrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PosterrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		156A6FCD2899F70C003F75AE /* PosterrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITests.swift; sourceTree = "<group>"; };
 		156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1581D76D2899FCB5009C6593 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		1581D777289A0DB7009C6593 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		1581D77A289A0DE4009C6593 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
+		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
+		15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
+		15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
 		15E28809289DA68800905E1A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,18 +266,21 @@
 			isa = PBXGroup;
 			children = (
 				1581D76F2899FE04009C6593 /* Feed */,
-				1581D76A2899FB66009C6593 /* Home */,
+				1581D76A2899FB66009C6593 /* Application */,
 				1581D7702899FE0C009C6593 /* UserProfile */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		1581D76A2899FB66009C6593 /* Home */ = {
+		1581D76A2899FB66009C6593 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				1581D76D2899FCB5009C6593 /* HomeTabBarController.swift */,
+				15C0B262289DE40A007C54B8 /* Controller */,
+				15C0B269289DE64B007C54B8 /* Interactor */,
+				15C0B266289DE5A0007C54B8 /* Presenter */,
+				15C0B263289DE427007C54B8 /* Protocols */,
 			);
-			path = Home;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		1581D76B2899FC18009C6593 /* Base */ = {
@@ -341,6 +350,38 @@
 				15419253289D998D005B907A /* Posterr.xcdatamodeld */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		15C0B262289DE40A007C54B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		15C0B263289DE427007C54B8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				15C0B264289DE43F007C54B8 /* Application+Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		15C0B266289DE5A0007C54B8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15C0B269289DE64B007C54B8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,19 +524,22 @@
 				152F79CF289DCE36004AE4E1 /* UserProfile+Protocols.swift in Sources */,
 				1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */,
 				15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */,
-				1581D76E2899FCB5009C6593 /* HomeTabBarController.swift in Sources */,
+				1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */,
 				155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */,
 				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
 				155BD3BE289C883A0030B27A /* FeedInteractor.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
+				15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */,
 				155AE501289B2D4E00D18F6B /* UserProfileView.swift in Sources */,
 				152F79D2289DD1D9004AE4E1 /* UserProfilePresenter.swift in Sources */,
 				15E2880A289DA68800905E1A /* DataManager.swift in Sources */,
+				15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */,
 				155AE505289B312000D18F6B /* PostCountView.swift in Sources */,
 				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
 				152F79D5289DD267004AE4E1 /* UserProfileInteractor.swift in Sources */,
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Extensions.swift in Sources */,
+				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
 				1581D778289A0DB7009C6593 /* FeedView.swift in Sources */,
 				155BD3B2289C4DC30030B27A /* UIView+Extensions.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,

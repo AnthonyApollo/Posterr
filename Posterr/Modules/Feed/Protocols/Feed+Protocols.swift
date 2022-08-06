@@ -29,7 +29,7 @@ protocol FeedInteractorProtocol: AnyObject {
     var output: FeedInteractorOutputProtocol? { get set }
     
     func getPosts()
-    func addNewPost(for: String)
+    func addNewPost(with: String, for: User)
     
 }
 

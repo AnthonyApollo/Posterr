@@ -1,5 +1,5 @@
 //
-//  HomeTabBarController.swift
+//  ApplicationTabBarController.swift
 //  Posterr
 //
 //  Created by Anthony Apollo on 02/08/22.
@@ -8,11 +8,31 @@
 import Foundation
 import UIKit
 
-final class HomeTabBarController: UITabBarController {
+final class ApplicationTabBarController: UITabBarController, ApplicationViewProtocol {
     
-    private let feedViewController: UIViewController = {
+    var currentUser: User?
+    let presenter: ApplicationPresenterProtocol
+    
+    init(presenter: ApplicationPresenterProtocol) {
+        self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter.setup()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private lazy var feedViewController: UIViewController = {
+        guard let currentUser = currentUser else {
+            return UIViewController(nibName: nil, bundle: nil)
+        }
+        
         let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor)
+        let presenter = FeedPresenter(interactor: interactor, currentUser: currentUser)
         let viewController = FeedViewController(presenter: presenter)
         
         interactor.output = presenter
@@ -24,7 +44,7 @@ final class HomeTabBarController: UITabBarController {
         return viewController
     }()
     
-    private let userProfileViewController: UIViewController = {
+    private lazy var userProfileViewController: UIViewController = {
         let interactor = UserProfileInteractor()
         let presenter = UserProfilePresenter(interactor: interactor)
         let viewController = UserProfileViewController(presenter: presenter)
