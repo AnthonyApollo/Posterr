@@ -74,6 +74,7 @@ extension DataManager {
     func addNewPost(with message: String, for user: User) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
+        entity.author = user
         
         saveContext()
     }

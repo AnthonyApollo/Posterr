@@ -2,13 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Post" representedClassName="Post" syncable="YES" codeGenerationType="class">
         <attribute name="message" optional="YES" attributeType="String"/>
+        <relationship name="author" maxCount="1" deletionRule="Nullify" destinationEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="joinedDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="username" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Post" positionX="0" positionY="0" width="128" height="44"/>
+        <element name="Post" positionX="0" positionY="0" width="128" height="59"/>
         <element name="User" positionX="0" positionY="9" width="128" height="59"/>
     </elements>
 </model>
