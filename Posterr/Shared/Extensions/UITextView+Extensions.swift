@@ -11,8 +11,7 @@ extension UITextView {
     
     func clear() {
         text = ""
-        isSelectable = false
-        isSelectable = true
+        resignFirstResponder()
     }
     
 }
