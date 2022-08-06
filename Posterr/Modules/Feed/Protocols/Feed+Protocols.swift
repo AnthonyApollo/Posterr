@@ -21,6 +21,7 @@ protocol FeedPresenterProtocol: AnyObject {
     func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int)
     func shouldUpdateTextView(for length: Int) -> Bool
     func post(_: String)
+    func repost(_: Post)
     
 }
 
@@ -44,5 +45,12 @@ protocol PostCreationViewDelegate: AnyObject {
     
     func postCreationView(_: PostCreationView, shouldChangeTextIn: NSRange, with: String, for: UITextView) -> Bool
     func didPost(_: String)
+    
+}
+
+protocol PostTableViewCellDelegate: AnyObject {
+    
+    func didTapRepost(for: Post)
+    func didTapQuote(for: Post)
     
 }

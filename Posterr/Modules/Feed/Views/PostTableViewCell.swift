@@ -10,19 +10,10 @@ import SnapKit
 
 final class PostTableViewCell: UITableViewCell {
     
-    private lazy var authorUsernameLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        
-        return label
-    }()
+    weak var delegate: PostTableViewCellDelegate?
+    private var post: Post?
     
-    private lazy var messageLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        
-        return label
-    }()
+    private lazy var postMessageView: PostMessageView = .init()
     
     private lazy var repostButton: UIButton = {
         let button = UIButton()
@@ -45,18 +36,22 @@ final class PostTableViewCell: UITableViewCell {
     }()
     
     func setup(with post: Post) {
-        authorUsernameLabel.text = post.author?.username
-        messageLabel.text = post.message
+        self.post = post
+        postMessageView.setup(with: post)
         
         setupViews()
     }
     
     @objc func didTouchRepostButton() {
-        print("repost")
+        guard let post = post else { return }
+        
+        delegate?.didTapRepost(for: post)
     }
     
     @objc func didTouchQuoteButton() {
-        print("quote")
+        guard let post = post else { return }
+        
+        delegate?.didTapQuote(for: post)
     }
     
 }
@@ -68,24 +63,19 @@ extension PostTableViewCell: CodableView {
     }
     
     func buildViews() {
-        contentView.addSubviews(authorUsernameLabel, messageLabel, repostButton, quoteButton)
+        contentView.addSubviews(postMessageView, repostButton, quoteButton)
     }
     
     func configConstraints() {
-        authorUsernameLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(8)
+        
+        postMessageView.snp.makeConstraints { make in
+            make.left.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
         }
         
-        messageLabel.snp.makeConstraints { make in
-            make.leading.equalTo(authorUsernameLabel.snp.leading)
-            make.top.equalTo(authorUsernameLabel.snp.bottom).offset(8)
-            make.trailing.equalTo(authorUsernameLabel.snp.trailing)
-        }
-        
         repostButton.snp.makeConstraints { make in
-            make.top.equalTo(messageLabel.snp.bottom).offset(8)
-            make.trailing.equalTo(authorUsernameLabel.snp.trailing)
+            make.top.equalTo(postMessageView.snp.bottom).offset(8)
+            make.trailing.equalTo(postMessageView.snp.trailing)
             make.bottom.equalToSuperview().inset(8)
         }
         

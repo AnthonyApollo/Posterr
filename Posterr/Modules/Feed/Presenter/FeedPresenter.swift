@@ -49,6 +49,11 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         interactor.addNewPost(with: message, for: currentUser)
     }
     
+    func repost(_ post: Post) {
+        print("presenter")
+        // TODO: Add repost
+    }
+    
 }
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
@@ -77,6 +82,7 @@ extension FeedPresenter: UITableViewDataSource {
         }
         
         cell.setup(with: post)
+        cell.delegate = view as? PostTableViewCellDelegate
         
         return cell
     }

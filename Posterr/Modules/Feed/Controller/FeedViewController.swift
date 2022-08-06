@@ -65,3 +65,23 @@ extension FeedViewController: PostCreationViewDelegate {
     }
     
 }
+
+extension FeedViewController: PostTableViewCellDelegate {
+    
+    func didTapRepost(for post: Post) {
+        guard let username = post.author?.username,
+              let postMessage = post.message else { return }
+        
+        let title = "Are you sure you want to repost \(username)?"
+        let message = "\"\(postMessage)\""
+        
+        displayActionSheet(for: title, and: message, confirmHandler: { [weak self] in
+            self?.presenter.repost(post)
+        })
+    }
+    
+    func didTapQuote(for post: Post) {
+        // TODO: Implement quote
+    }
+    
+}
