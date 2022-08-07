@@ -34,4 +34,10 @@ final class FeedInteractor: FeedInteractorProtocol {
         output?.addRepostSucceeded()
     }
     
+    func addQuotePost(for post: Post, with message: String, by user: User) {
+        appDataSource.addQuotePost(for: post, with: message, by: user)
+        
+        output?.addQuotePostSucceeded()
+    }
+    
 }

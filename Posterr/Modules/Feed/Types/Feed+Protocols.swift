@@ -22,6 +22,7 @@ protocol FeedPresenterProtocol: AnyObject {
     func shouldUpdateTextView(for length: Int) -> Bool
     func post(_: String)
     func repost(_: Post)
+    func quote(_: Post, with: String)
     
 }
 
@@ -32,6 +33,7 @@ protocol FeedInteractorProtocol: AnyObject {
     func getPosts(from: User?)
     func addNewPost(with: String, for: User)
     func addRepost(of: Post, for: User)
+    func addQuotePost(for: Post, with: String, by: User)
     
 }
 
@@ -40,6 +42,7 @@ protocol FeedInteractorOutputProtocol: AnyObject {
     func getPostsSucceeded(with: [Post])
     func addNewPostSucceeded()
     func addRepostSucceeded()
+    func addQuotePostSucceeded()
     
 }
 
@@ -55,6 +58,7 @@ protocol PostCreationViewDelegate: AnyObject {
     
     func postCreationView(_: PostCreationView, shouldChangeTextIn: NSRange, with: String, for: UITextView) -> Bool
     func didPost(_: String)
+    func didPost(_: String, with: Post)
     
 }
 

@@ -53,6 +53,10 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         interactor.addRepost(of: post, for: currentUser)
     }
     
+    func quote(_ post: Post, with message: String) {
+        interactor.addQuotePost(for: post, with: message, by: currentUser)
+    }
+    
 }
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
@@ -67,6 +71,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     }
     
     func addRepostSucceeded() {
+        getPosts()
+    }
+    
+    func addQuotePostSucceeded() {
         getPosts()
     }
     
@@ -89,11 +97,15 @@ extension FeedPresenter: UITableViewDataSource {
     }
     
     private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
-        if post.originalPost == nil {
-            return tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+        guard post.quotePost == nil else {
+            return tableView.dequeueReusableCell(withIdentifier: "QuoteTableViewCell", for: indexPath) as? QuoteTableViewCell
         }
         
-        return tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell", for: indexPath) as? RepostTableViewCell
+        guard post.originalPost == nil else {
+            return tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell", for: indexPath) as? RepostTableViewCell
+        }
+        
+        return tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
     }
     
 }

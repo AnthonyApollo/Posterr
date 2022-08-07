@@ -11,6 +11,7 @@ import SnapKit
 final class PostCreationView: UIView {
     
     weak var delegate: PostCreationViewDelegate?
+    private var post: Post?
     
     private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost)
     
@@ -50,13 +51,25 @@ final class PostCreationView: UIView {
     
     @objc func didTouchPostButton() {
         if !textView.text.isBlankOrEmpty {
-            delegate?.didPost(textView.text)
+            post(message: textView.text)
             textView.clear()
             remainingCharactersLabel.text = nil
+            quoteMessageView.removeFromSuperview()
+            setupViews()
         }
     }
     
+    func post(message: String) {
+        guard let post = post else {
+            delegate?.didPost(message)
+            return
+        }
+
+        delegate?.didPost(message, with: post)
+    }
+    
     func setupQuote(of post: Post) {
+        self.post = post
         quoteMessageView.setup(with: post)
         addSubview(quoteMessageView)
         configQuoteConstraints()

@@ -19,7 +19,7 @@ final class QuoteTableViewCell: UITableViewCell, PostCell {
     func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
-        quoteMessageView.setup(with: post)
+        quoteMessageView.setup(with: post.quotePost!)
         
         setupViews()
     }
