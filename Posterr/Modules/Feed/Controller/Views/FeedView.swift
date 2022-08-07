@@ -36,6 +36,9 @@ final class FeedView: UIView {
         postsTableView.reloadData()
     }
     
+    func setupQuote(of post: Post) {
+        postCreationView.setupQuote(of: post)
+    }
 }
 
 extension FeedView: CodableView {

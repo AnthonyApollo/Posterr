@@ -85,7 +85,7 @@ extension FeedViewController: PostTableViewCellDelegate {
     }
     
     func didTapQuote(for post: Post) {
-        // TODO: Implement quote
+        feedView.setupQuote(of: post)
     }
     
 }

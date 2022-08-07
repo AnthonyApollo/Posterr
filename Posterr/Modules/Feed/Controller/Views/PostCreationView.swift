@@ -12,6 +12,8 @@ final class PostCreationView: UIView {
     
     weak var delegate: PostCreationViewDelegate?
     
+    private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost)
+    
     // TODO: Add placeholder text
     private lazy var textView: UITextView = {
         let textView = UITextView()
@@ -54,8 +56,26 @@ final class PostCreationView: UIView {
         }
     }
     
+    func setupQuote(of post: Post) {
+        quoteMessageView.setup(with: post)
+        addSubview(quoteMessageView)
+        configQuoteConstraints()
+    }
+    
+    private func configQuoteConstraints() {
+        quoteMessageView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+        }
+        
+        textView.snp.remakeConstraints { make in
+            make.top.equalTo(quoteMessageView.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(50)
+        }
+    }
+    
 }
-
+    
 extension PostCreationView: CodableView {
     
     func configViews() {
@@ -86,7 +106,6 @@ extension PostCreationView: CodableView {
             make.bottom.equalToSuperview()
         }
     }
-    
     
 }
 
