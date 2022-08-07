@@ -56,6 +56,7 @@ extension PostMessageView: CodableView {
     
     func configViews() {
         backgroundColor = type.messageViewBackgroundColor
+        layer.cornerRadius = type.messageViewCornerRadius
     }
     
     func buildViews() {

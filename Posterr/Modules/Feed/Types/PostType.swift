@@ -32,4 +32,13 @@ enum PostType {
         }
     }
     
+    var messageViewCornerRadius: CGFloat {
+        switch self {
+        case .post:
+            return 0
+        default:
+            return 5
+        }
+    }
+    
 }
