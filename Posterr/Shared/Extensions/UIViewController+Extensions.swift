@@ -18,12 +18,18 @@ extension UIViewController {
         cancelHandler: AlertCallback? = nil
     ) {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
-        alert.addAction(.init(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))
-        alert.addAction(.init(title: "Confirm", style: .default, handler: { _ in confirmHandler?() }))
+        actionSheet.addAction(.init(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))
+        actionSheet.addAction(.init(title: "Confirm", style: .default, handler: { _ in confirmHandler?() }))
         
-        present(alert, animated: true)
+        present(actionSheet, animated: true)
+    }
+    
+    func displayAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(.init(title: "Ok", style: .default))
     }
     
 }

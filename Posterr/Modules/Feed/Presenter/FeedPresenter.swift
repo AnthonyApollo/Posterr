@@ -78,6 +78,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         getPosts()
     }
     
+    func operationFailed(with error: RequestError) {
+        view?.displayAlert(with: "Oops, something went wrong.", and: error.errorDescription)
+    }
+    
 }
 
 extension FeedPresenter: UITableViewDataSource {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FeedViewProtocol: AnyObject {
+protocol FeedViewProtocol: UIViewController {
     
     func reloadFeed()
     
@@ -43,6 +43,7 @@ protocol FeedInteractorOutputProtocol: AnyObject {
     func addNewPostSucceeded()
     func addRepostSucceeded()
     func addQuotePostSucceeded()
+    func operationFailed(with: RequestError)
     
 }
 

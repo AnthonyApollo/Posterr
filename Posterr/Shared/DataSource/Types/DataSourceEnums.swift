@@ -16,7 +16,7 @@ enum RequestResult<T> {
 
 enum RequestError: LocalizedError, Identifiable {
     
-    var id: String { localizedDescription }
+    var id: String { errorDescription }
   
     case fetchError
     case invalidData

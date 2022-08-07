@@ -22,8 +22,7 @@ final class FeedInteractor: FeedInteractorProtocol {
             case .success(let posts):
                 self?.output?.getPostsSucceeded(with: posts)
             case .failure(let error):
-                // TODO: Handle error
-                print(error.localizedDescription)
+                self?.output?.operationFailed(with: error)
             }
         }
     }
@@ -34,8 +33,7 @@ final class FeedInteractor: FeedInteractorProtocol {
             case .success:
                 self?.output?.addNewPostSucceeded()
             case .failure(let error):
-                // TODO: Handle error
-                print(error.localizedDescription)
+                self?.output?.operationFailed(with: error)
             }
         }
         
@@ -48,8 +46,7 @@ final class FeedInteractor: FeedInteractorProtocol {
             case .success:
                 self?.output?.addRepostSucceeded()
             case .failure(let error):
-                // TODO: Handle error
-                print(error.localizedDescription)
+                self?.output?.operationFailed(with: error)
             }
         }
     }
@@ -60,8 +57,7 @@ final class FeedInteractor: FeedInteractorProtocol {
             case .success:
                 self?.output?.addQuotePostSucceeded()
             case .failure(let error):
-                // TODO: Handle error
-                print(error.localizedDescription)
+                self?.output?.operationFailed(with: error)
             }
         }
     }
