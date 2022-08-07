@@ -9,6 +9,8 @@ import UIKit
 
 final class PostMessageView: UIView {
     
+    private let type: PostType
+    
     private lazy var authorUsernameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -23,7 +25,9 @@ final class PostMessageView: UIView {
         return label
     }()
     
-    init() {
+    init(type: PostType = .post) {
+        self.type = type
+        
         super.init(frame: .zero)
         
         setupViews()
@@ -50,20 +54,25 @@ final class PostMessageView: UIView {
 
 extension PostMessageView: CodableView {
     
+    func configViews() {
+        backgroundColor = type.messageViewBackgroundColor
+    }
+    
     func buildViews() {
         addSubviews(authorUsernameLabel, messageLabel)
     }
     
     func configConstraints() {
         authorUsernameLabel.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
+            make.leading.top.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().inset(8)
         }
         
         messageLabel.snp.makeConstraints { make in
             make.leading.equalTo(authorUsernameLabel.snp.leading)
             make.top.equalTo(authorUsernameLabel.snp.bottom).offset(8)
             make.trailing.equalTo(authorUsernameLabel.snp.trailing)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(8)
         }
     }
     

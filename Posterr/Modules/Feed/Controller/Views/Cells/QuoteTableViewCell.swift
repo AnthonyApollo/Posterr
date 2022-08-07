@@ -1,5 +1,5 @@
 //
-//  RepostTableViewCell.swift
+//  QuoteTableViewCell.swift
 //  Posterr
 //
 //  Created by Anthony Apollo on 06/08/22.
@@ -7,49 +7,49 @@
 
 import UIKit
 
-final class RepostTableViewCell: UITableViewCell, PostCell {
+final class QuoteTableViewCell: UITableViewCell, PostCell {
     
     weak var delegate: PostTableViewCellDelegate?
     private var post: Post?
     
+    private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost)
     private lazy var postMessageView: PostMessageView = .init()
-    private lazy var repostMessageView: PostMessageView = .init(type: .repost)
     private lazy var postReplyMenu: PostReplyMenu = .init(with: self)
     
     func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
-        repostMessageView.setup(with: post.originalPost!)
+        quoteMessageView.setup(with: post)
         
         setupViews()
     }
     
 }
 
-extension RepostTableViewCell: CodableView {
+extension QuoteTableViewCell: CodableView {
     
     func configViews() {
         backgroundColor = .white
     }
     
     func buildViews() {
-        contentView.addSubviews(postMessageView, repostMessageView, postReplyMenu)
+        contentView.addSubviews(quoteMessageView, postMessageView, postReplyMenu)
     }
     
     func configConstraints() {
-        postMessageView.snp.makeConstraints { make in
+        quoteMessageView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
         }
         
-        repostMessageView.snp.makeConstraints { make in
-            make.leading.equalTo(postMessageView.snp.leading).offset(8)
-            make.top.equalTo(postMessageView.snp.bottom).offset(8)
-            make.trailing.equalTo(postMessageView.snp.trailing).inset(8)
+        postMessageView.snp.makeConstraints { make in
+            make.top.equalTo(quoteMessageView.snp.bottom).offset(8)
+            make.leading.equalTo(quoteMessageView.snp.leading)
+            make.trailing.equalTo(quoteMessageView.snp.trailing)
         }
         
         postReplyMenu.snp.makeConstraints { make in
-            make.top.equalTo(repostMessageView.snp.bottom).offset(8)
+            make.top.equalTo(postMessageView.snp.bottom).offset(8)
             make.trailing.equalTo(postMessageView.snp.trailing)
             make.bottom.equalToSuperview().inset(8)
         }
@@ -57,7 +57,7 @@ extension RepostTableViewCell: CodableView {
     
 }
 
-extension RepostTableViewCell: PostReplyMenuDelegate {
+extension QuoteTableViewCell: PostReplyMenuDelegate {
     
     func didTapRepost() {
         guard let post = post else { return }

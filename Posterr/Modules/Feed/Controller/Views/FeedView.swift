@@ -16,6 +16,7 @@ final class FeedView: UIView {
         let tableView = UITableView(frame: .zero)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         tableView.register(RepostTableViewCell.self, forCellReuseIdentifier: "RepostTableViewCell")
+        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "QuoteTableViewCell")
         
         return tableView
     }()
