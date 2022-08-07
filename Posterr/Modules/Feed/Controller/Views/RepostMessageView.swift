@@ -41,7 +41,8 @@ extension RepostMessageView: CodableView {
     
     func configConstraints() {
         postMessageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.top.equalToSuperview().offset(8)
+            make.trailing.bottom.equalToSuperview().inset(8)
         }
     }
     

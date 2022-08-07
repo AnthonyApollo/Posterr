@@ -14,6 +14,7 @@ protocol AppDataSourceProtocol: AnyObject {
     func getPosts(from: User?) -> [Post]
     func addNewUser(for: String) -> User?
     func getUsers() -> [User]
+    func addRepost(of: Post, for: User)
     
 }
 
@@ -97,6 +98,15 @@ extension DataManager {
         }
         
         return fetchedPosts
+    }
+    
+    func addRepost(of post: Post, for user: User) {
+        let entity = Post(context: persistentContainer.viewContext)
+        entity.author = user
+        entity.originalPost = post
+        entity.date = .init()
+        
+        saveContext()
     }
     
 }

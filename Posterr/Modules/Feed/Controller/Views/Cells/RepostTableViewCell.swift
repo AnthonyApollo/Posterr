@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RepostTableViewCell: UITableViewCell {
+final class RepostTableViewCell: UITableViewCell, PostCell {
     
     weak var delegate: PostTableViewCellDelegate?
     private var post: Post?
@@ -19,7 +19,7 @@ final class RepostTableViewCell: UITableViewCell {
     func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
-        repostMessageView.setup(with: post)
+        repostMessageView.setup(with: post.originalPost!)
         
         setupViews()
     }
@@ -49,7 +49,6 @@ extension RepostTableViewCell: CodableView {
         }
         
         postReplyMenu.snp.makeConstraints { make in
-            make.leading.equalTo(postMessageView.snp.leading)
             make.top.equalTo(repostMessageView.snp.bottom).offset(8)
             make.trailing.equalTo(postMessageView.snp.trailing)
             make.bottom.equalToSuperview().inset(8)

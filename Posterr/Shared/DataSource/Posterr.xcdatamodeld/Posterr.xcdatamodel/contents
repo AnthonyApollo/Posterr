@@ -4,13 +4,14 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="message" optional="YES" attributeType="String"/>
         <relationship name="author" maxCount="1" deletionRule="Nullify" destinationEntity="User"/>
+        <relationship name="originalPost" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="joinedDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="username" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Post" positionX="0" positionY="0" width="128" height="74"/>
+        <element name="Post" positionX="0" positionY="0" width="128" height="89"/>
         <element name="User" positionX="0" positionY="9" width="128" height="59"/>
     </elements>
 </model>

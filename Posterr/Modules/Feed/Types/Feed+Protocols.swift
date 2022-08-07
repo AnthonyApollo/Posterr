@@ -31,6 +31,7 @@ protocol FeedInteractorProtocol: AnyObject {
     
     func getPosts(from: User?)
     func addNewPost(with: String, for: User)
+    func addRepost(of: Post, for: User)
     
 }
 
@@ -38,6 +39,15 @@ protocol FeedInteractorOutputProtocol: AnyObject {
     
     func getPostsSucceeded(with: [Post])
     func addNewPostSucceeded()
+    func addRepostSucceeded()
+    
+}
+
+protocol PostCell: UITableViewCell {
+    
+    var delegate: PostTableViewCellDelegate? { get set }
+    
+    func setup(with: Post)
     
 }
 

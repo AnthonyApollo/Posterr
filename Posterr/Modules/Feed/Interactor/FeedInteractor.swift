@@ -28,4 +28,10 @@ final class FeedInteractor: FeedInteractorProtocol {
         output?.addNewPostSucceeded()
     }
     
+    func addRepost(of post: Post, for user: User) {
+        appDataSource.addRepost(of: post, for: user)
+        
+        output?.addRepostSucceeded()
+    }
+    
 }

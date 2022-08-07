@@ -50,8 +50,7 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
     }
     
     func repost(_ post: Post) {
-        print("presenter")
-        // TODO: Add repost
+        interactor.addRepost(of: post, for: currentUser)
     }
     
 }
@@ -67,6 +66,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         getPosts()
     }
     
+    func addRepostSucceeded() {
+        getPosts()
+    }
+    
 }
 
 extension FeedPresenter: UITableViewDataSource {
@@ -76,15 +79,21 @@ extension FeedPresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell,
-              let post = posts?[safe: indexPath.row] else {
-            return UITableViewCell()
-        }
+        guard let post = posts?[safe: indexPath.row],
+              let cell = dequeueCell(for: post, to: tableView, with: indexPath) else { return .init() }
         
         cell.setup(with: post)
         cell.delegate = view as? PostTableViewCellDelegate
         
         return cell
+    }
+    
+    private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
+        if post.originalPost == nil {
+            return tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+        }
+        
+        return tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell", for: indexPath) as? RepostTableViewCell
     }
     
 }
