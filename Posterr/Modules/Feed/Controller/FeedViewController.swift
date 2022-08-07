@@ -69,6 +69,10 @@ extension FeedViewController: PostCreationViewDelegate {
 extension FeedViewController: PostTableViewCellDelegate {
     
     func didTapRepost(for post: Post) {
+        if let originalPost = post.originalPost {
+            didTapRepost(for: originalPost)
+        }
+        
         guard let username = post.author?.username,
               let postMessage = post.message else { return }
         
