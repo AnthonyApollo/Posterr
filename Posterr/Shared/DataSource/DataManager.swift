@@ -78,6 +78,7 @@ extension DataManager {
         entity.message = message
         entity.author = user
         entity.date = .init()
+        user.posts += 1
         
         saveContext()
     }
@@ -106,6 +107,7 @@ extension DataManager {
         entity.author = user
         entity.originalPost = post
         entity.date = .init()
+        user.reposts += 1
         
         saveContext()
     }
@@ -116,6 +118,7 @@ extension DataManager {
         entity.message = message
         entity.quotePost = post
         entity.date = .init()
+        user.quotePosts += 1
         
         saveContext()
     }

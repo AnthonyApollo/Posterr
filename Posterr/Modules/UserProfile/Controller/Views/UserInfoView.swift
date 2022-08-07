@@ -28,9 +28,9 @@ final class UserInfoView: UIView {
         return label
     }()
     
-    private lazy var postCountView: PostCountView = .init(count: 0, type: .post)
-    private lazy var repostCountView: PostCountView = .init(count: 0, type: .repost)
-    private lazy var quotePostCountView: PostCountView = .init(count: 0, type: .quotePost)
+    private lazy var postCountView: PostCountView = .init(user: user, type: .post)
+    private lazy var repostCountView: PostCountView = .init(user: user, type: .repost)
+    private lazy var quotePostCountView: PostCountView = .init(user: user, type: .quotePost)
     
     init(user: User) {
         self.user = user
@@ -42,6 +42,12 @@ final class UserInfoView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update() {
+        postCountView.update()
+        repostCountView.update()
+        quotePostCountView.update()
     }
     
 }

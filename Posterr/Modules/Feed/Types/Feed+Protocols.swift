@@ -81,3 +81,9 @@ protocol PostMessageViewDelegate: AnyObject {
     func didTouchCloseButton()
     
 }
+
+protocol FeedViewControllerDelegate: AnyObject {
+    
+    func didReloadFeed()
+    
+}

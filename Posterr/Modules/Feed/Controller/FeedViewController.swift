@@ -11,6 +11,7 @@ final class FeedViewController: UIViewController {
     
     private let presenter: FeedPresenterProtocol
     private let feedView: FeedView
+    weak var delegate: FeedViewControllerDelegate?
     
     init(presenter: FeedPresenterProtocol) {
         self.presenter = presenter
@@ -46,6 +47,7 @@ extension FeedViewController: FeedViewProtocol {
     
     func reloadFeed() {
         feedView.reload()
+        delegate?.didReloadFeed()
     }
     
 }

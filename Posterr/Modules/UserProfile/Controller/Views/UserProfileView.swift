@@ -12,6 +12,7 @@ final class UserProfileView: UIView {
     
     private let user: User
     private lazy var infoView: UserInfoView = .init(user: user)
+    weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     
     private lazy var feedViewController: FeedViewController = {
         let interactor = FeedInteractor()
@@ -19,12 +20,14 @@ final class UserProfileView: UIView {
         let viewController = FeedViewController(presenter: presenter)
         interactor.output = presenter
         presenter.view = viewController
+        viewController.delegate = feedViewControllerDelegate
         
         return viewController
     }()
     
-    init(user: User) {
+    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil) {
         self.user = user
+        self.feedViewControllerDelegate = feedViewControllerDelegate
         
         super.init(frame: .zero)
         
@@ -37,6 +40,10 @@ final class UserProfileView: UIView {
     
     func updateFeed() {
         feedViewController.updateUI()
+    }
+    
+    func updateUserInfo() {
+        infoView.update()
     }
     
 }

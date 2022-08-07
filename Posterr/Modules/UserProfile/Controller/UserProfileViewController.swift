@@ -11,7 +11,7 @@ import UIKit
 final class UserProfileViewController: UIViewController {
     
     private let currentUser: User
-    private lazy var profileView: UserProfileView = .init(user: currentUser)
+    private lazy var profileView: UserProfileView = .init(user: currentUser, feedViewControllerDelegate: self)
     
     init(currentUser: User) {
         self.currentUser = currentUser
@@ -32,6 +32,14 @@ final class UserProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileView.updateFeed()
+    }
+    
+}
+
+extension UserProfileViewController: FeedViewControllerDelegate {
+    
+    func didReloadFeed() {
+        profileView.updateUserInfo()
     }
     
 }

@@ -10,7 +10,7 @@ import SnapKit
 
 final class PostCountView: UIView {
     
-    private let count: Int
+    private let user: User
     private let type: PostType
     
     private lazy var countIcon: UIImageView = {
@@ -22,13 +22,13 @@ final class PostCountView: UIView {
     
     private lazy var countLabel: UILabel = {
         let label = UILabel()
-        label.text = String(count)
+        label.text = getCountLabelText()
         
         return label
     }()
     
-    init(count: Int, type: PostType) {
-        self.count = count
+    init(user: User, type: PostType) {
+        self.user = user
         self.type = type
         
         super.init(frame: .zero)
@@ -38,6 +38,21 @@ final class PostCountView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update() {
+        countLabel.text = getCountLabelText()
+    }
+    
+    private func getCountLabelText() -> String {
+        switch type {
+        case .post:
+            return String(user.posts)
+        case .repost:
+            return String(user.reposts)
+        case .quotePost:
+            return String(user.quotePosts)
+        }
     }
     
 }
