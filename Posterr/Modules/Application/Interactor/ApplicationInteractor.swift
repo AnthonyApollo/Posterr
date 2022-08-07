@@ -17,11 +17,19 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
     }
     
     func getCurrentUser() {
-        let users = appDataSource.getUsers()
+        appDataSource.getUsers() { [weak self] result in
+            switch result {
+            case .success(let users):
+                guard let result = users.first else { return }
+                
+                self?.output?.getCurrentUserSucceeded(with: result)
+            case .failure(let error):
+                // TODO: Handle error
+                print(error.localizedDescription)
+            }
+        }
         
-        guard let result = users.first else { return }
         
-        output?.getCurrentUserSucceeded(with: result)
     }
     
 }
@@ -29,21 +37,54 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
 extension ApplicationInteractor {
     
     func injectMockedData() {
-        let users = appDataSource.getUsers()
+        var users: [User] = []
+        
+        appDataSource.getUsers() { result in
+            switch result {
+            case .success(let returnedUsers):
+                users = returnedUsers
+            default:
+                return
+            }
+        }
         
         guard users.isEmpty else { return }
         
-        let user1 = appDataSource.addNewUser(for: "user2022")
-        appDataSource.addNewPost(with: "Trying my social network ;)", for: user1!)
+        appDataSource.addNewUser(for: "user2022") { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.appDataSource.addNewPost(with: "Trying my social network ;)", for: user, completion: nil)
+            default:
+                return
+            }
+        }
         
-        let user2 = appDataSource.addNewUser(for: "elonMusk")
-        appDataSource.addNewPost(with: "I wanna buy Posterr", for: user2!)
+        appDataSource.addNewUser(for: "elonMusk") { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.appDataSource.addNewPost(with: "I wanna buy Posterr", for: user, completion: nil)
+            default:
+                return
+            }
+        }
         
-        let user3 = appDataSource.addNewUser(for: "bruceLee")
-        appDataSource.addNewPost(with: "Be water my friend", for: user3!)
+        appDataSource.addNewUser(for: "bruceLee") { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.appDataSource.addNewPost(with: "Be water my friend", for: user, completion: nil)
+            default:
+                return
+            }
+        }
         
-        let user4 = appDataSource.addNewUser(for: "corleoneDon")
-        appDataSource.addNewPost(with: "I will make him an offer...", for: user4!)
+        appDataSource.addNewUser(for: "corleoneDon") { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.appDataSource.addNewPost(with: "I will make him an offer...", for: user, completion: nil)
+            default:
+                return
+            }
+        }
     }
     
 }

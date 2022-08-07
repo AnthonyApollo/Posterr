@@ -8,17 +8,6 @@
 import Foundation
 import CoreData
 
-protocol AppDataSourceProtocol: AnyObject {
-    
-    func addNewPost(with: String, for: User)
-    func getPosts(from: User?) -> [Post]
-    func addNewUser(for: String) -> User?
-    func getUsers() -> [User]
-    func addRepost(of: Post, for: User)
-    func addQuotePost(for: Post, with: String, by: User)
-    
-}
-
 final class DataManager: AppDataSourceProtocol {
     
     static let shared = DataManager()
@@ -26,26 +15,9 @@ final class DataManager: AppDataSourceProtocol {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
         let container = NSPersistentContainer(name: "Posterr")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -54,65 +26,50 @@ final class DataManager: AppDataSourceProtocol {
 
     // MARK: - Core Data Saving support
 
-    func saveContext() {
+    func saveContext() throws {
         let context = persistentContainer.viewContext
         if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+            try context.save()
         }
     }
     
 }
 
 // MARK: - Post requests
+
 extension DataManager {
     
-    func addNewPost(with message: String, for user: User) {
+    func addNewPost(with message: String, for user: User, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
         entity.author = user
         entity.date = .init()
         user.posts += 1
         
-        saveContext()
-    }
-    
-    func getPosts(from user: User?) -> [Post] {
-        let request: NSFetchRequest<Post> = Post.fetchRequest()
-        
-        if let user = user {
-            request.predicate = NSPredicate(format: "author = %@", user)
-        }
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        
-        var fetchedPosts: [Post] = []
-        
         do {
-            fetchedPosts = try persistentContainer.viewContext.fetch(request)
+            try saveContext()
+            completion?(.success(entity))
         } catch {
-            print("Erro fetching posts")
+            completion?(.failure(.saveError))
         }
-        
-        return fetchedPosts
     }
     
-    func addRepost(of post: Post, for user: User) {
+    func addRepost(of post: Post, for user: User, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.author = user
         entity.originalPost = post
         entity.date = .init()
         user.reposts += 1
         
-        saveContext()
+        do {
+            try saveContext()
+            completion?(.success(entity))
+        } catch {
+            completion?(.failure(.saveError))
+        }
     }
     
-    func addQuotePost(for post: Post, with message: String, by user: User) {
+    func addQuotePost(for post: Post, with message: String, by user: User, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.author = user
         entity.message = message
@@ -120,40 +77,67 @@ extension DataManager {
         entity.date = .init()
         user.quotePosts += 1
         
-        saveContext()
+        do {
+            try saveContext()
+            completion?(.success(post))
+        } catch {
+            completion?(.failure(.saveError))
+        }
+    }
+    
+    func getPosts(from user: User?, completion: RequestCompletion<[Post]>?) {
+        let request: NSFetchRequest<Post> = Post.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        if let user = user {
+            request.predicate = NSPredicate(format: "author = %@", user)
+        }
+        
+        var fetchedPosts: [Post] = []
+        
+        do {
+            fetchedPosts = try persistentContainer.viewContext.fetch(request)
+            completion?(.success(fetchedPosts))
+        } catch {
+            completion?(.failure(.fetchError))
+        }
     }
     
 }
 
 // MARK: - User requests
+
 extension DataManager {
 
-    func addNewUser(for username: String) -> User? {
-        guard username.isValidUsername else { return nil }
+    func addNewUser(for username: String, completion: RequestCompletion<User>?) {
+        guard username.isValidUsername else {
+            completion?(.failure(.invalidData))
+            return
+        }
         
         let entity = User(context: persistentContainer.viewContext)
         entity.username = username
         entity.joinedDate = .init()
         
-        saveContext()
-        
-        return entity
+        do {
+            try saveContext()
+            completion?(.success(entity))
+        } catch {
+            completion?(.failure(.saveError))
+        }
     }
     
-    func getUsers() -> [User] {
+    func getUsers(completion: RequestCompletion<[User]>?) {
         let request: NSFetchRequest<User> = User.fetchRequest()
-        
         request.sortDescriptors = [NSSortDescriptor(key: "joinedDate", ascending: true)]
         
         var fetchedUsers: [User] = []
         
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)
+            completion?(.success(fetchedUsers))
         } catch {
-            print("Erro fetching posts")
+            completion?(.failure(.fetchError))
         }
-        
-        return fetchedUsers
     }
     
 }
