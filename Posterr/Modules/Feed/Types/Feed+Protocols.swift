@@ -75,3 +75,9 @@ protocol PostReplyMenuDelegate: AnyObject {
     func didTapQuote()
     
 }
+
+protocol PostMessageViewDelegate: AnyObject {
+    
+    func didTouchCloseButton()
+    
+}

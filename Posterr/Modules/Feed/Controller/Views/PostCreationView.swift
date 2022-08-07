@@ -13,7 +13,7 @@ final class PostCreationView: UIView {
     weak var delegate: PostCreationViewDelegate?
     private var post: Post?
     
-    private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost)
+    private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost, delegate: self, shouldDisplayCloseButton: true)
     
     // TODO: Add placeholder text
     private lazy var textView: UITextView = {
@@ -52,11 +52,20 @@ final class PostCreationView: UIView {
     @objc func didTouchPostButton() {
         if !textView.text.isBlankOrEmpty {
             post(message: textView.text)
-            textView.clear()
-            remainingCharactersLabel.text = nil
-            quoteMessageView.removeFromSuperview()
+            clear()
             setupViews()
         }
+    }
+    
+    private func clear() {
+        textView.clear()
+        remainingCharactersLabel.text = nil
+        removeMessageView()
+    }
+    
+    private func removeMessageView() {
+        post = nil
+        quoteMessageView.removeFromSuperview()
     }
     
     func post(message: String) {
@@ -126,6 +135,15 @@ extension PostCreationView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         delegate?.postCreationView(self, shouldChangeTextIn: range, with: text, for: textView) ?? false
+    }
+    
+}
+
+extension PostCreationView: PostMessageViewDelegate {
+    
+    func didTouchCloseButton() {
+        removeMessageView()
+        setupViews()
     }
     
 }

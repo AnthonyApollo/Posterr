@@ -9,13 +9,34 @@ import UIKit
 
 final class PostMessageView: UIView {
     
+    weak var delegate: PostMessageViewDelegate?
     private let type: PostType
+    private let shouldDisplayCloseButton: Bool
+    
+    private lazy var firstRowStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        
+        return stackView
+    }()
     
     private lazy var authorUsernameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         
         return label
+    }()
+    
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Close", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        
+        button.addTarget(self, action: #selector(didTouchCloseButton), for: .touchUpInside)
+        
+        return button
     }()
     
     private lazy var messageLabel: UILabel = {
@@ -25,8 +46,10 @@ final class PostMessageView: UIView {
         return label
     }()
     
-    init(type: PostType = .post) {
+    init(type: PostType = .post, delegate: PostMessageViewDelegate? = nil, shouldDisplayCloseButton: Bool = false) {
         self.type = type
+        self.delegate = delegate
+        self.shouldDisplayCloseButton = shouldDisplayCloseButton
         
         super.init(frame: .zero)
         
@@ -50,6 +73,10 @@ final class PostMessageView: UIView {
         setupViews()
     }
     
+    @objc private func didTouchCloseButton() {
+        delegate?.didTouchCloseButton()
+    }
+    
 }
 
 extension PostMessageView: CodableView {
@@ -60,11 +87,16 @@ extension PostMessageView: CodableView {
     }
     
     func buildViews() {
-        addSubviews(authorUsernameLabel, messageLabel)
+        addSubviews(firstRowStackView, messageLabel)
+        firstRowStackView.addArrangedSubview(authorUsernameLabel)
+        
+        if type == .quotePost && shouldDisplayCloseButton {
+            firstRowStackView.addArrangedSubview(closeButton)
+        }
     }
     
     func configConstraints() {
-        authorUsernameLabel.snp.makeConstraints { make in
+        firstRowStackView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(8)
         }
