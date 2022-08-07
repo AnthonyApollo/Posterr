@@ -87,10 +87,8 @@ extension DataManager {
     
     func getPosts(from user: User?, completion: RequestCompletion<[Post]>?) {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        if let user = user {
-            request.predicate = NSPredicate(format: "author = %@", user)
-        }
+        request.sortBy(key: "date", ascending: false)
+        request.filterBy(user: user, with: "author")
         
         var fetchedPosts: [Post] = []
         
@@ -128,7 +126,7 @@ extension DataManager {
     
     func getUsers(completion: RequestCompletion<[User]>?) {
         let request: NSFetchRequest<User> = User.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "joinedDate", ascending: true)]
+        request.sortBy(key: "joinedDate", ascending: true)
         
         var fetchedUsers: [User] = []
         
