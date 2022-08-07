@@ -69,7 +69,7 @@ extension FeedViewController: PostCreationViewDelegate {
     func postCreationView(_ postCreationView: PostCreationView, shouldChangeTextIn range: NSRange, with text: String, for textView: UITextView) -> Bool {
         let textViewLength = textView.text.count + (text.count - range.length)
         
-        presenter.updateLabelIfNeeded(postCreationView, for: textViewLength)
+        presenter.updateRemainingCharactersLabelIfNeeded(postCreationView, for: textViewLength)
 
         return presenter.shouldUpdateTextView(for: textViewLength)
     }

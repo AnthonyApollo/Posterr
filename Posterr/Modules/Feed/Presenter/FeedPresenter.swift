@@ -31,7 +31,7 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         interactor.getPosts(from: shouldDisplayOnlyUserPosts ? currentUser : nil)
     }
     
-    func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int) {
+    func updateRemainingCharactersLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int) {
         guard shouldUpdateTextView(for: textLength) else { return }
         
         let text = textLength == 0 ? nil : String(postMaximumCharacters - textLength)

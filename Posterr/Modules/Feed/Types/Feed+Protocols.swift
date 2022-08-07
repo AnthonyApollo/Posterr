@@ -19,7 +19,7 @@ protocol FeedPresenterProtocol: AnyObject {
     var view: FeedViewProtocol? { get set }
     
     func setup()
-    func updateLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int)
+    func updateRemainingCharactersLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int)
     func shouldUpdateTextView(for length: Int) -> Bool
     func post(_: String)
     func repost(_: Post)
