@@ -66,6 +66,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         view?.reloadFeed()
     }
     
+    func getMorePostsSucceeded(with olderPosts: [Post]) {
+        insert(olderPosts: olderPosts)
+    }
+    
     func addNewPostSucceeded(with post: Post) {
         insert(post: post)
     }
@@ -85,7 +89,23 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     private func insert(post: Post) {
         posts?.insert(post, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
-        view?.insertPosts(at: [indexPath])
+        
+        DispatchQueue.main.async {
+            self.view?.insertPosts(at: [indexPath])
+        }
+    }
+    
+    private func insert(olderPosts: [Post]) {
+        let offset = posts?.count ?? 0
+        posts = (posts ?? []) + olderPosts
+        
+        let indexPaths = olderPosts.enumerated().map { index, _ in
+            IndexPath(row: offset + index, section: 0)
+        }
+        
+        DispatchQueue.main.async {
+            self.view?.insertPosts(at: indexPaths)
+        }
     }
     
 }
@@ -103,6 +123,8 @@ extension FeedPresenter: UITableViewDataSource {
         cell.setup(with: post)
         cell.delegate = view as? PostTableViewCellDelegate
         
+        getMorePostsIfNeeded(for: indexPath)
+        
         return cell
     }
     
@@ -116,6 +138,14 @@ extension FeedPresenter: UITableViewDataSource {
         }
         
         return tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+    }
+    
+    private func getMorePostsIfNeeded(for indexPath: IndexPath) {
+        guard let posts = posts else { return }
+        
+        if indexPath.row == posts.count - 1 {
+            interactor.getMorePosts(from: currentUser)
+        }
     }
     
 }

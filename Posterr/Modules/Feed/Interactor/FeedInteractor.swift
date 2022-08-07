@@ -12,19 +12,41 @@ final class FeedInteractor: FeedInteractorProtocol {
     private let appDataSource: AppDataSourceProtocol
     weak var output: FeedInteractorOutputProtocol?
     
+    private let requestLimit = 5
+    private var requestOffset = 0
+    private var didReachEndOfList = false
+    
     init(appDataSource: AppDataSourceProtocol = DataManager.shared) {
         self.appDataSource = appDataSource
     }
     
     func getPosts(from user: User?) {
-        appDataSource.getPosts(from: user) { [weak self] result in
+        appDataSource.getPosts(from: user, with: requestLimit, and: requestOffset) { [weak self] result in
             switch result {
             case .success(let posts):
+                self?.controlPagination(with: posts.count)
                 self?.output?.getPostsSucceeded(with: posts)
             case .failure(let error):
                 self?.output?.operationFailed(with: error)
             }
         }
+    }
+    
+    func getMorePosts(from user: User?) {
+        appDataSource.getPosts(from: user, with: requestLimit, and: requestOffset) { [weak self] result in
+            switch result {
+            case .success(let posts):
+                self?.controlPagination(with: posts.count)
+                self?.output?.getMorePostsSucceeded(with: posts)
+            case .failure(let error):
+                self?.output?.operationFailed(with: error)
+            }
+        }
+    }
+    
+    private func controlPagination(with count: Int) {
+        didReachEndOfList = count < 5
+        requestOffset += count
     }
     
     func addNewPost(with message: String, for user: User) {
@@ -36,8 +58,6 @@ final class FeedInteractor: FeedInteractorProtocol {
                 self?.output?.operationFailed(with: error)
             }
         }
-        
-        
     }
     
     func addRepost(of post: Post, for user: User) {

@@ -85,10 +85,12 @@ extension DataManager {
         }
     }
     
-    func getPosts(from user: User?, completion: RequestCompletion<[Post]>?) {
+    func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortBy(key: "date", ascending: false)
         request.filterBy(user: user, with: "author")
+        request.fetchLimit = limit
+        request.fetchOffset = offset
         
         var fetchedPosts: [Post] = []
         
