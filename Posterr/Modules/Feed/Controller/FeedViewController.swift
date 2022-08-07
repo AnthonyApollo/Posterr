@@ -79,6 +79,10 @@ extension FeedViewController: PostTableViewCellDelegate {
             didTapRepost(for: originalPost)
         }
         
+        if let quotePost = post.quotePost {
+            didTapRepost(for: quotePost)
+        }
+        
         guard let username = post.author?.username,
               let postMessage = post.message else { return }
         
@@ -91,6 +95,16 @@ extension FeedViewController: PostTableViewCellDelegate {
     }
     
     func didTapQuote(for post: Post) {
+        if let originalPost = post.originalPost {
+            didTapQuote(for: originalPost)
+            return
+        }
+        
+        if let quotePost = post.quotePost {
+            didTapQuote(for: quotePost)
+            return
+        }
+        
         feedView.setupQuote(of: post)
     }
     
