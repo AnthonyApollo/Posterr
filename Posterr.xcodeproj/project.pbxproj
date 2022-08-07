@@ -34,6 +34,7 @@
 		156B5F36289F007F00BB8795 /* PostReplyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F35289F007F00BB8795 /* PostReplyMenu.swift */; };
 		156B5F39289F03DB00BB8795 /* RepostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F38289F03DB00BB8795 /* RepostTableViewCell.swift */; };
 		1576E88628A0425F00F26BBA /* DataSourceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1576E88528A0425F00F26BBA /* DataSourceProtocols.swift */; };
+		1576E88828A0520C00F26BBA /* DataSourceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1576E88728A0520C00F26BBA /* DataSourceEnums.swift */; };
 		1581D76E2899FCB5009C6593 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */; };
 		1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7712899FE4F009C6593 /* FeedViewController.swift */; };
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
@@ -95,6 +96,7 @@
 		156B5F35289F007F00BB8795 /* PostReplyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyMenu.swift; sourceTree = "<group>"; };
 		156B5F38289F03DB00BB8795 /* RepostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostTableViewCell.swift; sourceTree = "<group>"; };
 		1576E88528A0425F00F26BBA /* DataSourceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocols.swift; sourceTree = "<group>"; };
+		1576E88728A0520C00F26BBA /* DataSourceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceEnums.swift; sourceTree = "<group>"; };
 		1581D76D2899FCB5009C6593 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		1581D7712899FE4F009C6593 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				1576E88528A0425F00F26BBA /* DataSourceProtocols.swift */,
+				1576E88728A0520C00F26BBA /* DataSourceEnums.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				155BD3B2289C4DC30030B27A /* UIView+Extensions.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,
 				155AE507289B4A6A00D18F6B /* PostCreationView.swift in Sources */,
+				1576E88828A0520C00F26BBA /* DataSourceEnums.swift in Sources */,
 				155AE4FA289B123C00D18F6B /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
