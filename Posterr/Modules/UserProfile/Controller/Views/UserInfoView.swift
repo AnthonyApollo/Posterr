@@ -22,7 +22,7 @@ final class UserInfoView: UIView {
     
     private lazy var joinDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Date must be here"
+        label.text = user.joinedDate?.formattedString
         label.numberOfLines = 1
      
         return label

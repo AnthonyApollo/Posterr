@@ -42,6 +42,7 @@
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
 		15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */; };
 		15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */; };
+		15CF31F428A03AAF00314BB5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CF31F328A03AAF00314BB5 /* Date+Extensions.swift */; };
 		15E2880A289DA68800905E1A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E28809289DA68800905E1A /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
 		15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
 		15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
+		15CF31F328A03AAF00314BB5 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		15E28809289DA68800905E1A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */,
 				155A66E1289E10B3001A17AC /* String+Extensions.swift */,
 				156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */,
+				15CF31F328A03AAF00314BB5 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */,
 				155AE4ED289B04FC00D18F6B /* FeedPresenter.swift in Sources */,
 				1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */,
+				15CF31F428A03AAF00314BB5 /* Date+Extensions.swift in Sources */,
 				156B5F39289F03DB00BB8795 /* RepostTableViewCell.swift in Sources */,
 				155BD3BE289C883A0030B27A /* FeedInteractor.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
