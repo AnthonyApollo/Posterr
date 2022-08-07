@@ -66,20 +66,26 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         view?.reloadFeed()
     }
     
-    func addNewPostSucceeded() {
-        getPosts()
+    func addNewPostSucceeded(with post: Post) {
+        insert(post: post)
     }
     
-    func addRepostSucceeded() {
-        getPosts()
+    func addRepostSucceeded(with post: Post) {
+        insert(post: post)
     }
     
-    func addQuotePostSucceeded() {
-        getPosts()
+    func addQuotePostSucceeded(with post: Post) {
+        insert(post: post)
     }
     
     func operationFailed(with error: RequestError) {
         view?.displayAlert(with: "Oops, something went wrong.", and: error.errorDescription)
+    }
+    
+    private func insert(post: Post) {
+        posts?.insert(post, at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        view?.insertPosts(at: [indexPath])
     }
     
 }

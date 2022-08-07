@@ -50,6 +50,10 @@ extension FeedViewController: FeedViewProtocol {
         delegate?.didReloadFeed()
     }
     
+    func insertPosts(at indexPaths: [IndexPath]) {
+        feedView.insertPosts(at: indexPaths)
+    }
+    
 }
 
 extension FeedViewController: PostCreationViewDelegate {

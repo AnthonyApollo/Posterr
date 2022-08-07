@@ -39,6 +39,10 @@ final class FeedView: UIView {
     func setupQuote(of post: Post) {
         postCreationView.setupQuote(of: post)
     }
+    
+    func insertPosts(at indexPaths: [IndexPath]) {
+        postsTableView.insertRows(at: indexPaths, with: .right)
+    }
 }
 
 extension FeedView: CodableView {

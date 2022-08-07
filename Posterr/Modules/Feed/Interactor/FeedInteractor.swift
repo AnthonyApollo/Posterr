@@ -30,8 +30,8 @@ final class FeedInteractor: FeedInteractorProtocol {
     func addNewPost(with message: String, for user: User) {
         appDataSource.addNewPost(with: message, for: user) { [weak self] result in
             switch result {
-            case .success:
-                self?.output?.addNewPostSucceeded()
+            case .success(let post):
+                self?.output?.addNewPostSucceeded(with: post)
             case .failure(let error):
                 self?.output?.operationFailed(with: error)
             }
@@ -43,8 +43,9 @@ final class FeedInteractor: FeedInteractorProtocol {
     func addRepost(of post: Post, for user: User) {
         appDataSource.addRepost(of: post, for: user) { [weak self] result in
             switch result {
-            case .success:
-                self?.output?.addRepostSucceeded()
+            case .success(let post):
+                self?.output?.addRepostSucceeded(with: post)
+                break
             case .failure(let error):
                 self?.output?.operationFailed(with: error)
             }
@@ -54,8 +55,9 @@ final class FeedInteractor: FeedInteractorProtocol {
     func addQuotePost(for post: Post, with message: String, by user: User) {
         appDataSource.addQuotePost(for: post, with: message, by: user) { [weak self] result in
             switch result {
-            case .success:
-                self?.output?.addQuotePostSucceeded()
+            case .success(let post):
+                self?.output?.addQuotePostSucceeded(with: post)
+                break
             case .failure(let error):
                 self?.output?.operationFailed(with: error)
             }

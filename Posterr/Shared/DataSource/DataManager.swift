@@ -79,7 +79,7 @@ extension DataManager {
         
         do {
             try saveContext()
-            completion?(.success(post))
+            completion?(.success(entity))
         } catch {
             completion?(.failure(.saveError))
         }

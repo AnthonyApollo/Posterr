@@ -10,6 +10,7 @@ import UIKit
 protocol FeedViewProtocol: UIViewController {
     
     func reloadFeed()
+    func insertPosts(at: [IndexPath])
     
 }
 
@@ -40,9 +41,9 @@ protocol FeedInteractorProtocol: AnyObject {
 protocol FeedInteractorOutputProtocol: AnyObject {
     
     func getPostsSucceeded(with: [Post])
-    func addNewPostSucceeded()
-    func addRepostSucceeded()
-    func addQuotePostSucceeded()
+    func addNewPostSucceeded(with: Post)
+    func addRepostSucceeded(with: Post)
+    func addQuotePostSucceeded(with: Post)
     func operationFailed(with: RequestError)
     
 }
