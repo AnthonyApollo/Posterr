@@ -29,7 +29,7 @@ final class RepostTableViewCell: UITableViewCell, PostCell {
 extension RepostTableViewCell: CodableView {
     
     func configViews() {
-        backgroundColor = .white
+        backgroundColor = .clear
     }
     
     func buildViews() {

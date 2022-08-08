@@ -28,7 +28,7 @@ final class PostTableViewCell: UITableViewCell, PostCell {
 extension PostTableViewCell: CodableView {
     
     func configViews() {
-        backgroundColor = .white
+        backgroundColor = .clear
     }
     
     func buildViews() {

@@ -29,7 +29,7 @@ final class QuoteTableViewCell: UITableViewCell, PostCell {
 extension QuoteTableViewCell: CodableView {
     
     func configViews() {
-        backgroundColor = .white
+        backgroundColor = .clear
     }
     
     func buildViews() {

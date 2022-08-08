@@ -42,6 +42,8 @@ final class PostCreationView: UIView {
     private lazy var postButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didTouchPostButton), for: .touchUpInside)
+        button.setImage(.init(systemName: "paperplane.circle"), for: .disabled)
+        button.setImage(.init(systemName: "paperplane.circle.fill"), for: .normal)
         
         return button
     }()
@@ -61,15 +63,13 @@ final class PostCreationView: UIView {
     }
     
     func enablePostButton() {
-        postButton.setImage(.init(systemName: "paperplane.circle.fill"), for: .normal)
         postButton.imageView?.tintColor = nil
-        postButton.isUserInteractionEnabled = true
+        postButton.isEnabled = true
     }
     
     func disablePostButton() {
-        postButton.setImage(.init(systemName: "paperplane.circle"), for: .normal)
         postButton.imageView?.tintColor = .systemGray
-        postButton.isUserInteractionEnabled = false
+        postButton.isEnabled = false
     }
     
     @objc func didTouchPostButton() {
@@ -125,17 +125,9 @@ final class PostCreationView: UIView {
 extension PostCreationView: CodableView {
     
     func configViews() {
-        backgroundColor = .white
-        layer.cornerRadius = 5
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor.separator.cgColor
-        layer.shadowColor = UIColor.systemGray5.cgColor
-        layer.shadowOpacity = 0.8
-        layer.shadowOffset = CGSize(width: 2, height: 2)
-        layer.shadowRadius = 5
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-        
+        backgroundColor = .systemBackground
+        setThinBorder()
+        setLightShadow()
         disablePostButton()
     }
     
@@ -164,7 +156,7 @@ extension PostCreationView: CodableView {
         
         postButton.snp.makeConstraints { make in
             make.top.equalTo(remainingCharactersLabel.snp.top)
-            make.trailing.bottom.equalToSuperview().inset(8)
+            make.trailing.bottom.equalToSuperview().inset(16)
         }
         
         postButton.imageView?.snp.makeConstraints { make in
