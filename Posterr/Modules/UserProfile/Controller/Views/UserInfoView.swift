@@ -15,6 +15,7 @@ final class UserInfoView: UIView {
     private lazy var usernameLabel: UILabel = {
         let label = UILabel()
         label.text = user.username
+        label.font = .boldSystemFont(ofSize: 36)
         label.numberOfLines = 1
      
         return label
@@ -22,10 +23,21 @@ final class UserInfoView: UIView {
     
     private lazy var joinDateLabel: UILabel = {
         let label = UILabel()
-        label.text = user.joinedDate?.formattedString
+        label.text = "Joined \(user.joinedDate?.formattedString ?? "")"
+        label.textColor = .lightGray
         label.numberOfLines = 1
      
         return label
+    }()
+    
+    private lazy var countStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.spacing = 8
+        
+        return stackView
     }()
     
     private lazy var postCountView: PostCountView = .init(user: user, type: .post)
@@ -55,7 +67,10 @@ final class UserInfoView: UIView {
 extension UserInfoView: CodableView {
     
     func buildViews() {
-        addSubviews(usernameLabel, joinDateLabel, postCountView, repostCountView, quotePostCountView)
+        addSubviews(usernameLabel, joinDateLabel, countStackView)
+        countStackView.addArrangedSubview(postCountView)
+        countStackView.addArrangedSubview(quotePostCountView)
+        countStackView.addArrangedSubview(repostCountView)
     }
     
     func configConstraints() {
@@ -70,23 +85,10 @@ extension UserInfoView: CodableView {
             make.trailing.equalTo(usernameLabel.snp.trailing)
         }
         
-        postCountView.snp.makeConstraints { make in
+        countStackView.snp.makeConstraints { make in
             make.leading.equalTo(usernameLabel.snp.leading)
             make.top.equalTo(joinDateLabel.snp.bottom).offset(8)
-            make.trailing.equalTo(usernameLabel.snp.trailing)
-        }
-        
-        repostCountView.snp.makeConstraints { make in
-            make.leading.equalTo(usernameLabel.snp.leading)
-            make.top.equalTo(postCountView.snp.bottom).offset(8)
-            make.trailing.equalTo(usernameLabel.snp.trailing)
-        }
-        
-        quotePostCountView.snp.makeConstraints { make in
-            make.leading.equalTo(usernameLabel.snp.leading)
-            make.top.equalTo(repostCountView.snp.bottom).offset(8)
-            make.trailing.equalTo(usernameLabel.snp.trailing)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(8)
         }
     }
     

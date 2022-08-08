@@ -16,6 +16,7 @@ final class PostCountView: UIView {
     private lazy var countIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = type.icon
+        imageView.tintColor = .black
         
         return imageView
     }()
@@ -72,6 +73,7 @@ extension PostCountView: CodableView {
         countLabel.snp.makeConstraints { make in
             make.leading.equalTo(countIcon.snp.trailing).offset(8)
             make.centerY.equalTo(countIcon.snp.centerY)
+            make.trailing.equalToSuperview()
         }
     }
     
