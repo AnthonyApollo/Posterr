@@ -88,7 +88,7 @@ extension DataManager {
     func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortBy(key: "date", ascending: false)
-        request.filterBy(user: user, with: "author")
+        request.filterPostsBy(user: user)
         request.fetchLimit = limit
         request.fetchOffset = offset
         
@@ -135,6 +135,26 @@ extension DataManager {
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)
             completion?(.success(fetchedUsers))
+        } catch {
+            completion?(.failure(.fetchError))
+        }
+    }
+    
+    func getUser(with username: String, completion: RequestCompletion<User>?) {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.filterUsersBy(username: username)
+        
+        var fetchedUsers: [User] = []
+        
+        do {
+            fetchedUsers = try persistentContainer.viewContext.fetch(request)
+            
+            guard let user = fetchedUsers.first else {
+                completion?(.failure(.fetchError))
+                return
+            }
+            
+            completion?(.success(user))
         } catch {
             completion?(.failure(.fetchError))
         }

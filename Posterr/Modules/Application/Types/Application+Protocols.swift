@@ -5,7 +5,9 @@
 //  Created by Anthony Apollo on 05/08/22.
 //
 
-protocol ApplicationViewProtocol: AnyObject {
+import UIKit
+
+protocol ApplicationViewProtocol: UIViewController {
     
     var currentUser: User? { get set }
     var presenter: ApplicationPresenterProtocol { get }
@@ -32,5 +34,6 @@ protocol ApplicationInteractorProtocol: AnyObject {
 protocol ApplicationInteractorOutputProtocol: AnyObject {
     
     func getCurrentUserSucceeded(with: User)
+    func operationFailed(with: RequestError)
     
 }

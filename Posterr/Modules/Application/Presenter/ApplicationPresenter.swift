@@ -29,4 +29,8 @@ extension ApplicationPresenter: ApplicationInteractorOutputProtocol {
         view?.currentUser = user
     }
     
+    func operationFailed(with error: RequestError) {
+        view?.displayAlert(with: "Oops, something went wrong.", and: error.errorDescription)
+    }
+    
 }

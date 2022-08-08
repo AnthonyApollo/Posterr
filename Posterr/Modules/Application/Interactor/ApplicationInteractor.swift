@@ -17,19 +17,14 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
     }
     
     func getCurrentUser() {
-        appDataSource.getUsers() { [weak self] result in
+        appDataSource.getUser(with: "user2022") { [weak self] result in
             switch result {
-            case .success(let users):
-                guard let result = users.first else { return }
-                
-                self?.output?.getCurrentUserSucceeded(with: result)
+            case .success(let user):
+                self?.output?.getCurrentUserSucceeded(with: user)
             case .failure(let error):
-                // TODO: Handle error
-                print(error.localizedDescription)
+                self?.output?.operationFailed(with: error)
             }
         }
-        
-        
     }
     
 }

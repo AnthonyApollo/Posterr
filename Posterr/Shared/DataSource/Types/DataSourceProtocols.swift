@@ -17,5 +17,6 @@ protocol AppDataSourceProtocol: AnyObject {
     func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?)
     func addNewUser(for username: String, completion: RequestCompletion<User>?)
     func getUsers(completion: RequestCompletion<[User]>?)
+    func getUser(with username: String, completion: RequestCompletion<User>?)
     
 }
