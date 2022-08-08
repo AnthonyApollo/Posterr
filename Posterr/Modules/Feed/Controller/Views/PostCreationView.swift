@@ -31,7 +31,13 @@ final class PostCreationView: UIView {
         return textView
     }()
     
-    private lazy var remainingCharactersLabel: UILabel = .init()
+    private lazy var remainingCharactersLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .systemGray
+        
+        return label
+    }()
     
     private lazy var postButton: UIButton = {
         let button = UIButton()
