@@ -35,9 +35,6 @@ final class PostCreationView: UIView {
     
     private lazy var postButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Post", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        
         button.addTarget(self, action: #selector(didTouchPostButton), for: .touchUpInside)
         
         return button
@@ -55,6 +52,19 @@ final class PostCreationView: UIView {
     
     func updateRemainingCharacters(with count: String?) {
         remainingCharactersLabel.text = count
+        enablePostButton()
+    }
+    
+    func enablePostButton() {
+        postButton.setImage(.init(systemName: "paperplane.circle.fill"), for: .normal)
+        postButton.imageView?.tintColor = nil
+        postButton.isUserInteractionEnabled = true
+    }
+    
+    func disablePostButton() {
+        postButton.setImage(.init(systemName: "paperplane.circle"), for: .normal)
+        postButton.imageView?.tintColor = .systemGray
+        postButton.isUserInteractionEnabled = false
     }
     
     @objc func didTouchPostButton() {
@@ -67,7 +77,7 @@ final class PostCreationView: UIView {
     
     private func clear() {
         textView.clear()
-        remainingCharactersLabel.text = nil
+        updateRemainingCharacters(with: nil)
         removeMessageView()
     }
     
@@ -120,6 +130,8 @@ extension PostCreationView: CodableView {
         layer.shadowRadius = 5
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
+        
+        disablePostButton()
     }
     
     func buildViews() {
@@ -147,8 +159,11 @@ extension PostCreationView: CodableView {
         
         postButton.snp.makeConstraints { make in
             make.top.equalTo(remainingCharactersLabel.snp.top)
-            make.trailing.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview()
+            make.trailing.bottom.equalToSuperview().inset(8)
+        }
+        
+        postButton.imageView?.snp.makeConstraints { make in
+            make.size.equalTo(36)
         }
     }
     
