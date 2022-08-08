@@ -14,8 +14,8 @@ extension UIView {
     }
     
     func setLightShadow() {
-        layer.shadowColor = UIColor.systemGray4.cgColor
-        layer.shadowOpacity = 0.8
+        layer.shadowColor = UIColor.systemGray.cgColor
+        layer.shadowOpacity = 0.2
         layer.shadowOffset = CGSize(width: 2, height: 2)
         layer.shadowRadius = 5
         layer.shouldRasterize = true

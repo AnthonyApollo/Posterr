@@ -16,7 +16,7 @@ final class PostCountView: UIView {
     private lazy var countIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = type.icon
-        imageView.tintColor = .black
+        imageView.tintColor = .label
         
         return imageView
     }()

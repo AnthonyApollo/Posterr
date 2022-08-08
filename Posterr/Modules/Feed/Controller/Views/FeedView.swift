@@ -14,7 +14,7 @@ final class FeedView: UIView {
     
     lazy var postsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .systemBackground
         tableView.showsVerticalScrollIndicator = false
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         tableView.register(RepostTableViewCell.self, forCellReuseIdentifier: "RepostTableViewCell")
@@ -63,7 +63,7 @@ final class FeedView: UIView {
 extension FeedView: CodableView {
     
     func configViews() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
     
     func buildViews() {

@@ -51,7 +51,7 @@ final class UserProfileView: UIView {
 extension UserProfileView: CodableView {
     
     func configViews() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
     
     func buildViews() {
