@@ -13,9 +13,17 @@ final class PostCreationView: UIView {
     weak var delegate: PostCreationViewDelegate?
     private var post: Post?
     
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "What's on your mind?"
+        label.font = .boldSystemFont(ofSize: 24)
+        label.numberOfLines = 1
+     
+        return label
+    }()
+    
     private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost, delegate: self, shouldDisplayCloseButton: true)
     
-    // TODO: Add placeholder text
     private lazy var textView: UITextView = {
         let textView = UITextView()
         textView.delegate = self
@@ -90,8 +98,9 @@ final class PostCreationView: UIView {
         }
         
         textView.snp.remakeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.leading)
             make.top.equalTo(quoteMessageView.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview()
+            make.trailing.equalTo(titleLabel.snp.trailing)
             make.height.equalTo(50)
         }
     }
@@ -101,18 +110,32 @@ final class PostCreationView: UIView {
 extension PostCreationView: CodableView {
     
     func configViews() {
+        backgroundColor = .white
         layer.cornerRadius = 5
         layer.borderWidth = 0.5
         layer.borderColor = UIColor.separator.cgColor
+        layer.shadowColor = UIColor.systemGray5.cgColor
+        layer.shadowOpacity = 0.8
+        layer.shadowOffset = CGSize(width: 2, height: 2)
+        layer.shadowRadius = 5
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
     
     func buildViews() {
-        addSubviews(textView, remainingCharactersLabel, postButton)
+        addSubviews(titleLabel, textView, remainingCharactersLabel, postButton)
     }
     
     func configConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().inset(8)
+        }
+        
         textView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.trailing.equalTo(titleLabel.snp.trailing)
             make.height.equalTo(50)
         }
         
