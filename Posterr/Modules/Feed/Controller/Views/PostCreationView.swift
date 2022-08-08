@@ -52,7 +52,6 @@ final class PostCreationView: UIView {
     
     func updateRemainingCharacters(with count: String?) {
         remainingCharactersLabel.text = count
-        enablePostButton()
     }
     
     func enablePostButton() {
@@ -172,7 +171,8 @@ extension PostCreationView: CodableView {
 extension PostCreationView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        delegate?.postCreationView(self, shouldChangeTextIn: range, with: text, for: textView) ?? false
+        let textLength = textView.text.count + (text.count - range.length)
+        return delegate?.shouldUpdateTextView(for: textLength) ?? false
     }
     
 }

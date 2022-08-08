@@ -44,6 +44,19 @@ final class FeedView: UIView {
     func insertPosts(at indexPaths: [IndexPath]) {
         postsTableView.insertRows(at: indexPaths, with: .right)
     }
+    
+    func updateRemainingCharacters(with count: String?) {
+        postCreationView.updateRemainingCharacters(with: count)
+    }
+    
+    func enablePostButton() {
+        postCreationView.enablePostButton()
+    }
+    
+    func disablePostButton() {
+        postCreationView.disablePostButton()
+    }
+    
 }
 
 extension FeedView: CodableView {

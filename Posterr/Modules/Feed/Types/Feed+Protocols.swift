@@ -11,6 +11,9 @@ protocol FeedViewProtocol: UIViewController {
     
     func reloadFeed()
     func insertPosts(at: [IndexPath])
+    func updateRemainingCharacters(with: String?)
+    func enablePostButton()
+    func disablePostButton()
     
 }
 
@@ -19,8 +22,8 @@ protocol FeedPresenterProtocol: AnyObject {
     var view: FeedViewProtocol? { get set }
     
     func setup()
-    func updateRemainingCharactersLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int)
-    func shouldUpdateTextView(for length: Int) -> Bool
+    func updatePostCreationViewIfNeeded(for: Int)
+    func shouldUpdateTextView(for: Int) -> Bool
     func post(_: String)
     func repost(_: Post)
     func quote(_: Post, with: String)
@@ -60,7 +63,7 @@ protocol PostCell: UITableViewCell {
 
 protocol PostCreationViewDelegate: AnyObject {
     
-    func postCreationView(_: PostCreationView, shouldChangeTextIn: NSRange, with: String, for: UITextView) -> Bool
+    func shouldUpdateTextView(for: Int) -> Bool
     func didPost(_: String)
     func didPost(_: String, with: Post)
     

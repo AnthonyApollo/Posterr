@@ -54,6 +54,18 @@ extension FeedViewController: FeedViewProtocol {
         feedView.insertPosts(at: indexPaths)
     }
     
+    func updateRemainingCharacters(with count: String?) {
+        feedView.updateRemainingCharacters(with: count)
+    }
+    
+    func enablePostButton() {
+        feedView.enablePostButton()
+    }
+    
+    func disablePostButton() {
+        feedView.disablePostButton()
+    }
+    
 }
 
 extension FeedViewController: PostCreationViewDelegate {
@@ -66,12 +78,10 @@ extension FeedViewController: PostCreationViewDelegate {
         presenter.quote(post, with: message)
     }
     
-    func postCreationView(_ postCreationView: PostCreationView, shouldChangeTextIn range: NSRange, with text: String, for textView: UITextView) -> Bool {
-        let textViewLength = textView.text.count + (text.count - range.length)
+    func shouldUpdateTextView(for textLength: Int) -> Bool {
+        presenter.updatePostCreationViewIfNeeded(for: textLength)
         
-        presenter.updateRemainingCharactersLabelIfNeeded(postCreationView, for: textViewLength)
-
-        return presenter.shouldUpdateTextView(for: textViewLength)
+        return presenter.shouldUpdateTextView(for: textLength)
     }
     
 }

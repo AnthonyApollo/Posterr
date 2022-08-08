@@ -31,13 +31,21 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         interactor.getPosts(from: shouldDisplayOnlyUserPosts ? currentUser : nil)
     }
     
-    func updateRemainingCharactersLabelIfNeeded(_ postCreationView: PostCreationView, for textLength: Int) {
-        guard shouldUpdateTextView(for: textLength) else { return }
+    func updatePostCreationViewIfNeeded(for textViewLength: Int) {
+        guard shouldUpdateTextView(for: textViewLength) else { return }
         
-        let text = textLength == 0 ? nil : String(postMaximumCharacters - textLength)
+        let text: String?
+        
+        if textViewLength == 0 {
+            text = nil
+            view?.disablePostButton()
+        } else {
+            text = String(postMaximumCharacters - textViewLength)
+            view?.enablePostButton()
+        }
         
         DispatchQueue.main.async {
-            postCreationView.updateRemainingCharacters(with: text)
+            self.view?.updateRemainingCharacters(with: text)
         }
     }
     
