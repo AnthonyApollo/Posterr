@@ -17,7 +17,7 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
     }
     
     func getCurrentUser() {
-        appDataSource.getUser(with: "regularJonh22") { [weak self] result in
+        appDataSource.getUser(with: "regularJohn22") { [weak self] result in
             switch result {
             case .success(let user):
                 self?.output?.getCurrentUserSucceeded(with: user)
@@ -45,7 +45,7 @@ extension ApplicationInteractor {
         
         guard users.isEmpty else { return }
         
-        appDataSource.addNewUser(for: "regularJonh22") { [weak self] result in
+        appDataSource.addNewUser(for: "regularJohn22") { [weak self] result in
             switch result {
             case .success(let user):
                 self?.appDataSource.addNewPost(with: "Trying my social network ;)", for: user, completion: nil)
