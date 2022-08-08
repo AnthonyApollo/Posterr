@@ -68,9 +68,7 @@ extension UserInfoView: CodableView {
     
     func buildViews() {
         addSubviews(usernameLabel, joinDateLabel, countStackView)
-        countStackView.addArrangedSubview(postCountView)
-        countStackView.addArrangedSubview(quotePostCountView)
-        countStackView.addArrangedSubview(repostCountView)
+        countStackView.addArrangedSubviews(postCountView, quotePostCountView, repostCountView)
     }
     
     func configConstraints() {

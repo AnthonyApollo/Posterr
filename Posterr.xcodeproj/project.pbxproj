@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1503DC7D28A1D36D00510D3F /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */; };
 		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */; };
 		155A66E2289E10B3001A17AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66E1289E10B3001A17AC /* String+Extensions.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		155A66E1289E10B3001A17AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				155A66E1289E10B3001A17AC /* String+Extensions.swift */,
 				156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */,
 				15CF31F328A03AAF00314BB5 /* Date+Extensions.swift */,
+				1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				155BD3B2289C4DC30030B27A /* UIView+Extensions.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,
 				155AE507289B4A6A00D18F6B /* PostCreationView.swift in Sources */,
+				1503DC7D28A1D36D00510D3F /* UIStackView+Extensions.swift in Sources */,
 				1576E88828A0520C00F26BBA /* DataSourceEnums.swift in Sources */,
 				155AE4FA289B123C00D18F6B /* PostTableViewCell.swift in Sources */,
 			);
