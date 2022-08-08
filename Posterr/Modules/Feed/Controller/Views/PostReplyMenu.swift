@@ -13,8 +13,7 @@ final class PostReplyMenu: UIView {
     
     private lazy var repostButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Repost", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
+        button.setImage(PostType.repost.icon, for: .normal)
         
         button.addTarget(self, action: #selector(didTouchRepostButton), for: .touchUpInside)
         
@@ -23,9 +22,7 @@ final class PostReplyMenu: UIView {
     
     private lazy var quoteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Quote", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        
+        button.setImage(PostType.quotePost.icon, for: .normal)
         button.addTarget(self, action: #selector(didTouchQuoteButton), for: .touchUpInside)
         
         return button
@@ -62,15 +59,25 @@ extension PostReplyMenu: CodableView {
     
     func configConstraints() {
         repostButton.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(16)
+            make.trailing.bottom.equalToSuperview().inset(16)
         }
         
         quoteButton.snp.makeConstraints { make in
             make.top.equalTo(repostButton.snp.top)
-            make.trailing.equalTo(repostButton.snp.leading).offset(-8)
+            make.trailing.equalTo(repostButton.snp.leading).offset(-32)
             make.bottom.equalTo(repostButton.snp.bottom)
             make.leading.equalToSuperview()
         }
+        
+        repostButton.imageView?.snp.makeConstraints { make in
+            make.size.equalTo(28)
+        }
+        
+        quoteButton.imageView?.snp.makeConstraints { make in
+            make.size.equalTo(28)
+        }
+        
     }
     
 }

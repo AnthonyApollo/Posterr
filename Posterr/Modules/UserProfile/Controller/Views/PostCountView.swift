@@ -67,7 +67,7 @@ extension PostCountView: CodableView {
     func configConstraints() {
         countIcon.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
-            make.height.equalTo(24)
+            make.size.equalTo(24)
         }
         
         countLabel.snp.makeConstraints { make in

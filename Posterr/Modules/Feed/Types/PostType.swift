@@ -17,7 +17,7 @@ enum PostType {
             //TODO: Remove force unwrap
             return UIImage(systemName: "text.bubble")!
         case .repost:
-            return UIImage(systemName: "bubble.left.and.bubble.right")!
+            return UIImage(systemName: "plus.bubble")!
         case .quotePost:
             return UIImage(systemName: "quote.bubble")!
         }
