@@ -25,6 +25,7 @@ final class PostMessageView: UIView {
     private lazy var authorUsernameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
+        label.font = .boldSystemFont(ofSize: 18)
         
         return label
     }()
