@@ -21,6 +21,9 @@ final class FeedInteractor: FeedInteractorProtocol {
     }
     
     func getPosts(from user: User?) {
+        requestOffset = 0
+        didReachEndOfList = false
+        
         appDataSource.getPosts(from: user, with: requestLimit, and: requestOffset) { [weak self] result in
             switch result {
             case .success(let posts):
