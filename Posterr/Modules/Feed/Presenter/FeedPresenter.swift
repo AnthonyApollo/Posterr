@@ -152,7 +152,8 @@ extension FeedPresenter: UITableViewDataSource {
         guard let posts = posts else { return }
         
         if indexPath.row == posts.count - 1 {
-            interactor.getMorePosts(from: currentUser)
+            let user = shouldDisplayOnlyUserPosts ? currentUser : nil
+            interactor.getMorePosts(from: user)
         }
     }
     
