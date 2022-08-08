@@ -52,6 +52,7 @@ extension FeedViewController: FeedViewProtocol {
     
     func insertPosts(at indexPaths: [IndexPath]) {
         feedView.insertPosts(at: indexPaths)
+        delegate?.didReloadFeed()
     }
     
     func updateRemainingCharacters(with count: String?) {
