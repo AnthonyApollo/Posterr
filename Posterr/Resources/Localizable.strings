@@ -15,6 +15,7 @@
 // MARK: - Profile
 
 "profile.tabBar.title" = "Profile";
+"user.join.date" = "Joined %@";
 
 // MARK: - General
 

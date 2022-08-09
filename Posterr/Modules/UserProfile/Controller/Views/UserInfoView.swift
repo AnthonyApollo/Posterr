@@ -23,7 +23,7 @@ final class UserInfoView: UIView {
     
     private lazy var joinDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Joined \(user.joinedDate?.formattedString ?? "")"
+        label.text = Strings.userJoinDate(user.joinedDate?.formattedString ?? "")
         label.textColor = .lightGray
         label.numberOfLines = 1
      
