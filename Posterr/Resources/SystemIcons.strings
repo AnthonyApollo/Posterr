@@ -10,3 +10,6 @@
 "feed.tab.bar.icon.selected" = "bubble.left.fill";
 "user.tab.bar.icon" = "person.text.rectangle";
 "user.tab.bar.icon.selected" = "person.text.rectangle.fill";
+"post.icon" = "text.bubble";
+"repost.icon" = "plus.bubble";
+"quote.icon" = "quote.bubble";

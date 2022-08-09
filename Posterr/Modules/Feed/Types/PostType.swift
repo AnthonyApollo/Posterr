@@ -14,11 +14,11 @@ enum PostType {
     var icon: UIImage {
         switch self {
         case .post:
-            return UIImage.fromSystem(named: "text.bubble")
+            return UIImage.fromSystem(named: SystemIcons.postIcon())
         case .repost:
-            return UIImage.fromSystem(named: "plus.bubble")
+            return UIImage.fromSystem(named: SystemIcons.repostIcon())
         case .quotePost:
-            return UIImage.fromSystem(named: "quote.bubble")
+            return UIImage.fromSystem(named: SystemIcons.quoteIcon())
         }
     }
     

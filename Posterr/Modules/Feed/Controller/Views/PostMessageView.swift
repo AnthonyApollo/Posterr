@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol PostMessageViewDelegate: AnyObject {
+    
+    func didTouchCloseButton()
+    
+}
+
 final class PostMessageView: UIView {
     
     weak var delegate: PostMessageViewDelegate?

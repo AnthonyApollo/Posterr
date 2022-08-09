@@ -8,6 +8,14 @@
 import UIKit
 import SnapKit
 
+protocol PostCreationViewDelegate: AnyObject {
+    
+    func shouldUpdateTextView(for: Int) -> Bool
+    func didPost(_: String)
+    func didPost(_: String, with: Post)
+    
+}
+
 final class PostCreationView: UIView {
     
     weak var delegate: PostCreationViewDelegate?

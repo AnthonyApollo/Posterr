@@ -65,36 +65,9 @@ protocol PostCell: UITableViewCell {
     
 }
 
-protocol PostCreationViewDelegate: AnyObject {
-    
-    func shouldUpdateTextView(for: Int) -> Bool
-    func didPost(_: String)
-    func didPost(_: String, with: Post)
-    
-}
-
 protocol PostTableViewCellDelegate: AnyObject {
     
     func didTapRepost(for: Post)
     func didTapQuote(for: Post)
-    
-}
-
-protocol PostReplyMenuDelegate: AnyObject {
-    
-    func didTapRepost()
-    func didTapQuote()
-    
-}
-
-protocol PostMessageViewDelegate: AnyObject {
-    
-    func didTouchCloseButton()
-    
-}
-
-protocol FeedViewControllerDelegate: AnyObject {
-    
-    func didReloadFeed()
     
 }

@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol FeedViewControllerDelegate: AnyObject {
+    
+    func didReloadFeed()
+    
+}
+
 final class FeedViewController: UIViewController {
     
     private let presenter: FeedPresenterProtocol

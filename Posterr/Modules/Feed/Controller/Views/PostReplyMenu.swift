@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol PostReplyMenuDelegate: AnyObject {
+    
+    func didTapRepost()
+    func didTapQuote()
+    
+}
+
 final class PostReplyMenu: UIView {
     
     weak var delegate: PostReplyMenuDelegate?
