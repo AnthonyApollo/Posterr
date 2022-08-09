@@ -30,7 +30,7 @@ extension ApplicationPresenter: ApplicationInteractorOutputProtocol {
     }
     
     func operationFailed(with error: RequestError) {
-        view?.displayAlert(with: "Oops, something went wrong.", and: error.errorDescription)
+        view?.displayAlert(with: Strings.errorAlertTitle(), and: error.errorDescription)
     }
     
 }

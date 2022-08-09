@@ -128,7 +128,7 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     }
     
     func operationFailed(with error: RequestError) {
-        view?.displayAlert(with: "Oops, something went wrong.", and: error.errorDescription)
+        view?.displayAlert(with: Strings.errorAlertTitle(), and: error.errorDescription)
     }
     
     private func insert(post: Post) {
