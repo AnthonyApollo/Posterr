@@ -544,6 +544,7 @@
 				156A6FBB2899F70C003F75AE /* Sources */,
 				156A6FBC2899F70C003F75AE /* Frameworks */,
 				156A6FBD2899F70C003F75AE /* Resources */,
+				E4A1B387546BBD6AE8F11400 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -608,7 +609,7 @@
 			);
 			mainGroup = 156A6FA02899F70A003F75AE;
 			packageReferences = (
-				155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit.git" */,
 			);
 			productRefGroup = 156A6FAA2899F70A003F75AE /* Products */;
 			projectDirPath = "";
@@ -767,6 +768,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A1B387546BBD6AE8F11400 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PosterrTests/Pods-PosterrTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PosterrTests/Pods-PosterrTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PosterrTests/Pods-PosterrTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1156,7 +1174,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1169,7 +1187,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		155AE4E9289B00B600D18F6B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 155AE4E8289B00B600D18F6B /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
