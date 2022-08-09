@@ -16,9 +16,9 @@ final class FeedView: UIView {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .systemBackground
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
-        tableView.register(RepostTableViewCell.self, forCellReuseIdentifier: "RepostTableViewCell")
-        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "QuoteTableViewCell")
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseIdentifier.identifier)
+        tableView.register(RepostTableViewCell.self, forCellReuseIdentifier: RepostTableViewCell.reuseIdentifier.identifier)
+        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.reuseIdentifier.identifier)
         
         return tableView
     }()

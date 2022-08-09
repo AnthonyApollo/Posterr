@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import Rswift
 
 final class PostTableViewCell: UITableViewCell, PostCell {
+    
+    static let reuseIdentifier: ReuseIdentifier<PostTableViewCell> = ReuseIdentifier(identifier: "PostTableViewCell")
     
     weak var delegate: PostTableViewCellDelegate?
     private var post: Post?

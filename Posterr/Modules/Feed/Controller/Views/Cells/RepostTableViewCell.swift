@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Rswift
 
 final class RepostTableViewCell: UITableViewCell, PostCell {
+    
+    static let reuseIdentifier: ReuseIdentifier<RepostTableViewCell> = ReuseIdentifier(identifier: "RepostTableViewCell")
     
     weak var delegate: PostTableViewCellDelegate?
     private var post: Post?

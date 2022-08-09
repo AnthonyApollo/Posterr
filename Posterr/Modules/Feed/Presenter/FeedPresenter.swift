@@ -179,14 +179,14 @@ extension FeedPresenter: UITableViewDataSource {
     
     private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
         guard post.quotePost == nil else {
-            return tableView.dequeueReusableCell(withIdentifier: "QuoteTableViewCell", for: indexPath) as? QuoteTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.reuseIdentifier, for: indexPath)
         }
         
         guard post.originalPost == nil else {
-            return tableView.dequeueReusableCell(withIdentifier: "RepostTableViewCell", for: indexPath) as? RepostTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: RepostTableViewCell.reuseIdentifier, for: indexPath)
         }
         
-        return tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+        return tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath)
     }
     
     private func getMorePostsIfNeeded(for indexPath: IndexPath) {
