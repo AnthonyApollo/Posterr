@@ -10,7 +10,7 @@ import SnapKit
 
 final class UserInfoView: UIView {
     
-    private let user: User
+    private var user: User
     
     private lazy var usernameLabel: UILabel = {
         let label = UILabel()
@@ -56,10 +56,11 @@ final class UserInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update() {
-        postCountView.update()
-        repostCountView.update()
-        quotePostCountView.update()
+    func update(with user: User) {
+        self.user = user
+        postCountView.update(with: user)
+        repostCountView.update(with: user)
+        quotePostCountView.update(with: user)
     }
     
 }

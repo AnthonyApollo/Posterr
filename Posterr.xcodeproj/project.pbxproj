@@ -57,6 +57,9 @@
 		15E9B91E28A204EF00C0F444 /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B91D28A204EF00C0F444 /* ApplicationRouter.swift */; };
 		15E9B92128A205CC00C0F444 /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B92028A205CC00C0F444 /* FeedRouter.swift */; };
 		15E9B92428A2069700C0F444 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B92328A2069700C0F444 /* UserProfileRouter.swift */; };
+		15F7973828A32357006066E4 /* UserProfile+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973728A32357006066E4 /* UserProfile+Protocols.swift */; };
+		15F7973C28A325D1006066E4 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973B28A325D1006066E4 /* UserProfilePresenter.swift */; };
+		15F7973F28A326BE006066E4 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */; };
 		31C63398FABE7D9BAE7B9E22 /* Pods_PosterrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B92FC237162CA7C189F065 /* Pods_PosterrTests.framework */; };
 		A52B6294DD066D7274DD89E2 /* Pods_Posterr_PosterrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC736BEB9CB33B014895516E /* Pods_Posterr_PosterrUITests.framework */; };
 		FB5B831A5C5722B02B067406 /* Pods_Posterr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */; };
@@ -133,6 +136,9 @@
 		15E9B91D28A204EF00C0F444 /* ApplicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
 		15E9B92028A205CC00C0F444 /* FeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
 		15E9B92328A2069700C0F444 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
+		15F7973728A32357006066E4 /* UserProfile+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Protocols.swift"; sourceTree = "<group>"; };
+		15F7973B28A325D1006066E4 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Posterr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		654C689D38F961310215FA8A /* Pods-Posterr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.release.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.release.xcconfig"; sourceTree = "<group>"; };
 		82A543EFF94694D2CCF6F43B /* Pods-Posterr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.debug.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -386,6 +392,9 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
+				15F7973D28A326A8006066E4 /* Interactor */,
+				15F7973A28A325BE006066E4 /* Presenter */,
+				15F7973628A3231B006066E4 /* Types */,
 				15E9B92228A2067E00C0F444 /* Router */,
 			);
 			path = UserProfile;
@@ -496,6 +505,30 @@
 				15E9B92328A2069700C0F444 /* UserProfileRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		15F7973628A3231B006066E4 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				15F7973728A32357006066E4 /* UserProfile+Protocols.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		15F7973A28A325BE006066E4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15F7973B28A325D1006066E4 /* UserProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15F7973D28A326A8006066E4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		68E6C44989A5BD67EAC6CBD5 /* Frameworks */ = {
@@ -827,6 +860,7 @@
 				155A66E0289E0E9F001A17AC /* UITextView+Convenience.swift in Sources */,
 				15E2880A289DA68800905E1A /* DataManager.swift in Sources */,
 				155A66E2289E10B3001A17AC /* String+Validation.swift in Sources */,
+				15F7973828A32357006066E4 /* UserProfile+Protocols.swift in Sources */,
 				15E9B91328A2006500C0F444 /* Typealiases.swift in Sources */,
 				15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */,
 				1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */,
@@ -837,9 +871,11 @@
 				15E9B92428A2069700C0F444 /* UserProfileRouter.swift in Sources */,
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Safe.swift in Sources */,
+				15F7973C28A325D1006066E4 /* UserProfilePresenter.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
 				156B5F34289EFAE900BB8795 /* PostType.swift in Sources */,
 				15E9B92128A205CC00C0F444 /* FeedRouter.swift in Sources */,
+				15F7973F28A326BE006066E4 /* UserProfileInteractor.swift in Sources */,
 				1581D778289A0DB7009C6593 /* FeedView.swift in Sources */,
 				155BD3B2289C4DC30030B27A /* UIView+Convenience.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,

@@ -23,9 +23,9 @@ struct User {
         
         self.username = username
         self.joinDate = joinDate
-        self.posts = 0
-        self.reposts = 0
-        self.quotePosts = 0
+        self.posts = Int(dto.posts)
+        self.reposts = Int(dto.reposts)
+        self.quotePosts = Int(dto.quotePosts)
         
         self.dto = dto
     }

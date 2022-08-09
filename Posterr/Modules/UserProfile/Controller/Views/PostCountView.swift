@@ -10,7 +10,7 @@ import SnapKit
 
 final class PostCountView: UIView {
     
-    private let user: User
+    private var user: User
     private let type: PostType
     
     private lazy var countIcon: UIImageView = {
@@ -41,7 +41,8 @@ final class PostCountView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update() {
+    func update(with user: User) {
+        self.user = user
         countLabel.text = getCountLabelText()
     }
     
@@ -49,11 +50,11 @@ final class PostCountView: UIView {
         switch type {
         case .post:
             // TODO: Update user instead of access DTO
-            return String(user.dto?.posts ?? 0)
+            return String(user.posts)
         case .repost:
-            return String(user.dto?.reposts ?? 0)
+            return String(user.reposts)
         case .quotePost:
-            return String(user.dto?.quotePosts ?? 0)
+            return String(user.quotePosts)
         }
     }
     

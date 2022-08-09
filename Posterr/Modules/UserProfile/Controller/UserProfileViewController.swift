@@ -10,11 +10,14 @@ import UIKit
 
 final class UserProfileViewController: UIViewController {
     
-    private let currentUser: User
+    var currentUser: User
+    let presenter: UserProfilePresenterProtocol
+    
     private lazy var profileView: UserProfileView = .init(user: currentUser, feedViewControllerDelegate: self)
     
-    init(currentUser: User) {
+    init(currentUser: User, presenter: UserProfilePresenterProtocol) {
         self.currentUser = currentUser
+        self.presenter = presenter
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,10 +39,18 @@ final class UserProfileViewController: UIViewController {
     
 }
 
+extension UserProfileViewController: UserProfileViewProtocol {
+    
+    func updateUserInfo() {
+        profileView.updateUserInfo(with: currentUser)
+    }
+    
+}
+
 extension UserProfileViewController: FeedViewControllerDelegate {
     
     func didReloadFeed() {
-        profileView.updateUserInfo()
+        presenter.updateUser()
     }
     
 }

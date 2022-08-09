@@ -10,7 +10,7 @@ import SnapKit
 
 final class UserProfileView: UIView {
     
-    private let user: User
+    private var user: User
     private lazy var infoView: UserInfoView = .init(user: user)
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     
@@ -35,8 +35,9 @@ final class UserProfileView: UIView {
         feedViewController.updateUI()
     }
     
-    func updateUserInfo() {
-        infoView.update()
+    func updateUserInfo(with user: User) {
+        self.user = user
+        infoView.update(with: user)
     }
     
 }
