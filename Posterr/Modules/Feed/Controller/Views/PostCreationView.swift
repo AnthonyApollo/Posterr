@@ -120,6 +120,10 @@ final class PostCreationView: UIView {
         }
     }
     
+    @objc private func wasTapped() {
+        textView.becomeFirstResponder()
+    }
+    
 }
     
 extension PostCreationView: CodableView {
@@ -129,6 +133,10 @@ extension PostCreationView: CodableView {
         setThinBorder()
         setLightShadow()
         disablePostButton()
+        
+        isUserInteractionEnabled = true
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(wasTapped))
+        addGestureRecognizer(recognizer)
     }
     
     func buildViews() {
