@@ -19,7 +19,7 @@ final class RepostTableViewCell: UITableViewCell, PostCell {
     func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
-        repostMessageView.setup(with: post.originalPost!)
+        repostMessageView.setup(with: post.originalPost ?? post)
         
         setupViews()
     }
