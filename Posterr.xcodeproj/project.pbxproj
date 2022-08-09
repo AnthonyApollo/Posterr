@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1503DC7D28A1D36D00510D3F /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */; };
+		1503DC8128A1EE4F00510D3F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503DC8028A1EE4F00510D3F /* UIImage+Extensions.swift */; };
 		15419255289D998D005B907A /* Posterr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15419253289D998D005B907A /* Posterr.xcdatamodeld */; };
 		155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */; };
 		155A66E2289E10B3001A17AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A66E1289E10B3001A17AC /* String+Extensions.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		1503DC8028A1EE4F00510D3F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		15419254289D998D005B907A /* Posterr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posterr.xcdatamodel; sourceTree = "<group>"; };
 		155A66DF289E0E9F001A17AC /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		155A66E1289E10B3001A17AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				156B5F30289EF1AE00BB8795 /* UIViewController+Extensions.swift */,
 				15CF31F328A03AAF00314BB5 /* Date+Extensions.swift */,
 				1503DC7C28A1D36D00510D3F /* UIStackView+Extensions.swift */,
+				1503DC8028A1EE4F00510D3F /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				156B5F39289F03DB00BB8795 /* RepostTableViewCell.swift in Sources */,
 				155BD3BE289C883A0030B27A /* FeedInteractor.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
+				1503DC8128A1EE4F00510D3F /* UIImage+Extensions.swift in Sources */,
 				15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */,
 				155AE501289B2D4E00D18F6B /* UserProfileView.swift in Sources */,
 				155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */,

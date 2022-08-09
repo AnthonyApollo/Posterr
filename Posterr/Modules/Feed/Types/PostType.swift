@@ -14,12 +14,11 @@ enum PostType {
     var icon: UIImage {
         switch self {
         case .post:
-            //TODO: Remove force unwrap
-            return UIImage(systemName: "text.bubble")!
+            return UIImage.fromSystem(named: "text.bubble")
         case .repost:
-            return UIImage(systemName: "plus.bubble")!
+            return UIImage.fromSystem(named: "plus.bubble")
         case .quotePost:
-            return UIImage(systemName: "quote.bubble")!
+            return UIImage.fromSystem(named: "quote.bubble")
         }
     }
     
