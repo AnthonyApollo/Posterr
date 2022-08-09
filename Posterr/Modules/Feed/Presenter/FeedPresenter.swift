@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FeedPresenter: NSObject, FeedPresenterProtocol {
+final class FeedPresenter: NSObject {
     
     private let postMaximumCharacters = 777
     
@@ -23,30 +23,89 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         self.shouldDisplayOnlyUserPosts = shouldDisplayOnlyUserPosts
     }
     
-    func setup() {
-        getPosts()
-    }
-    
     private func getPosts() {
         interactor.getPosts(from: shouldDisplayOnlyUserPosts ? currentUser : nil)
+    }
+    
+    private func updatePostCreation(with remainingCharacters: String) {
+        DispatchQueue.main.async {
+            self.view?.enablePostButton()
+            self.view?.updateRemainingCharacters(with: remainingCharacters)
+        }
+    }
+    
+    private func disablePostCreation() {
+        DispatchQueue.main.async {
+            self.view?.disablePostButton()
+            self.view?.updateRemainingCharacters(with: nil)
+        }
+    }
+    
+    private func insert(post: Post) {
+        posts?.insert(post, at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        
+        DispatchQueue.main.async {
+            self.view?.insertPosts(at: [indexPath])
+        }
+    }
+    
+    private func insert(olderPosts: [Post]) {
+        let offset = posts?.count ?? 0
+        posts = (posts ?? []) + olderPosts
+        
+        let indexPaths = olderPosts.enumerated().map { index, _ in
+            IndexPath(row: offset + index, section: 0)
+        }
+        
+        DispatchQueue.main.async {
+            self.view?.insertPosts(at: indexPaths)
+        }
+    }
+    
+    private func scrollFeedToTop() {
+        view?.scrollFeed(to: IndexPath(row: 0, section: 0))
+    }
+    
+    private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
+        guard post.quotePost == nil else {
+            return tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.reuseIdentifier, for: indexPath)
+        }
+        
+        guard post.originalPost == nil else {
+            return tableView.dequeueReusableCell(withIdentifier: RepostTableViewCell.reuseIdentifier, for: indexPath)
+        }
+        
+        return tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath)
+    }
+    
+    private func getMorePostsIfNeeded(for indexPath: IndexPath) {
+        guard let posts = posts else { return }
+        
+        if indexPath.row == posts.count - 1 {
+            let user = shouldDisplayOnlyUserPosts ? currentUser : nil
+            interactor.getMorePosts(from: user)
+        }
+    }
+    
+}
+
+extension FeedPresenter: FeedPresenterProtocol {
+    
+    func setup() {
+        getPosts()
     }
     
     func updatePostCreationViewIfNeeded(for textViewLength: Int) {
         guard shouldUpdateTextView(for: textViewLength) else { return }
         
-        let text: String?
-        
-        if textViewLength == 0 {
-            text = nil
-            view?.disablePostButton()
-        } else {
-            text = String(postMaximumCharacters - textViewLength)
-            view?.enablePostButton()
+        guard textViewLength > 0 else {
+            disablePostCreation()
+            return
         }
         
-        DispatchQueue.main.async {
-            self.view?.updateRemainingCharacters(with: text)
-        }
+        let remainingCharacters = String(postMaximumCharacters - textViewLength)
+        updatePostCreation(with: remainingCharacters)
     }
     
     func shouldUpdateTextView(for length: Int) -> Bool {
@@ -131,32 +190,6 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         view?.displayAlert(with: Strings.errorAlertTitle(), and: error.errorDescription)
     }
     
-    private func insert(post: Post) {
-        posts?.insert(post, at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        DispatchQueue.main.async {
-            self.view?.insertPosts(at: [indexPath])
-        }
-    }
-    
-    private func insert(olderPosts: [Post]) {
-        let offset = posts?.count ?? 0
-        posts = (posts ?? []) + olderPosts
-        
-        let indexPaths = olderPosts.enumerated().map { index, _ in
-            IndexPath(row: offset + index, section: 0)
-        }
-        
-        DispatchQueue.main.async {
-            self.view?.insertPosts(at: indexPaths)
-        }
-    }
-    
-    private func scrollFeedToTop() {
-        view?.scrollFeed(to: IndexPath(row: 0, section: 0))
-    }
-    
 }
 
 extension FeedPresenter: UITableViewDataSource {
@@ -175,27 +208,6 @@ extension FeedPresenter: UITableViewDataSource {
         getMorePostsIfNeeded(for: indexPath)
         
         return cell
-    }
-    
-    private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
-        guard post.quotePost == nil else {
-            return tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.reuseIdentifier, for: indexPath)
-        }
-        
-        guard post.originalPost == nil else {
-            return tableView.dequeueReusableCell(withIdentifier: RepostTableViewCell.reuseIdentifier, for: indexPath)
-        }
-        
-        return tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath)
-    }
-    
-    private func getMorePostsIfNeeded(for indexPath: IndexPath) {
-        guard let posts = posts else { return }
-        
-        if indexPath.row == posts.count - 1 {
-            let user = shouldDisplayOnlyUserPosts ? currentUser : nil
-            interactor.getMorePosts(from: user)
-        }
     }
     
 }
