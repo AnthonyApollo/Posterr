@@ -27,7 +27,6 @@ playground.xcworkspace
 
 ## Pods
 Pods/
-Podfile.lock
 
 ## Swift Package Manager
 .build/
