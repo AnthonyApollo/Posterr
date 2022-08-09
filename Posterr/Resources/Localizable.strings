@@ -9,7 +9,13 @@
 // MARK: - FEED
 
 "feed.tabBar.title" = "Feed";
+"repost.action.sheet.title" = "Are you sure you want to repost %@?";
+"repost.action.sheet.message" = "\"%@\"";
 
 // MARK: - Profile
 
 "profile.tabBar.title" = "Profile";
+
+// MARK: - General
+
+"error.alert.title" = "Oops, something went wrong.";

@@ -71,6 +71,10 @@ extension FeedViewController: FeedViewProtocol {
         feedView.scroll(to: indexPath)
     }
     
+    func setupQuote(of post: Post) {
+        feedView.setupQuote(of: post)
+    }
+    
 }
 
 extension FeedViewController: PostCreationViewDelegate {
@@ -94,37 +98,11 @@ extension FeedViewController: PostCreationViewDelegate {
 extension FeedViewController: PostTableViewCellDelegate {
     
     func didTapRepost(for post: Post) {
-        if let originalPost = post.originalPost {
-            didTapRepost(for: originalPost)
-        }
-        
-        if let quotePost = post.quotePost {
-            didTapRepost(for: quotePost)
-        }
-        
-        guard let username = post.author?.username,
-              let postMessage = post.message else { return }
-        
-        let title = "Are you sure you want to repost \(username)?"
-        let message = "\"\(postMessage)\""
-        
-        displayActionSheet(for: title, and: message, confirmHandler: { [weak self] in
-            self?.presenter.repost(post)
-        })
+        presenter.didTapRepost(for: post)
     }
     
     func didTapQuote(for post: Post) {
-        if let originalPost = post.originalPost {
-            didTapQuote(for: originalPost)
-            return
-        }
-        
-        if let quotePost = post.quotePost {
-            didTapQuote(for: quotePost)
-            return
-        }
-        
-        feedView.setupQuote(of: post)
+        presenter.didTapQuote(for: post)
     }
     
 }

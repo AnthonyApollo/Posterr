@@ -15,6 +15,7 @@ protocol FeedViewProtocol: UIViewController {
     func enablePostButton()
     func disablePostButton()
     func scrollFeed(to: IndexPath)
+    func setupQuote(of: Post)
     
 }
 
@@ -28,6 +29,8 @@ protocol FeedPresenterProtocol: AnyObject {
     func post(_: String)
     func repost(_: Post)
     func quote(_: Post, with: String)
+    func didTapRepost(for: Post)
+    func didTapQuote(for: Post)
     
 }
 

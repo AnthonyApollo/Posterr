@@ -65,6 +65,40 @@ final class FeedPresenter: NSObject, FeedPresenterProtocol {
         interactor.addQuotePost(for: post, with: message, by: currentUser)
     }
     
+    func didTapRepost(for post: Post) {
+        if let originalPost = post.originalPost {
+            didTapRepost(for: originalPost)
+        }
+        
+        if let quotePost = post.quotePost {
+            didTapRepost(for: quotePost)
+        }
+        
+        guard let username = post.author?.username,
+              let postMessage = post.message else { return }
+        
+        let title = Strings.repostActionSheetTitle(username)
+        let message = Strings.repostActionSheetMessage(postMessage)
+        
+        view?.displayActionSheet(for: title, and: message, confirmHandler: { [weak self] in
+            self?.repost(post)
+        })
+    }
+    
+    func didTapQuote(for post: Post) {
+        if let originalPost = post.originalPost {
+            didTapQuote(for: originalPost)
+            return
+        }
+        
+        if let quotePost = post.quotePost {
+            didTapQuote(for: quotePost)
+            return
+        }
+        
+        view?.setupQuote(of: post)
+    }
+    
 }
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
