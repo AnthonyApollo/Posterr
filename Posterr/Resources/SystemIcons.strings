@@ -1,0 +1,12 @@
+/* 
+  SystemIcons.strings
+  Posterr
+
+  Created by Anthony Apollo on 08/08/22.
+  
+*/
+
+"feed.tab.bar.icon" = "bubble.left";
+"feed.tab.bar.icon.selected" = "bubble.left.fill";
+"user.tab.bar.icon" = "person.text.rectangle";
+"user.tab.bar.icon.selected" = "person.text.rectangle.fill";

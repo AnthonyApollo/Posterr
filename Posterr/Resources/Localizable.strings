@@ -1,0 +1,15 @@
+/*
+  Localizable.strings
+  Posterr
+
+  Created by Anthony Apollo on 08/08/22.
+  
+*/
+
+// MARK: - FEED
+
+"feed.tabBar.title" = "Feed";
+
+// MARK: - Profile
+
+"profile.tabBar.title" = "Profile";

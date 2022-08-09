@@ -39,8 +39,8 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
         interactor.output = presenter
         presenter.view = viewController
         
-        viewController.tabBarItem = .init(title: "Feed", image: UIImage(systemName: "bubble.left"), tag: 0)
-        viewController.tabBarItem.selectedImage = .init(systemName: "bubble.left.fill")
+        viewController.tabBarItem = .init(title: Strings.feedTabBarTitle(), image: UIImage.fromSystem(named: SystemIcons.feedTabBarIcon()), tag: 0)
+        viewController.tabBarItem.selectedImage = UIImage.fromSystem(named: SystemIcons.feedTabBarIconSelected())
         
         return viewController
     }()
@@ -52,8 +52,8 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
         
         let viewController = UserProfileViewController(currentUser: currentUser)
         
-        viewController.tabBarItem = .init(title: "Profile", image: .init(systemName: "person.text.rectangle"), tag: 1)
-        viewController.tabBarItem.selectedImage = .init(systemName: "person.text.rectangle.fill")
+        viewController.tabBarItem = .init(title: Strings.profileTabBarTitle(), image: UIImage.fromSystem(named: SystemIcons.userTabBarIcon()), tag: 1)
+        viewController.tabBarItem.selectedImage = UIImage.fromSystem(named: SystemIcons.userTabBarIconSelected())
         
         return viewController
     }()
