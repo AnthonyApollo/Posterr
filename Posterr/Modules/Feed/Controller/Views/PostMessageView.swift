@@ -32,7 +32,8 @@ final class PostMessageView: UIView {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Close", for: .normal)
+        button.setImage(.init(systemName: "xmark.circle.fill"), for: .normal)
+        button.imageView?.tintColor = .systemGray
         button.setTitleColor(UIColor.blue, for: .normal)
         
         button.addTarget(self, action: #selector(didTouchCloseButton), for: .touchUpInside)
@@ -107,6 +108,10 @@ extension PostMessageView: CodableView {
             make.top.equalTo(authorUsernameLabel.snp.bottom).offset(8)
             make.trailing.equalTo(authorUsernameLabel.snp.trailing)
             make.bottom.equalToSuperview().inset(8)
+        }
+        
+        closeButton.imageView?.snp.makeConstraints { make in
+            make.size.equalTo(24)
         }
     }
     
