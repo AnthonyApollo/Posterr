@@ -46,6 +46,10 @@ final class FeedView: UIView {
         postsTableView.insertRows(at: indexPaths, with: .right)
     }
     
+    func scroll(to indexPath: IndexPath) {
+        postsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
     func updateRemainingCharacters(with count: String?) {
         postCreationView.updateRemainingCharacters(with: count)
     }

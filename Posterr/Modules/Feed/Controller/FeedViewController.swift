@@ -67,6 +67,10 @@ extension FeedViewController: FeedViewProtocol {
         feedView.disablePostButton()
     }
     
+    func scrollFeed(to indexPath: IndexPath) {
+        feedView.scroll(to: indexPath)
+    }
+    
 }
 
 extension FeedViewController: PostCreationViewDelegate {

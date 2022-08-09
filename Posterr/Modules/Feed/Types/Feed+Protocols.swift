@@ -14,6 +14,7 @@ protocol FeedViewProtocol: UIViewController {
     func updateRemainingCharacters(with: String?)
     func enablePostButton()
     func disablePostButton()
+    func scrollFeed(to: IndexPath)
     
 }
 

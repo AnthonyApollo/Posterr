@@ -79,14 +79,17 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     }
     
     func addNewPostSucceeded(with post: Post) {
+        scrollFeedToTop()
         insert(post: post)
     }
     
     func addRepostSucceeded(with post: Post) {
+        scrollFeedToTop()
         insert(post: post)
     }
     
     func addQuotePostSucceeded(with post: Post) {
+        scrollFeedToTop()
         insert(post: post)
     }
     
@@ -114,6 +117,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
         DispatchQueue.main.async {
             self.view?.insertPosts(at: indexPaths)
         }
+    }
+    
+    private func scrollFeedToTop() {
+        view?.scrollFeed(to: IndexPath(row: 0, section: 0))
     }
     
 }
