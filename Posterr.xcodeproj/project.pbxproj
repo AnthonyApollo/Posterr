@@ -53,6 +53,9 @@
 		15E9B91328A2006500C0F444 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B91228A2006500C0F444 /* Typealiases.swift */; };
 		15E9B91728A2026D00C0F444 /* SystemIcons.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E9B91628A2026D00C0F444 /* SystemIcons.strings */; };
 		15E9B91928A202AF00C0F444 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B91828A202AF00C0F444 /* R.generated.swift */; };
+		15E9B91E28A204EF00C0F444 /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B91D28A204EF00C0F444 /* ApplicationRouter.swift */; };
+		15E9B92128A205CC00C0F444 /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B92028A205CC00C0F444 /* FeedRouter.swift */; };
+		15E9B92428A2069700C0F444 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B92328A2069700C0F444 /* UserProfileRouter.swift */; };
 		31C63398FABE7D9BAE7B9E22 /* Pods_PosterrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B92FC237162CA7C189F065 /* Pods_PosterrTests.framework */; };
 		A52B6294DD066D7274DD89E2 /* Pods_Posterr_PosterrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC736BEB9CB33B014895516E /* Pods_Posterr_PosterrUITests.framework */; };
 		FB5B831A5C5722B02B067406 /* Pods_Posterr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */; };
@@ -125,6 +128,9 @@
 		15E9B91228A2006500C0F444 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		15E9B91628A2026D00C0F444 /* SystemIcons.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SystemIcons.strings; sourceTree = "<group>"; };
 		15E9B91828A202AF00C0F444 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		15E9B91D28A204EF00C0F444 /* ApplicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
+		15E9B92028A205CC00C0F444 /* FeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
+		15E9B92328A2069700C0F444 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Posterr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		654C689D38F961310215FA8A /* Pods-Posterr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.release.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.release.xcconfig"; sourceTree = "<group>"; };
 		82A543EFF94694D2CCF6F43B /* Pods-Posterr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.debug.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +346,7 @@
 				15C0B262289DE40A007C54B8 /* Controller */,
 				15C0B269289DE64B007C54B8 /* Interactor */,
 				15C0B266289DE5A0007C54B8 /* Presenter */,
+				15E9B91C28A204D300C0F444 /* Router */,
 				15C0B263289DE427007C54B8 /* Types */,
 			);
 			path = Application;
@@ -369,6 +376,7 @@
 				1581D775289A0C73009C6593 /* Controller */,
 				155BD3BC289C881F0030B27A /* Interactor */,
 				155AE4EB289B04E200D18F6B /* Presenter */,
+				15E9B91F28A2057300C0F444 /* Router */,
 				155AE4EE289B051200D18F6B /* Types */,
 			);
 			path = Feed;
@@ -378,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				155AE4FE289B2D2500D18F6B /* Controller */,
+				15E9B92228A2067E00C0F444 /* Router */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -460,6 +469,30 @@
 			children = (
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		15E9B91C28A204D300C0F444 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				15E9B91D28A204EF00C0F444 /* ApplicationRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		15E9B91F28A2057300C0F444 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				15E9B92028A205CC00C0F444 /* FeedRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		15E9B92228A2067E00C0F444 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				15E9B92328A2069700C0F444 /* UserProfileRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		68E6C44989A5BD67EAC6CBD5 /* Frameworks */ = {
@@ -767,6 +800,7 @@
 				155BD3BE289C883A0030B27A /* FeedInteractor.swift in Sources */,
 				156A6FAD2899F70A003F75AE /* AppDelegate.swift in Sources */,
 				1503DC8128A1EE4F00510D3F /* UIImage+Extensions.swift in Sources */,
+				15E9B91E28A204EF00C0F444 /* ApplicationRouter.swift in Sources */,
 				15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */,
 				155AE501289B2D4E00D18F6B /* UserProfileView.swift in Sources */,
 				155A66E0289E0E9F001A17AC /* UITextView+Extensions.swift in Sources */,
@@ -778,10 +812,12 @@
 				155AE505289B312000D18F6B /* PostCountView.swift in Sources */,
 				15E9B91928A202AF00C0F444 /* R.generated.swift in Sources */,
 				1581D7722899FE4F009C6593 /* FeedViewController.swift in Sources */,
+				15E9B92428A2069700C0F444 /* UserProfileRouter.swift in Sources */,
 				155AE503289B2E8900D18F6B /* UserInfoView.swift in Sources */,
 				155BD3BB289C86110030B27A /* Array+Extensions.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
 				156B5F34289EFAE900BB8795 /* PostType.swift in Sources */,
+				15E9B92128A205CC00C0F444 /* FeedRouter.swift in Sources */,
 				1581D778289A0DB7009C6593 /* FeedView.swift in Sources */,
 				155BD3B2289C4DC30030B27A /* UIView+Extensions.swift in Sources */,
 				156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */,

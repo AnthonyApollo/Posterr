@@ -32,17 +32,7 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
             return UIViewController(nibName: nil, bundle: nil)
         }
         
-        let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: currentUser, shouldDisplayOnlyUserPosts: false)
-        let viewController = FeedViewController(presenter: presenter)
-        
-        interactor.output = presenter
-        presenter.view = viewController
-        
-        viewController.tabBarItem = .init(title: Strings.feedTabBarTitle(), image: UIImage.fromSystem(named: SystemIcons.feedTabBarIcon()), tag: 0)
-        viewController.tabBarItem.selectedImage = UIImage.fromSystem(named: SystemIcons.feedTabBarIconSelected())
-        
-        return viewController
+        return FeedRouter.createModule(with: currentUser)
     }()
     
     private lazy var userProfileViewController: UIViewController = {
@@ -50,12 +40,7 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
             return UIViewController(nibName: nil, bundle: nil)
         }
         
-        let viewController = UserProfileViewController(currentUser: currentUser)
-        
-        viewController.tabBarItem = .init(title: Strings.profileTabBarTitle(), image: UIImage.fromSystem(named: SystemIcons.userTabBarIcon()), tag: 1)
-        viewController.tabBarItem.selectedImage = UIImage.fromSystem(named: SystemIcons.userTabBarIconSelected())
-        
-        return viewController
+        return UserProfileRouter.createModule(with: currentUser)
     }()
     
     override func viewWillAppear(_ animated: Bool) {

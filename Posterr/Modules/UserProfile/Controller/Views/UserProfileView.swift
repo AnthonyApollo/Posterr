@@ -15,14 +15,7 @@ final class UserProfileView: UIView {
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     
     private lazy var feedViewController: FeedViewController = {
-        let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: true)
-        let viewController = FeedViewController(presenter: presenter)
-        interactor.output = presenter
-        presenter.view = viewController
-        viewController.delegate = feedViewControllerDelegate
-        
-        return viewController
+        return FeedRouter.createModule(with: user, and: feedViewControllerDelegate)
     }()
     
     init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil) {
