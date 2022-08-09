@@ -27,6 +27,7 @@ final class PostCreationView: UIView {
     private lazy var textView: UITextView = {
         let textView = UITextView()
         textView.delegate = self
+        textView.font = .systemFont(ofSize: 16)
         
         return textView
     }()
