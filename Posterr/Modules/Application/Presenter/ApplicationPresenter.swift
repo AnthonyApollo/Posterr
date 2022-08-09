@@ -25,7 +25,7 @@ final class ApplicationPresenter: ApplicationPresenterProtocol {
 
 extension ApplicationPresenter: ApplicationInteractorOutputProtocol {
     
-    func getCurrentUserSucceeded(with user: DomainUser) {
+    func getCurrentUserSucceeded(with user: User) {
         view?.currentUser = user
     }
     

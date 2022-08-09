@@ -20,7 +20,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         self.appDataSource = appDataSource
     }
     
-    func getPosts(from user: DomainUser?) {
+    func getPosts(from user: User?) {
         requestOffset = 0
         didReachEndOfList = false
         
@@ -35,7 +35,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
-    func getMorePosts(from user: DomainUser?) {
+    func getMorePosts(from user: User?) {
         guard !didReachEndOfList else { return }
         
         appDataSource.getPosts(from: user, with: requestLimit, and: requestOffset) { [weak self] result in
@@ -54,7 +54,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         requestOffset += count
     }
     
-    func addNewPost(with message: String, for user: DomainUser) {
+    func addNewPost(with message: String, for user: User) {
         appDataSource.addNewPost(with: message, for: user) { [weak self] result in
             switch result {
             case .success(let post):
@@ -65,7 +65,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
-    func addRepost(of post: Post, for user: DomainUser) {
+    func addRepost(of post: Post, for user: User) {
         appDataSource.addRepost(of: post, for: user) { [weak self] result in
             switch result {
             case .success(let post):
@@ -77,7 +77,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
-    func addQuotePost(for post: Post, with message: String, by user: DomainUser) {
+    func addQuotePost(for post: Post, with message: String, by user: User) {
         appDataSource.addQuotePost(for: post, with: message, by: user) { [weak self] result in
             switch result {
             case .success(let post):

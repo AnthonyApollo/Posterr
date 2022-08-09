@@ -10,7 +10,7 @@ import SnapKit
 
 final class PostCountView: UIView {
     
-    private let user: DomainUser
+    private let user: User
     private let type: PostType
     
     private lazy var countIcon: UIImageView = {
@@ -28,7 +28,7 @@ final class PostCountView: UIView {
         return label
     }()
     
-    init(user: DomainUser, type: PostType) {
+    init(user: User, type: PostType) {
         self.user = user
         self.type = type
         

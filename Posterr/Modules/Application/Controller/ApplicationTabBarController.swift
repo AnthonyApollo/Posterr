@@ -10,7 +10,7 @@ import UIKit
 
 final class ApplicationTabBarController: UITabBarController, ApplicationViewProtocol {
     
-    var currentUser: DomainUser?
+    var currentUser: User?
     let presenter: ApplicationPresenterProtocol
     
     init(presenter: ApplicationPresenterProtocol) {

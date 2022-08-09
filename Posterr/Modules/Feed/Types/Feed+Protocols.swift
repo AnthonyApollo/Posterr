@@ -38,11 +38,11 @@ protocol FeedInteractorProtocol: AnyObject {
     
     var output: FeedInteractorOutputProtocol? { get set }
     
-    func getPosts(from: DomainUser?)
-    func getMorePosts(from user: DomainUser?)
-    func addNewPost(with: String, for: DomainUser)
-    func addRepost(of: Post, for: DomainUser)
-    func addQuotePost(for: Post, with: String, by: DomainUser)
+    func getPosts(from: User?)
+    func getMorePosts(from user: User?)
+    func addNewPost(with: String, for: User)
+    func addRepost(of: Post, for: User)
+    func addQuotePost(for: Post, with: String, by: User)
     
 }
 

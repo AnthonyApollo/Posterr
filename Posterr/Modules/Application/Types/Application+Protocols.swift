@@ -9,7 +9,7 @@ import UIKit
 
 protocol ApplicationViewProtocol: UIViewController {
     
-    var currentUser: DomainUser? { get set }
+    var currentUser: User? { get set }
     var presenter: ApplicationPresenterProtocol { get }
     
 }
@@ -33,7 +33,7 @@ protocol ApplicationInteractorProtocol: AnyObject {
 
 protocol ApplicationInteractorOutputProtocol: AnyObject {
     
-    func getCurrentUserSucceeded(with: DomainUser)
+    func getCurrentUserSucceeded(with: User)
     func operationFailed(with: RequestError)
     
 }

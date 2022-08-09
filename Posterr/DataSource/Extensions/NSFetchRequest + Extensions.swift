@@ -14,7 +14,7 @@ extension NSFetchRequest {
         self.sortDescriptors = [NSSortDescriptor(key: key, ascending: ascending)]
     }
     
-    @objc func filterPostsBy(user: User?) {
+    @objc func filterPostsBy(user: UserDTO?) {
         guard let user = user else { return }
 
         self.predicate = NSPredicate(format: "author = %@", user)

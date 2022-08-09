@@ -9,9 +9,9 @@ import UIKit
 
 struct FeedRouter {
     
-    static func createModule(with user: DomainUser) -> FeedViewController {
+    static func createModule(with user: User, toUserProfile isOnUserProfile: Bool = false) -> FeedViewController {
         let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: false)
+        let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: isOnUserProfile)
         let viewController = FeedViewController(presenter: presenter)
         
         interactor.output = presenter
@@ -23,8 +23,8 @@ struct FeedRouter {
         return viewController
     }
     
-    static func createModule(with user: DomainUser, and delegate: FeedViewControllerDelegate?) -> FeedViewController {
-        let viewController = createModule(with: user)
+    static func createModule(with user: User, and delegate: FeedViewControllerDelegate?) -> FeedViewController {
+        let viewController = createModule(with: user, toUserProfile: true)
         viewController.delegate = delegate
         
         return viewController

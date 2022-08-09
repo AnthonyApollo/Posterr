@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DomainUser {
+struct User {
     
     let username: String
     let joinDate: Date
@@ -15,9 +15,9 @@ struct DomainUser {
     var reposts: Int
     var quotePosts: Int
     
-    var dto: User?
+    var dto: UserDTO?
     
-    init?(from dto: User) {
+    init?(from dto: UserDTO) {
         guard let username = dto.username,
               let joinDate = dto.joinedDate else { return nil }
         

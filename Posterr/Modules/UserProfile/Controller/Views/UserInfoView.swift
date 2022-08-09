@@ -10,7 +10,7 @@ import SnapKit
 
 final class UserInfoView: UIView {
     
-    private let user: DomainUser
+    private let user: User
     
     private lazy var usernameLabel: UILabel = {
         let label = UILabel()
@@ -44,7 +44,7 @@ final class UserInfoView: UIView {
     private lazy var repostCountView: PostCountView = .init(user: user, type: .repost)
     private lazy var quotePostCountView: PostCountView = .init(user: user, type: .quotePost)
     
-    init(user: DomainUser) {
+    init(user: User) {
         self.user = user
         
         super.init(frame: .zero)
