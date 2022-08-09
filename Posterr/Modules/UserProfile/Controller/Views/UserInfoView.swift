@@ -10,7 +10,7 @@ import SnapKit
 
 final class UserInfoView: UIView {
     
-    private let user: User
+    private let user: DomainUser
     
     private lazy var usernameLabel: UILabel = {
         let label = UILabel()
@@ -23,7 +23,7 @@ final class UserInfoView: UIView {
     
     private lazy var joinDateLabel: UILabel = {
         let label = UILabel()
-        label.text = Strings.userJoinDate(user.joinedDate?.formattedString ?? "")
+        label.text = Strings.userJoinDate(user.joinDate.formattedString)
         label.textColor = .lightGray
         label.numberOfLines = 1
      
@@ -44,7 +44,7 @@ final class UserInfoView: UIView {
     private lazy var repostCountView: PostCountView = .init(user: user, type: .repost)
     private lazy var quotePostCountView: PostCountView = .init(user: user, type: .quotePost)
     
-    init(user: User) {
+    init(user: DomainUser) {
         self.user = user
         
         super.init(frame: .zero)

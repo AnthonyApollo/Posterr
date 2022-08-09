@@ -14,10 +14,10 @@ final class FeedPresenter: NSObject {
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
     private var posts: [Post]?
-    private var currentUser: User
+    private var currentUser: DomainUser
     private var shouldDisplayOnlyUserPosts: Bool
     
-    init(interactor: FeedInteractorProtocol, currentUser: User, shouldDisplayOnlyUserPosts: Bool) {
+    init(interactor: FeedInteractorProtocol, currentUser: DomainUser, shouldDisplayOnlyUserPosts: Bool) {
         self.interactor = interactor
         self.currentUser = currentUser
         self.shouldDisplayOnlyUserPosts = shouldDisplayOnlyUserPosts

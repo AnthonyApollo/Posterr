@@ -39,12 +39,12 @@ final class DataManager: AppDataSourceProtocol {
 
 extension DataManager {
     
-    func addNewPost(with message: String, for user: User, completion: RequestCompletion<Post>?) {
+    func addNewPost(with message: String, for user: DomainUser, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
-        entity.author = user
+        entity.author = user.dto
         entity.date = .init()
-        user.posts += 1
+        user.dto?.posts += 1
         
         do {
             try saveContext()
@@ -54,12 +54,12 @@ extension DataManager {
         }
     }
     
-    func addRepost(of post: Post, for user: User, completion: RequestCompletion<Post>?) {
+    func addRepost(of post: Post, for user: DomainUser, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
-        entity.author = user
+        entity.author = user.dto
         entity.originalPost = post
         entity.date = .init()
-        user.reposts += 1
+        user.dto?.reposts += 1
         
         do {
             try saveContext()
@@ -69,13 +69,13 @@ extension DataManager {
         }
     }
     
-    func addQuotePost(for post: Post, with message: String, by user: User, completion: RequestCompletion<Post>?) {
+    func addQuotePost(for post: Post, with message: String, by user: DomainUser, completion: RequestCompletion<Post>?) {
         let entity = Post(context: persistentContainer.viewContext)
-        entity.author = user
+        entity.author = user.dto
         entity.message = message
         entity.quotePost = post
         entity.date = .init()
-        user.quotePosts += 1
+        user.dto?.quotePosts += 1
         
         do {
             try saveContext()
@@ -85,10 +85,10 @@ extension DataManager {
         }
     }
     
-    func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
+    func getPosts(from user: DomainUser?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortBy(key: "date", ascending: false)
-        request.filterPostsBy(user: user)
+        request.filterPostsBy(user: user?.dto)
         request.fetchLimit = limit
         request.fetchOffset = offset
         
@@ -108,7 +108,7 @@ extension DataManager {
 
 extension DataManager {
 
-    func addNewUser(for username: String, completion: RequestCompletion<User>?) {
+    func addNewUser(for username: String, completion: RequestCompletion<DomainUser>?) {
         guard username.isValidUsername else {
             completion?(.failure(.invalidData))
             return
@@ -120,13 +120,19 @@ extension DataManager {
         
         do {
             try saveContext()
-            completion?(.success(entity))
+            
+            guard let domainUser = DomainUser(from: entity) else {
+                completion?(.failure(.invalidData))
+                return
+            }
+            
+            completion?(.success(domainUser))
         } catch {
             completion?(.failure(.saveError))
         }
     }
     
-    func getUsers(completion: RequestCompletion<[User]>?) {
+    func getUsers(completion: RequestCompletion<[DomainUser]>?) {
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.sortBy(key: "joinedDate", ascending: true)
         
@@ -134,13 +140,15 @@ extension DataManager {
         
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)
-            completion?(.success(fetchedUsers))
+            let fetchedDomainUsers = fetchedUsers.compactMap { DomainUser(from: $0) }
+            
+            completion?(.success(fetchedDomainUsers))
         } catch {
             completion?(.failure(.fetchError))
         }
     }
     
-    func getUser(with username: String, completion: RequestCompletion<User>?) {
+    func getUser(with username: String, completion: RequestCompletion<DomainUser>?) {
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.filterUsersBy(username: username)
         
@@ -149,12 +157,13 @@ extension DataManager {
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)
             
-            guard let user = fetchedUsers.first else {
+            guard let user = fetchedUsers.first,
+            let domainUser = DomainUser(from: user) else {
                 completion?(.failure(.fetchError))
                 return
             }
             
-            completion?(.success(user))
+            completion?(.success(domainUser))
         } catch {
             completion?(.failure(.fetchError))
         }

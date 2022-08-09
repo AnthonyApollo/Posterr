@@ -32,7 +32,7 @@ final class ApplicationInteractor: ApplicationInteractorProtocol {
 extension ApplicationInteractor {
     
     func injectMockedData() {
-        var users: [User] = []
+        var users: [DomainUser] = []
         
         appDataSource.getUsers() { result in
             switch result {

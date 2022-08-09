@@ -10,7 +10,7 @@ import SnapKit
 
 final class UserProfileView: UIView {
     
-    private let user: User
+    private let user: DomainUser
     private lazy var infoView: UserInfoView = .init(user: user)
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     
@@ -18,7 +18,7 @@ final class UserProfileView: UIView {
         return FeedRouter.createModule(with: user, and: feedViewControllerDelegate)
     }()
     
-    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil) {
+    init(user: DomainUser, feedViewControllerDelegate: FeedViewControllerDelegate? = nil) {
         self.user = user
         self.feedViewControllerDelegate = feedViewControllerDelegate
         

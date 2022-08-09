@@ -10,10 +10,10 @@ import UIKit
 
 final class UserProfileViewController: UIViewController {
     
-    private let currentUser: User
+    private let currentUser: DomainUser
     private lazy var profileView: UserProfileView = .init(user: currentUser, feedViewControllerDelegate: self)
     
-    init(currentUser: User) {
+    init(currentUser: DomainUser) {
         self.currentUser = currentUser
         
         super.init(nibName: nil, bundle: nil)

@@ -9,7 +9,7 @@ import UIKit
 
 struct UserProfileRouter {
     
-    static func createModule(with user: User) -> UserProfileViewController {
+    static func createModule(with user: DomainUser) -> UserProfileViewController {
         let viewController = UserProfileViewController(currentUser: user)
         
         viewController.tabBarItem = .init(title: Strings.profileTabBarTitle(), image: UIImage.fromSystem(named: SystemIcons.userTabBarIcon()), tag: 1)
