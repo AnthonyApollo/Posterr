@@ -14,4 +14,8 @@ extension User {
         return .init(username: "defaultUser2022", joinDate: .distantPast, posts: 10, reposts: 10, quotePosts: 10)
     }
     
+    static func dummy2() -> User {
+        return .init(username: "defaultUser2022", joinDate: .distantPast, posts: 20, reposts: 20, quotePosts: 20)
+    }
+    
 }

@@ -38,7 +38,7 @@ class PostCountViewTestCase: XCTestCase {
         sut = .init(user: .dummy(), type: .post)
         sut.frame = CGRect(x: 0, y: 0, width: 60, height: 24)
         
-        sut.update(with: .init(username: "defaultUser2022", joinDate: .distantPast, posts: 20, reposts: 20, quotePosts: 20))
+        sut.update(with: .dummy2())
         
         assertSnapshot(matching: sut, as: .image)
     }
