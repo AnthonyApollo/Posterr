@@ -10,6 +10,8 @@ import UIKit
 final class FeedPresenter: NSObject {
     
     private let postMaximumCharacters = 777
+    private let maximumPostsPerDay = 5
+    private var postsToday = 0
     
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
@@ -21,6 +23,10 @@ final class FeedPresenter: NSObject {
         self.interactor = interactor
         self.currentUser = currentUser
         self.shouldDisplayOnlyUserPosts = shouldDisplayOnlyUserPosts
+    }
+    
+    private var canUserPost: Bool {
+        return postsToday < maximumPostsPerDay
     }
     
     private func getPosts() {
@@ -42,6 +48,7 @@ final class FeedPresenter: NSObject {
     }
     
     private func insert(post: Post) {
+        postsToday += 1
         posts?.insert(post, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         
@@ -88,12 +95,17 @@ final class FeedPresenter: NSObject {
         }
     }
     
+    private func displayPostLimitMessage() {
+        view?.displayAlert(with: Strings.postLimitTitle(), and: Strings.postLimitMessage())
+    }
+    
 }
 
 extension FeedPresenter: FeedPresenterProtocol {
     
     func setup() {
         getPosts()
+        interactor.getPostCount(of: currentUser, for: Date())
     }
     
     func updatePostCreationViewIfNeeded(for textViewLength: Int) {
@@ -113,15 +125,30 @@ extension FeedPresenter: FeedPresenterProtocol {
     }
     
     func post(_ message: String) {
-        interactor.addNewPost(with: message, for: currentUser)
+        if canUserPost {
+            interactor.addNewPost(with: message, for: currentUser)
+            return
+        }
+        
+        displayPostLimitMessage()
     }
     
     func repost(_ post: Post) {
-        interactor.addRepost(of: post, for: currentUser)
+        if canUserPost {
+            interactor.addRepost(of: post, for: currentUser)
+            return
+        }
+        
+        displayPostLimitMessage()
     }
     
     func quote(_ post: Post, with message: String) {
-        interactor.addQuotePost(for: post, with: message, by: currentUser)
+        if canUserPost {
+            interactor.addQuotePost(for: post, with: message, by: currentUser)
+            return
+        }
+        
+        displayPostLimitMessage()
     }
     
     func didTapRepost(for post: Post) {
@@ -164,6 +191,10 @@ extension FeedPresenter: FeedInteractorOutputProtocol {
     func getPostsSucceeded(with result: [Post]) {
         posts = result
         view?.reloadFeed()
+    }
+    
+    func getPostsCountSucceeded(with count: Int) {
+        postsToday = count
     }
     
     func getMorePostsSucceeded(with olderPosts: [Post]) {

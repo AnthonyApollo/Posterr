@@ -144,6 +144,23 @@ extension DataManager {
         }
     }
     
+    func getPostCount(of user: User, for date: Date, completion: RequestCompletion<Int>?) {
+        let userDTO = getUserDTO(with: user.username)
+        
+        let request: NSFetchRequest<PostDTO> = PostDTO.fetchRequest()
+        request.filterPostsBy(user: userDTO)
+        
+        var fetchedPosts: [PostDTO] = []
+        
+        do {
+            fetchedPosts = try persistentContainer.viewContext.fetch(request)
+            let count = fetchedPosts.filter { $0.date?.day == date.day }.count
+            completion?(.success(count))
+        } catch {
+            completion?(.failure(.fetchError))
+        }
+    }
+    
     private func getPostDTO(with id: UUID) -> PostDTO? {
         let request: NSFetchRequest<PostDTO> = PostDTO.fetchRequest()
         request.filterPostsBy(id: id)

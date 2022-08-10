@@ -15,6 +15,7 @@ protocol AppDataSourceProtocol: AnyObject {
     func addRepost(of post: Post, for user: User, completion: RequestCompletion<Post>?)
     func addQuotePost(for post: Post, with message: String, by user: User, completion: RequestCompletion<Post>?)
     func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?)
+    func getPostCount(of user: User, for date: Date, completion: RequestCompletion<Int>?)
     func addNewUser(for username: String, completion: RequestCompletion<User>?)
     func getUsers(completion: RequestCompletion<[User]>?)
     func getUser(with username: String, completion: RequestCompletion<User>?)

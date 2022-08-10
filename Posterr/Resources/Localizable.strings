@@ -19,4 +19,6 @@
 
 // MARK: - General
 
-"error.alert.title" = "Oops, something went wrong.";
+"error.alert.title" = "Oops, something went wrong";
+"post.limit.title" = "Wow, time to take a break";
+"post.limit.message" = "Looks like you've reached your daily post limit.";

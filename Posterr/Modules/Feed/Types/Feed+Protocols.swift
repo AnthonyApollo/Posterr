@@ -39,6 +39,7 @@ protocol FeedInteractorProtocol: AnyObject {
     var output: FeedInteractorOutputProtocol? { get set }
     
     func getPosts(from: User?)
+    func getPostCount(of: User, for: Date)
     func getMorePosts(from user: User?)
     func addNewPost(with: String, for: User)
     func addRepost(of: Post, for: User)
@@ -49,6 +50,7 @@ protocol FeedInteractorProtocol: AnyObject {
 protocol FeedInteractorOutputProtocol: AnyObject {
     
     func getPostsSucceeded(with: [Post])
+    func getPostsCountSucceeded(with: Int)
     func getMorePostsSucceeded(with: [Post])
     func addNewPostSucceeded(with: Post)
     func addRepostSucceeded(with: Post)

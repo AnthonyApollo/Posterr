@@ -35,6 +35,17 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
+    func getPostCount(of user: User, for date: Date) {
+        appDataSource.getPostCount(of: user, for: date) { [weak self] result in
+            switch result {
+            case .success(let count):
+                self?.output?.getPostsCountSucceeded(with: count)
+            case .failure(let error):
+                self?.output?.operationFailed(with: error)
+            }
+        }
+    }
+    
     func getMorePosts(from user: User?) {
         guard !didReachEndOfList else { return }
         
