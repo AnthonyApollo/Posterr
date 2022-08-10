@@ -15,7 +15,7 @@ protocol FeedViewProtocol: UIViewController {
     func enablePostButton()
     func disablePostButton()
     func scrollFeed(to: IndexPath)
-    func setupQuote(of: Post)
+    func setupQuote(of: DomainPost)
     
 }
 
@@ -27,10 +27,10 @@ protocol FeedPresenterProtocol: AnyObject {
     func updatePostCreationViewIfNeeded(for: Int)
     func shouldUpdateTextView(for: Int) -> Bool
     func post(_: String)
-    func repost(_: Post)
-    func quote(_: Post, with: String)
-    func didTapRepost(for: Post)
-    func didTapQuote(for: Post)
+    func repost(_: DomainPost)
+    func quote(_: DomainPost, with: String)
+    func didTapRepost(for: DomainPost)
+    func didTapQuote(for: DomainPost)
     
 }
 
@@ -41,18 +41,18 @@ protocol FeedInteractorProtocol: AnyObject {
     func getPosts(from: User?)
     func getMorePosts(from user: User?)
     func addNewPost(with: String, for: User)
-    func addRepost(of: Post, for: User)
-    func addQuotePost(for: Post, with: String, by: User)
+    func addRepost(of: DomainPost, for: User)
+    func addQuotePost(for: DomainPost, with: String, by: User)
     
 }
 
 protocol FeedInteractorOutputProtocol: AnyObject {
     
-    func getPostsSucceeded(with: [Post])
-    func getMorePostsSucceeded(with: [Post])
-    func addNewPostSucceeded(with: Post)
-    func addRepostSucceeded(with: Post)
-    func addQuotePostSucceeded(with: Post)
+    func getPostsSucceeded(with: [DomainPost])
+    func getMorePostsSucceeded(with: [DomainPost])
+    func addNewPostSucceeded(with: DomainPost)
+    func addRepostSucceeded(with: DomainPost)
+    func addQuotePostSucceeded(with: DomainPost)
     func operationFailed(with: RequestError)
     
 }
@@ -61,13 +61,13 @@ protocol PostCell: UITableViewCell {
     
     var delegate: PostTableViewCellDelegate? { get set }
     
-    func setup(with: Post)
+    func setup(with: DomainPost)
     
 }
 
 protocol PostTableViewCellDelegate: AnyObject {
     
-    func didTapRepost(for: Post)
-    func didTapQuote(for: Post)
+    func didTapRepost(for: DomainPost)
+    func didTapQuote(for: DomainPost)
     
 }

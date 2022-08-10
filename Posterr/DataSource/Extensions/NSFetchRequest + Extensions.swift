@@ -20,6 +20,12 @@ extension NSFetchRequest {
         self.predicate = NSPredicate(format: "author = %@", user)
     }
     
+    @objc func filterPostsBy(id: UUID?) {
+        guard let id = id else { return }
+
+        self.predicate = NSPredicate(format: "id = %@", id.uuidString)
+    }
+    
     @objc func filterUsersBy(username: String) {
         self.predicate = NSPredicate(format: "username = %@", username)
     }

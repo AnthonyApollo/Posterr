@@ -60,6 +60,7 @@
 		15F7973828A32357006066E4 /* UserProfile+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973728A32357006066E4 /* UserProfile+Protocols.swift */; };
 		15F7973C28A325D1006066E4 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973B28A325D1006066E4 /* UserProfilePresenter.swift */; };
 		15F7973F28A326BE006066E4 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */; };
+		15F7974328A33C1E006066E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7974228A33C1E006066E4 /* Post.swift */; };
 		31C63398FABE7D9BAE7B9E22 /* Pods_PosterrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B92FC237162CA7C189F065 /* Pods_PosterrTests.framework */; };
 		A52B6294DD066D7274DD89E2 /* Pods_Posterr_PosterrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC736BEB9CB33B014895516E /* Pods_Posterr_PosterrUITests.framework */; };
 		FB5B831A5C5722B02B067406 /* Pods_Posterr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */; };
@@ -139,6 +140,7 @@
 		15F7973728A32357006066E4 /* UserProfile+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Protocols.swift"; sourceTree = "<group>"; };
 		15F7973B28A325D1006066E4 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
+		15F7974228A33C1E006066E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Posterr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		654C689D38F961310215FA8A /* Pods-Posterr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.release.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.release.xcconfig"; sourceTree = "<group>"; };
 		82A543EFF94694D2CCF6F43B /* Pods-Posterr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Posterr.debug.xcconfig"; path = "Target Support Files/Pods-Posterr/Pods-Posterr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				158E320328A3179900A17E86 /* User.swift */,
+				15F7974228A33C1E006066E4 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -873,6 +876,7 @@
 				155BD3BB289C86110030B27A /* Array+Safe.swift in Sources */,
 				15F7973C28A325D1006066E4 /* UserProfilePresenter.swift in Sources */,
 				15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */,
+				15F7974328A33C1E006066E4 /* Post.swift in Sources */,
 				156B5F34289EFAE900BB8795 /* PostType.swift in Sources */,
 				15E9B92128A205CC00C0F444 /* FeedRouter.swift in Sources */,
 				15F7973F28A326BE006066E4 /* UserProfileInteractor.swift in Sources */,

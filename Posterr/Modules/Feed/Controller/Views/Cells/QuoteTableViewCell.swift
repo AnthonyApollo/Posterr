@@ -13,13 +13,13 @@ final class QuoteTableViewCell: UITableViewCell, PostCell {
     static let reuseIdentifier: ReuseIdentifier<QuoteTableViewCell> = ReuseIdentifier(identifier: "QuoteTableViewCell")
     
     weak var delegate: PostTableViewCellDelegate?
-    private var post: Post?
+    private var post: DomainPost?
     
     private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost)
     private lazy var postMessageView: PostMessageView = .init()
     private lazy var postReplyMenu: PostReplyMenu = .init(with: self)
     
-    func setup(with post: Post) {
+    func setup(with post: DomainPost) {
         self.post = post
         postMessageView.setup(with: post)
         quoteMessageView.setup(with: post.quotePost ?? post)

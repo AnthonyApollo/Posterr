@@ -13,7 +13,7 @@ final class FeedPresenter: NSObject {
     
     weak var view: FeedViewProtocol?
     private let interactor: FeedInteractorProtocol
-    private var posts: [Post]?
+    private var posts: [DomainPost]?
     private var currentUser: User
     private var shouldDisplayOnlyUserPosts: Bool
     
@@ -41,7 +41,7 @@ final class FeedPresenter: NSObject {
         }
     }
     
-    private func insert(post: Post) {
+    private func insert(post: DomainPost) {
         posts?.insert(post, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         
@@ -50,7 +50,7 @@ final class FeedPresenter: NSObject {
         }
     }
     
-    private func insert(olderPosts: [Post]) {
+    private func insert(olderPosts: [DomainPost]) {
         let offset = posts?.count ?? 0
         posts = (posts ?? []) + olderPosts
         
@@ -67,7 +67,7 @@ final class FeedPresenter: NSObject {
         view?.scrollFeed(to: IndexPath(row: 0, section: 0))
     }
     
-    private func dequeueCell(for post: Post, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
+    private func dequeueCell(for post: DomainPost, to tableView: UITableView, with indexPath: IndexPath) -> PostCell? {
         guard post.quotePost == nil else {
             return tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.reuseIdentifier, for: indexPath)
         }
@@ -116,15 +116,15 @@ extension FeedPresenter: FeedPresenterProtocol {
         interactor.addNewPost(with: message, for: currentUser)
     }
     
-    func repost(_ post: Post) {
+    func repost(_ post: DomainPost) {
         interactor.addRepost(of: post, for: currentUser)
     }
     
-    func quote(_ post: Post, with message: String) {
+    func quote(_ post: DomainPost, with message: String) {
         interactor.addQuotePost(for: post, with: message, by: currentUser)
     }
     
-    func didTapRepost(for post: Post) {
+    func didTapRepost(for post: DomainPost) {
         if let originalPost = post.originalPost {
             didTapRepost(for: originalPost)
         }
@@ -133,10 +133,9 @@ extension FeedPresenter: FeedPresenterProtocol {
             didTapRepost(for: quotePost)
         }
         
-        guard let username = post.author?.username,
-              let postMessage = post.message else { return }
+        guard let postMessage = post.message else { return }
         
-        let title = Strings.repostActionSheetTitle(username)
+        let title = Strings.repostActionSheetTitle(post.author)
         let message = Strings.repostActionSheetMessage(postMessage)
         
         view?.displayActionSheet(for: title, and: message, confirmHandler: { [weak self] in
@@ -144,7 +143,7 @@ extension FeedPresenter: FeedPresenterProtocol {
         })
     }
     
-    func didTapQuote(for post: Post) {
+    func didTapQuote(for post: DomainPost) {
         if let originalPost = post.originalPost {
             didTapQuote(for: originalPost)
             return
@@ -162,26 +161,26 @@ extension FeedPresenter: FeedPresenterProtocol {
 
 extension FeedPresenter: FeedInteractorOutputProtocol {
     
-    func getPostsSucceeded(with result: [Post]) {
+    func getPostsSucceeded(with result: [DomainPost]) {
         posts = result
         view?.reloadFeed()
     }
     
-    func getMorePostsSucceeded(with olderPosts: [Post]) {
+    func getMorePostsSucceeded(with olderPosts: [DomainPost]) {
         insert(olderPosts: olderPosts)
     }
     
-    func addNewPostSucceeded(with post: Post) {
+    func addNewPostSucceeded(with post: DomainPost) {
         scrollFeedToTop()
         insert(post: post)
     }
     
-    func addRepostSucceeded(with post: Post) {
+    func addRepostSucceeded(with post: DomainPost) {
         scrollFeedToTop()
         insert(post: post)
     }
     
-    func addQuotePostSucceeded(with post: Post) {
+    func addQuotePostSucceeded(with post: DomainPost) {
         scrollFeedToTop()
         insert(post: post)
     }

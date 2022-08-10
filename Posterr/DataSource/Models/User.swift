@@ -1,5 +1,5 @@
 //
-//  DomainUser.swift
+//  User.swift
 //  Posterr
 //
 //  Created by Anthony Apollo on 09/08/22.

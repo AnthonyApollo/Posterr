@@ -12,14 +12,14 @@ protocol PostCreationViewDelegate: AnyObject {
     
     func shouldUpdateTextView(for: Int) -> Bool
     func didPost(_: String)
-    func didPost(_: String, with: Post)
+    func didPost(_: String, with: DomainPost)
     
 }
 
 final class PostCreationView: UIView {
     
     weak var delegate: PostCreationViewDelegate?
-    private var post: Post?
+    private var post: DomainPost?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -109,7 +109,7 @@ final class PostCreationView: UIView {
         delegate?.didPost(message, with: post)
     }
     
-    func setupQuote(of post: Post) {
+    func setupQuote(of post: DomainPost) {
         self.post = post
         quoteMessageView.setup(with: post)
         addSubview(quoteMessageView)

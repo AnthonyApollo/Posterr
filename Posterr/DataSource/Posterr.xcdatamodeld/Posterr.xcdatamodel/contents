@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Post" representedClassName="Post" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="message" optional="YES" attributeType="String"/>
         <relationship name="author" maxCount="1" deletionRule="Nullify" destinationEntity="UserDTO"/>
         <relationship name="originalPost" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post"/>
@@ -15,7 +16,7 @@
         <attribute name="username" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Post" positionX="0" positionY="0" width="128" height="104"/>
+        <element name="Post" positionX="0" positionY="0" width="128" height="119"/>
         <element name="UserDTO" positionX="0" positionY="9" width="128" height="104"/>
     </elements>
 </model>
