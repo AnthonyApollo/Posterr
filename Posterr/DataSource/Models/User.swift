@@ -11,9 +11,9 @@ struct User {
     
     let username: String
     let joinDate: Date
-    var posts: Int
-    var reposts: Int
-    var quotePosts: Int
+    let posts: Int
+    let reposts: Int
+    let quotePosts: Int
     
     init?(from dto: UserDTO) {
         guard let username = dto.username,
@@ -24,6 +24,14 @@ struct User {
         self.posts = Int(dto.posts)
         self.reposts = Int(dto.reposts)
         self.quotePosts = Int(dto.quotePosts)
+    }
+    
+    init(username: String, joinDate: Date, posts: Int, reposts: Int, quotePosts: Int) {
+        self.username = username
+        self.joinDate = joinDate
+        self.posts = posts
+        self.reposts = reposts
+        self.quotePosts = quotePosts
     }
     
 }
