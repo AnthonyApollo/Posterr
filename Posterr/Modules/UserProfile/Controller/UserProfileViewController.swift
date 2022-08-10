@@ -12,12 +12,14 @@ final class UserProfileViewController: UIViewController {
     
     var currentUser: User
     let presenter: UserProfilePresenterProtocol
+    let feedRouter: FeedRouterProtocol
     
-    private lazy var profileView: UserProfileView = .init(user: currentUser, feedViewControllerDelegate: self)
+    lazy var profileView: UserProfileView = .init(user: currentUser, feedViewControllerDelegate: self, feedRouter: feedRouter)
     
-    init(currentUser: User, presenter: UserProfilePresenterProtocol) {
+    init(currentUser: User, presenter: UserProfilePresenterProtocol, feedRouter: FeedRouterProtocol = FeedRouter()) {
         self.currentUser = currentUser
         self.presenter = presenter
+        self.feedRouter = feedRouter
         
         super.init(nibName: nil, bundle: nil)
     }

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class UserProfileView: UIView {
+class UserProfileView: UIView {
     
     private var user: User
     private lazy var infoView: UserInfoView = .init(user: user)
@@ -19,7 +19,7 @@ final class UserProfileView: UIView {
         return feedRouter.createModule(with: user, and: feedViewControllerDelegate)
     }()
     
-    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil, feedRouter: FeedRouterProtocol = FeedRouter()) {
+    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil, feedRouter: FeedRouterProtocol) {
         self.user = user
         self.feedViewControllerDelegate = feedViewControllerDelegate
         self.feedRouter = feedRouter
