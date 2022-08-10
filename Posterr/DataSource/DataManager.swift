@@ -166,25 +166,6 @@ extension DataManager {
     }
     
     func getUser(with username: String, completion: RequestCompletion<User>?) {
-//        let request: NSFetchRequest<UserDTO> = UserDTO.fetchRequest()
-//        request.filterUsersBy(username: username)
-//
-//        var fetchedUsers: [UserDTO] = []
-//
-//        do {
-//            fetchedUsers = try persistentContainer.viewContext.fetch(request)
-//
-//            guard let user = fetchedUsers.first,
-//            let domainUser = User(from: user) else {
-//                completion?(.failure(.fetchError))
-//                return
-//            }
-//
-//            completion?(.success(domainUser))
-//        } catch {
-//            completion?(.failure(.fetchError))
-//        }
-        
         guard let userDTO = getUserDTO(with: username),
               let domainUser = User(from: userDTO) else {
             completion?(.failure(.fetchError))
