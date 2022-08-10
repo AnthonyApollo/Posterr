@@ -30,4 +30,13 @@ final class Post {
         self.quotePost = Post(from: dto.quotePost)
     }
     
+    init(id: UUID, author: String, date: Date, message: String?, originalPost: Post?, quotePost: Post?) {
+        self.id = id
+        self.author = author
+        self.date = date
+        self.message = message
+        self.originalPost = originalPost
+        self.quotePost = quotePost
+    }
+    
 }

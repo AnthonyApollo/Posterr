@@ -32,7 +32,7 @@ final class ApplicationTabBarController: UITabBarController, ApplicationViewProt
             return UIViewController(nibName: nil, bundle: nil)
         }
         
-        return FeedRouter.createModule(with: currentUser)
+        return FeedRouter().createModule(with: currentUser)
     }()
     
     private lazy var userProfileViewController: UIViewController = {

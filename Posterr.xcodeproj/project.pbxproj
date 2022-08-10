@@ -27,7 +27,6 @@
 		156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FAE2899F70A003F75AE /* SceneDelegate.swift */; };
 		156A6FB62899F70B003F75AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156A6FB52899F70B003F75AE /* Assets.xcassets */; };
 		156A6FB92899F70B003F75AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156A6FB72899F70B003F75AE /* LaunchScreen.storyboard */; };
-		156A6FC42899F70C003F75AE /* PosterrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FC32899F70C003F75AE /* PosterrTests.swift */; };
 		156A6FCE2899F70C003F75AE /* PosterrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCD2899F70C003F75AE /* PosterrUITests.swift */; };
 		156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */; };
 		156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F2E289EE49700BB8795 /* PostMessageView.swift */; };
@@ -43,6 +42,11 @@
 		1581D7742899FE60009C6593 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D7732899FE60009C6593 /* UserProfileViewController.swift */; };
 		1581D778289A0DB7009C6593 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D777289A0DB7009C6593 /* FeedView.swift */; };
 		1581D77B289A0DE4009C6593 /* CodableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581D77A289A0DE4009C6593 /* CodableView.swift */; };
+		1587787A28A45179006B3B01 /* UserProfileViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587787928A45179006B3B01 /* UserProfileViewTestCase.swift */; };
+		1587787D28A454D5006B3B01 /* FeedRouterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587787C28A454D5006B3B01 /* FeedRouterStub.swift */; };
+		1587788128A459D0006B3B01 /* FeedInteractorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587788028A459D0006B3B01 /* FeedInteractorStub.swift */; };
+		1587788328A45DF0006B3B01 /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587788228A45DF0006B3B01 /* PostDummy.swift */; };
+		1587788528A463E8006B3B01 /* FeedInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587788428A463E8006B3B01 /* FeedInteractorSpy.swift */; };
 		158E320428A3179900A17E86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E320328A3179900A17E86 /* User.swift */; };
 		1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */; };
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
@@ -109,7 +113,6 @@
 		156A6FB82899F70B003F75AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156A6FBA2899F70B003F75AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		156A6FBF2899F70C003F75AE /* PosterrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PosterrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		156A6FC32899F70C003F75AE /* PosterrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrTests.swift; sourceTree = "<group>"; };
 		156A6FC92899F70C003F75AE /* PosterrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PosterrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		156A6FCD2899F70C003F75AE /* PosterrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITests.swift; sourceTree = "<group>"; };
 		156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -126,6 +129,11 @@
 		1581D7732899FE60009C6593 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		1581D777289A0DB7009C6593 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		1581D77A289A0DE4009C6593 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
+		1587787928A45179006B3B01 /* UserProfileViewTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewTestCase.swift; sourceTree = "<group>"; };
+		1587787C28A454D5006B3B01 /* FeedRouterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouterStub.swift; sourceTree = "<group>"; };
+		1587788028A459D0006B3B01 /* FeedInteractorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorStub.swift; sourceTree = "<group>"; };
+		1587788228A45DF0006B3B01 /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
+		1587788428A463E8006B3B01 /* FeedInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorSpy.swift; sourceTree = "<group>"; };
 		158E320328A3179900A17E86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
@@ -303,9 +311,8 @@
 		156A6FC22899F70C003F75AE /* PosterrTests */ = {
 			isa = PBXGroup;
 			children = (
-				15C41A3328A34B1900F2213A /* DataSource */,
 				15C41A2A28A348D100F2213A /* Modules */,
-				156A6FC32899F70C003F75AE /* PosterrTests.swift */,
+				1587787B28A45496006B3B01 /* TestHelpers */,
 			);
 			path = PosterrTests;
 			sourceTree = "<group>";
@@ -431,6 +438,18 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1587787B28A45496006B3B01 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				15C41A3528A34B3A00F2213A /* UserDummy.swift */,
+				1587787C28A454D5006B3B01 /* FeedRouterStub.swift */,
+				1587788028A459D0006B3B01 /* FeedInteractorStub.swift */,
+				1587788228A45DF0006B3B01 /* PostDummy.swift */,
+				1587788428A463E8006B3B01 /* FeedInteractorSpy.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
 		158E320228A3178600A17E86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,24 +532,9 @@
 			children = (
 				15C41A3128A34A8E00F2213A /* PostCountViewTestCase.swift */,
 				15C41A3828A3533700F2213A /* UserInfoViewTestCase.swift */,
+				1587787928A45179006B3B01 /* UserProfileViewTestCase.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		15C41A3328A34B1900F2213A /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				15C41A3428A34B2400F2213A /* TestDoubles */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
-		15C41A3428A34B2400F2213A /* TestDoubles */ = {
-			isa = PBXGroup;
-			children = (
-				15C41A3528A34B3A00F2213A /* UserDummy.swift */,
-			);
-			path = TestDoubles;
 			sourceTree = "<group>";
 		};
 		15E9B90B28A1F76500C0F444 /* Resources */ = {
@@ -952,8 +956,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C41A3628A34B3A00F2213A /* UserDummy.swift in Sources */,
-				156A6FC42899F70C003F75AE /* PosterrTests.swift in Sources */,
+				1587787A28A45179006B3B01 /* UserProfileViewTestCase.swift in Sources */,
 				15C41A3228A34A8E00F2213A /* PostCountViewTestCase.swift in Sources */,
+				1587788328A45DF0006B3B01 /* PostDummy.swift in Sources */,
+				1587787D28A454D5006B3B01 /* FeedRouterStub.swift in Sources */,
+				1587788528A463E8006B3B01 /* FeedInteractorSpy.swift in Sources */,
+				1587788128A459D0006B3B01 /* FeedInteractorStub.swift in Sources */,
 				15C41A3928A3533700F2213A /* UserInfoViewTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

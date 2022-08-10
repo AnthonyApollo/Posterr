@@ -9,6 +9,8 @@ import UIKit
 
 protocol FeedViewProtocol: UIViewController {
     
+    var delegate: FeedViewControllerDelegate? { get set }
+    
     func reloadFeed()
     func insertPosts(at: [IndexPath])
     func updateRemainingCharacters(with: String?)
@@ -16,6 +18,7 @@ protocol FeedViewProtocol: UIViewController {
     func disablePostButton()
     func scrollFeed(to: IndexPath)
     func setupQuote(of: Post)
+    func updateUI()
     
 }
 

@@ -43,10 +43,6 @@ final class FeedViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
-        presenter.setup()
-    }
-    
 }
 
 extension FeedViewController: FeedViewProtocol {
@@ -79,6 +75,10 @@ extension FeedViewController: FeedViewProtocol {
     
     func setupQuote(of post: Post) {
         feedView.setupQuote(of: post)
+    }
+    
+    func updateUI() {
+        presenter.setup()
     }
     
 }

@@ -7,9 +7,15 @@
 
 import UIKit
 
-struct FeedRouter {
+protocol FeedRouterProtocol {
     
-    static func createModule(with user: User, toUserProfile isOnUserProfile: Bool = false) -> FeedViewController {
+    func createModule(with user: User, toUserProfile isOnUserProfile: Bool) -> FeedViewProtocol
+    func createModule(with user: User, and delegate: FeedViewControllerDelegate?) -> FeedViewProtocol
+}
+
+final class FeedRouter: FeedRouterProtocol {
+    
+    func createModule(with user: User, toUserProfile isOnUserProfile: Bool = false) -> FeedViewProtocol {
         let interactor = FeedInteractor()
         let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: isOnUserProfile)
         let viewController = FeedViewController(presenter: presenter)
@@ -23,7 +29,7 @@ struct FeedRouter {
         return viewController
     }
     
-    static func createModule(with user: User, and delegate: FeedViewControllerDelegate?) -> FeedViewController {
+    func createModule(with user: User, and delegate: FeedViewControllerDelegate?) -> FeedViewProtocol {
         let viewController = createModule(with: user, toUserProfile: true)
         viewController.delegate = delegate
         

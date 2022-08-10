@@ -12,21 +12,24 @@ final class UserProfileView: UIView {
     
     private var user: User
     private lazy var infoView: UserInfoView = .init(user: user)
+    private let feedRouter: FeedRouterProtocol
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     
-    private lazy var feedViewController: FeedViewController = {
-        return FeedRouter.createModule(with: user, and: feedViewControllerDelegate)
+    private lazy var feedViewController: FeedViewProtocol = {
+        return feedRouter.createModule(with: user, and: feedViewControllerDelegate)
     }()
     
-    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil) {
+    init(user: User, feedViewControllerDelegate: FeedViewControllerDelegate? = nil, feedRouter: FeedRouterProtocol = FeedRouter()) {
         self.user = user
         self.feedViewControllerDelegate = feedViewControllerDelegate
+        self.feedRouter = feedRouter
         
         super.init(frame: .zero)
         
         setupViews()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
