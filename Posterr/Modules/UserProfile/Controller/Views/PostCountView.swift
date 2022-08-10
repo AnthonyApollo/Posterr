@@ -49,7 +49,6 @@ final class PostCountView: UIView {
     private func getCountLabelText() -> String {
         switch type {
         case .post:
-            // TODO: Update user instead of access DTO
             return String(user.posts)
         case .repost:
             return String(user.reposts)

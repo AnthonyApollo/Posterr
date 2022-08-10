@@ -40,11 +40,16 @@ final class DataManager: AppDataSourceProtocol {
 extension DataManager {
     
     func addNewPost(with message: String, for user: User, completion: RequestCompletion<Post>?) {
+        guard let userDTO = getUserDTO(with: user.username) else {
+            completion?(.failure(.fetchError))
+            return
+        }
+        
         let entity = Post(context: persistentContainer.viewContext)
         entity.message = message
-        entity.author = user.dto
+        entity.author = userDTO
         entity.date = .init()
-        user.dto?.posts += 1
+        userDTO.posts += 1
         
         do {
             try saveContext()
@@ -55,11 +60,16 @@ extension DataManager {
     }
     
     func addRepost(of post: Post, for user: User, completion: RequestCompletion<Post>?) {
+        guard let userDTO = getUserDTO(with: user.username) else {
+            completion?(.failure(.fetchError))
+            return
+        }
+        
         let entity = Post(context: persistentContainer.viewContext)
-        entity.author = user.dto
+        entity.author = userDTO
         entity.originalPost = post
         entity.date = .init()
-        user.dto?.reposts += 1
+        userDTO.reposts += 1
         
         do {
             try saveContext()
@@ -70,12 +80,17 @@ extension DataManager {
     }
     
     func addQuotePost(for post: Post, with message: String, by user: User, completion: RequestCompletion<Post>?) {
+        guard let userDTO = getUserDTO(with: user.username) else {
+            completion?(.failure(.fetchError))
+            return
+        }
+        
         let entity = Post(context: persistentContainer.viewContext)
-        entity.author = user.dto
+        entity.author = userDTO
         entity.message = message
         entity.quotePost = post
         entity.date = .init()
-        user.dto?.quotePosts += 1
+        userDTO.quotePosts += 1
         
         do {
             try saveContext()
@@ -86,9 +101,11 @@ extension DataManager {
     }
     
     func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
+        let userDTO = getUserDTO(with: user?.username)
+        
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         request.sortBy(key: "date", ascending: false)
-        request.filterPostsBy(user: user?.dto)
+        request.filterPostsBy(user: userDTO)
         request.fetchLimit = limit
         request.fetchOffset = offset
         
@@ -149,6 +166,39 @@ extension DataManager {
     }
     
     func getUser(with username: String, completion: RequestCompletion<User>?) {
+//        let request: NSFetchRequest<UserDTO> = UserDTO.fetchRequest()
+//        request.filterUsersBy(username: username)
+//
+//        var fetchedUsers: [UserDTO] = []
+//
+//        do {
+//            fetchedUsers = try persistentContainer.viewContext.fetch(request)
+//
+//            guard let user = fetchedUsers.first,
+//            let domainUser = User(from: user) else {
+//                completion?(.failure(.fetchError))
+//                return
+//            }
+//
+//            completion?(.success(domainUser))
+//        } catch {
+//            completion?(.failure(.fetchError))
+//        }
+        
+        guard let userDTO = getUserDTO(with: username),
+              let domainUser = User(from: userDTO) else {
+            completion?(.failure(.fetchError))
+            return
+        }
+        
+        completion?(.success(domainUser))
+    }
+    
+    private func getUserDTO(with username: String?) -> UserDTO? {
+        guard let username = username else {
+            return nil
+        }
+        
         let request: NSFetchRequest<UserDTO> = UserDTO.fetchRequest()
         request.filterUsersBy(username: username)
         
@@ -156,16 +206,9 @@ extension DataManager {
         
         do {
             fetchedUsers = try persistentContainer.viewContext.fetch(request)
-            
-            guard let user = fetchedUsers.first,
-            let domainUser = User(from: user) else {
-                completion?(.failure(.fetchError))
-                return
-            }
-            
-            completion?(.success(domainUser))
+            return fetchedUsers.first
         } catch {
-            completion?(.failure(.fetchError))
+            return nil
         }
     }
     

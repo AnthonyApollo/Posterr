@@ -15,8 +15,6 @@ struct User {
     var reposts: Int
     var quotePosts: Int
     
-    var dto: UserDTO?
-    
     init?(from dto: UserDTO) {
         guard let username = dto.username,
               let joinDate = dto.joinedDate else { return nil }
@@ -26,8 +24,6 @@ struct User {
         self.posts = Int(dto.posts)
         self.reposts = Int(dto.reposts)
         self.quotePosts = Int(dto.quotePosts)
-        
-        self.dto = dto
     }
     
 }
