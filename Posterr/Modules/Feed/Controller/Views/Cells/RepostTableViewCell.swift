@@ -13,13 +13,13 @@ final class RepostTableViewCell: UITableViewCell, PostCell {
     static let reuseIdentifier: ReuseIdentifier<RepostTableViewCell> = ReuseIdentifier(identifier: "RepostTableViewCell")
     
     weak var delegate: PostTableViewCellDelegate?
-    private var post: DomainPost?
+    private var post: Post?
     
     private lazy var postMessageView: PostMessageView = .init()
     private lazy var repostMessageView: PostMessageView = .init(type: .repost)
     private lazy var postReplyMenu: PostReplyMenu = .init(with: self)
     
-    func setup(with post: DomainPost) {
+    func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
         repostMessageView.setup(with: post.originalPost ?? post)

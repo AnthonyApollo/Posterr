@@ -65,7 +65,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
-    func addRepost(of post: DomainPost, for user: User) {
+    func addRepost(of post: Post, for user: User) {
         appDataSource.addRepost(of: post, for: user) { [weak self] result in
             switch result {
             case .success(let post):
@@ -77,7 +77,7 @@ final class FeedInteractor: FeedInteractorProtocol {
         }
     }
     
-    func addQuotePost(for post: DomainPost, with message: String, by user: User) {
+    func addQuotePost(for post: Post, with message: String, by user: User) {
         appDataSource.addQuotePost(for: post, with: message, by: user) { [weak self] result in
             switch result {
             case .success(let post):

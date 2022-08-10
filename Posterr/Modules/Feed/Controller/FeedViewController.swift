@@ -77,7 +77,7 @@ extension FeedViewController: FeedViewProtocol {
         feedView.scroll(to: indexPath)
     }
     
-    func setupQuote(of post: DomainPost) {
+    func setupQuote(of post: Post) {
         feedView.setupQuote(of: post)
     }
     
@@ -89,7 +89,7 @@ extension FeedViewController: PostCreationViewDelegate {
         presenter.post(message)
     }
     
-    func didPost(_ message: String, with post: DomainPost) {
+    func didPost(_ message: String, with post: Post) {
         presenter.quote(post, with: message)
     }
     
@@ -103,11 +103,11 @@ extension FeedViewController: PostCreationViewDelegate {
 
 extension FeedViewController: PostTableViewCellDelegate {
     
-    func didTapRepost(for post: DomainPost) {
+    func didTapRepost(for post: Post) {
         presenter.didTapRepost(for: post)
     }
     
-    func didTapQuote(for post: DomainPost) {
+    func didTapQuote(for post: Post) {
         presenter.didTapQuote(for: post)
     }
     

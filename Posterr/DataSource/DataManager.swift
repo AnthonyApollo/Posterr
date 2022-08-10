@@ -39,13 +39,13 @@ final class DataManager: AppDataSourceProtocol {
 
 extension DataManager {
     
-    func addNewPost(with message: String, for user: User, completion: RequestCompletion<DomainPost>?) {
+    func addNewPost(with message: String, for user: User, completion: RequestCompletion<Post>?) {
         guard let userDTO = getUserDTO(with: user.username) else {
             completion?(.failure(.fetchError))
             return
         }
         
-        let entity = Post(context: persistentContainer.viewContext)
+        let entity = PostDTO(context: persistentContainer.viewContext)
         entity.id = UUID()
         entity.message = message
         entity.author = userDTO
@@ -55,7 +55,7 @@ extension DataManager {
         do {
             try saveContext()
             
-            guard let domainPost = DomainPost(from: entity) else {
+            guard let domainPost = Post(from: entity) else {
                 completion?(.failure(.invalidData))
                 return
             }
@@ -66,14 +66,14 @@ extension DataManager {
         }
     }
     
-    func addRepost(of post: DomainPost, for user: User, completion: RequestCompletion<DomainPost>?) {
+    func addRepost(of post: Post, for user: User, completion: RequestCompletion<Post>?) {
         guard let userDTO = getUserDTO(with: user.username),
               let postDTO = getPostDTO(with: post.id) else {
             completion?(.failure(.fetchError))
             return
         }
         
-        let entity = Post(context: persistentContainer.viewContext)
+        let entity = PostDTO(context: persistentContainer.viewContext)
         entity.id = UUID()
         entity.author = userDTO
         entity.originalPost = postDTO
@@ -83,7 +83,7 @@ extension DataManager {
         do {
             try saveContext()
             
-            guard let domainPost = DomainPost(from: entity) else {
+            guard let domainPost = Post(from: entity) else {
                 completion?(.failure(.invalidData))
                 return
             }
@@ -94,14 +94,14 @@ extension DataManager {
         }
     }
     
-    func addQuotePost(for post: DomainPost, with message: String, by user: User, completion: RequestCompletion<DomainPost>?) {
+    func addQuotePost(for post: Post, with message: String, by user: User, completion: RequestCompletion<Post>?) {
         guard let userDTO = getUserDTO(with: user.username),
               let postDTO = getPostDTO(with: post.id) else {
             completion?(.failure(.fetchError))
             return
         }
         
-        let entity = Post(context: persistentContainer.viewContext)
+        let entity = PostDTO(context: persistentContainer.viewContext)
         entity.id = UUID()
         entity.author = userDTO
         entity.message = message
@@ -112,7 +112,7 @@ extension DataManager {
         do {
             try saveContext()
             
-            guard let domainPost = DomainPost(from: entity) else {
+            guard let domainPost = Post(from: entity) else {
                 completion?(.failure(.invalidData))
                 return
             }
@@ -123,20 +123,20 @@ extension DataManager {
         }
     }
     
-    func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[DomainPost]>?) {
+    func getPosts(from user: User?, with limit: Int, and offset: Int, completion: RequestCompletion<[Post]>?) {
         let userDTO = getUserDTO(with: user?.username)
         
-        let request: NSFetchRequest<Post> = Post.fetchRequest()
+        let request: NSFetchRequest<PostDTO> = PostDTO.fetchRequest()
         request.sortBy(key: "date", ascending: false)
         request.filterPostsBy(user: userDTO)
         request.fetchLimit = limit
         request.fetchOffset = offset
         
-        var fetchedPosts: [Post] = []
+        var fetchedPosts: [PostDTO] = []
         
         do {
             fetchedPosts = try persistentContainer.viewContext.fetch(request)
-            let domainPosts = fetchedPosts.compactMap { DomainPost(from: $0) }
+            let domainPosts = fetchedPosts.compactMap { Post(from: $0) }
             
             completion?(.success(domainPosts))
         } catch {
@@ -144,11 +144,11 @@ extension DataManager {
         }
     }
     
-    private func getPostDTO(with id: UUID) -> Post? {
-        let request: NSFetchRequest<Post> = Post.fetchRequest()
+    private func getPostDTO(with id: UUID) -> PostDTO? {
+        let request: NSFetchRequest<PostDTO> = PostDTO.fetchRequest()
         request.filterPostsBy(id: id)
         
-        var fetchedPosts: [Post] = []
+        var fetchedPosts: [PostDTO] = []
         
         do {
             fetchedPosts = try persistentContainer.viewContext.fetch(request)

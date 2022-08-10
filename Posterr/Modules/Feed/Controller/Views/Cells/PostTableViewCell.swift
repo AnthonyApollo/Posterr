@@ -14,12 +14,12 @@ final class PostTableViewCell: UITableViewCell, PostCell {
     static let reuseIdentifier: ReuseIdentifier<PostTableViewCell> = ReuseIdentifier(identifier: "PostTableViewCell")
     
     weak var delegate: PostTableViewCellDelegate?
-    private var post: DomainPost?
+    private var post: Post?
     
     private lazy var postMessageView: PostMessageView = .init()
     private lazy var postReplyMenu: PostReplyMenu = .init(with: self)
     
-    func setup(with post: DomainPost) {
+    func setup(with post: Post) {
         self.post = post
         postMessageView.setup(with: post)
         

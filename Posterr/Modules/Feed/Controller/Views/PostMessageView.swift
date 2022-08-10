@@ -69,7 +69,7 @@ final class PostMessageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with post: DomainPost) {
+    func setup(with post: Post) {
         authorUsernameLabel.text = post.author
         
         if let message = post.message {

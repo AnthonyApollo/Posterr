@@ -38,7 +38,7 @@ final class FeedView: UIView {
         postsTableView.reloadData()
     }
     
-    func setupQuote(of post: DomainPost) {
+    func setupQuote(of post: Post) {
         postCreationView.setupQuote(of: post)
     }
     

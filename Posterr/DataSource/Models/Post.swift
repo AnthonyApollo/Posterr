@@ -7,16 +7,16 @@
 
 import Foundation
 
-final class DomainPost {
+final class Post {
     
     let id: UUID
     let author: String
     let date: Date
     let message: String?
-    let originalPost: DomainPost?
-    let quotePost: DomainPost?
+    let originalPost: Post?
+    let quotePost: Post?
     
-    init?(from dto: Post?) {
+    init?(from dto: PostDTO?) {
         guard let dto = dto,
               let id = dto.id,
               let author = dto.author?.username,
@@ -26,8 +26,8 @@ final class DomainPost {
         self.author = author
         self.date = date
         self.message = dto.message
-        self.originalPost = DomainPost(from: dto.originalPost)
-        self.quotePost = DomainPost(from: dto.quotePost)
+        self.originalPost = Post(from: dto.originalPost)
+        self.quotePost = Post(from: dto.quotePost)
     }
     
 }
