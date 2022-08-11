@@ -38,7 +38,7 @@ final class PostMessageView: UIView {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(.init(systemName: "xmark.circle.fill"), for: .normal)
+        button.setImage(.init(systemName: SystemIcons.closeIcon()), for: .normal)
         button.imageView?.tintColor = .systemGray
         button.setTitleColor(UIColor.blue, for: .normal)
         

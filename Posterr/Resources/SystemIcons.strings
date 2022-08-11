@@ -13,3 +13,4 @@
 "post.icon" = "text.bubble";
 "repost.icon" = "plus.bubble";
 "quote.icon" = "quote.bubble";
+"close.icon" = "xmark.circle.fill";
