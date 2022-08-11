@@ -56,6 +56,8 @@
 		1587789728A47966006B3B01 /* UserProfilePresenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */; };
 		1587789928A47A8E006B3B01 /* UserProfileInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789828A47A8E006B3B01 /* UserProfileInteractorSpy.swift */; };
 		1587789B28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789A28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift */; };
+		158778A228A480E6006B3B01 /* PostTableViewCellTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158778A128A480E6006B3B01 /* PostTableViewCellTestCase.swift */; };
+		158778A628A48341006B3B01 /* PostTableViewCellDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158778A528A48341006B3B01 /* PostTableViewCellDelegateSpy.swift */; };
 		158E320428A3179900A17E86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E320328A3179900A17E86 /* User.swift */; };
 		1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */; };
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
@@ -152,6 +154,8 @@
 		1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenterTestCase.swift; sourceTree = "<group>"; };
 		1587789828A47A8E006B3B01 /* UserProfileInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorSpy.swift; sourceTree = "<group>"; };
 		1587789A28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewProtocolSpy.swift; sourceTree = "<group>"; };
+		158778A128A480E6006B3B01 /* PostTableViewCellTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCellTestCase.swift; sourceTree = "<group>"; };
+		158778A528A48341006B3B01 /* PostTableViewCellDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCellDelegateSpy.swift; sourceTree = "<group>"; };
 		158E320328A3179900A17E86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
@@ -513,6 +517,55 @@
 			path = Stub;
 			sourceTree = "<group>";
 		};
+		1587789D28A4809B006B3B01 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				1587789E28A480BD006B3B01 /* Controller */,
+				158778A328A4831B006B3B01 /* TestDoubles */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		1587789E28A480BD006B3B01 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1587789F28A480C6006B3B01 /* Views */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1587789F28A480C6006B3B01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				158778A028A480CB006B3B01 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		158778A028A480CB006B3B01 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				158778A128A480E6006B3B01 /* PostTableViewCellTestCase.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		158778A328A4831B006B3B01 /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				158778A428A48330006B3B01 /* Spy */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		158778A428A48330006B3B01 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				158778A528A48341006B3B01 /* PostTableViewCellDelegateSpy.swift */,
+			);
+			path = Spy;
+			sourceTree = "<group>";
+		};
 		158E320228A3178600A17E86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +622,7 @@
 		15C41A2A28A348D100F2213A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1587789D28A4809B006B3B01 /* Feed */,
 				15C41A2B28A348E000F2213A /* UserProfile */,
 			);
 			path = Modules;
@@ -1035,10 +1089,12 @@
 				1587788528A463E8006B3B01 /* FeedInteractorSpy.swift in Sources */,
 				1587788728A46514006B3B01 /* UserProfileViewControllerTestCase.swift in Sources */,
 				1587788128A459D0006B3B01 /* FeedInteractorStub.swift in Sources */,
+				158778A628A48341006B3B01 /* PostTableViewCellDelegateSpy.swift in Sources */,
 				1587789728A47966006B3B01 /* UserProfilePresenterTestCase.swift in Sources */,
 				1587788D28A467CA006B3B01 /* UserProfileViewSpy.swift in Sources */,
 				15C41A3928A3533700F2213A /* UserInfoViewTestCase.swift in Sources */,
 				1587789428A47052006B3B01 /* UserProfileInteractorOutputSpy.swift in Sources */,
+				158778A228A480E6006B3B01 /* PostTableViewCellTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

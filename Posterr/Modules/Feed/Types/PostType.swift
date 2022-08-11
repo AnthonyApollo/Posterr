@@ -25,7 +25,7 @@ enum PostType {
     var messageViewBackgroundColor: UIColor {
         switch self {
         case .post:
-            return .systemBackground
+            return .clear
         default:
             return .systemGray6
         }

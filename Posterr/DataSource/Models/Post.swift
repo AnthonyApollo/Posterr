@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Post {
+final class Post: Equatable {
     
     let id: UUID
     let author: String
@@ -37,6 +37,10 @@ final class Post {
         self.message = message
         self.originalPost = originalPost
         self.quotePost = quotePost
+    }
+    
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        return lhs.id == rhs.id
     }
     
 }
