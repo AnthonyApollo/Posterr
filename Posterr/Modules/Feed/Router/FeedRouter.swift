@@ -17,7 +17,7 @@ final class FeedRouter: FeedRouterProtocol {
     
     func createModule(with user: User, toUserProfile isOnUserProfile: Bool = false) -> FeedViewProtocol {
         let interactor = FeedInteractor()
-        let presenter = FeedPresenter(interactor: interactor, currentUser: user, shouldDisplayOnlyUserPosts: isOnUserProfile)
+        let presenter = FeedPresenter(interactor: interactor, currentUser: user, isOnUserProfile: isOnUserProfile)
         let viewController = FeedViewController(presenter: presenter)
         
         interactor.output = presenter

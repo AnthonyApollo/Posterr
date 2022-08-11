@@ -17,12 +17,12 @@ final class FeedPresenter: NSObject {
     private let interactor: FeedInteractorProtocol
     private var posts: [Post]?
     private var currentUser: User
-    private var shouldDisplayOnlyUserPosts: Bool
+    var isOnUserProfile: Bool
     
-    init(interactor: FeedInteractorProtocol, currentUser: User, shouldDisplayOnlyUserPosts: Bool) {
+    init(interactor: FeedInteractorProtocol, currentUser: User, isOnUserProfile: Bool) {
         self.interactor = interactor
         self.currentUser = currentUser
-        self.shouldDisplayOnlyUserPosts = shouldDisplayOnlyUserPosts
+        self.isOnUserProfile = isOnUserProfile
     }
     
     private var canUserPost: Bool {
@@ -30,7 +30,7 @@ final class FeedPresenter: NSObject {
     }
     
     private func getPosts() {
-        interactor.getPosts(from: shouldDisplayOnlyUserPosts ? currentUser : nil)
+        interactor.getPosts(from: isOnUserProfile ? currentUser : nil)
     }
     
     private func updatePostCreation(with remainingCharacters: String) {
@@ -90,7 +90,7 @@ final class FeedPresenter: NSObject {
         guard let posts = posts else { return }
         
         if indexPath.row == posts.count - 1 {
-            let user = shouldDisplayOnlyUserPosts ? currentUser : nil
+            let user = isOnUserProfile ? currentUser : nil
             interactor.getMorePosts(from: user)
         }
     }

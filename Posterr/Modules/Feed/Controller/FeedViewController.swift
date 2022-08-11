@@ -21,7 +21,7 @@ final class FeedViewController: UIViewController {
     
     init(presenter: FeedPresenterProtocol) {
         self.presenter = presenter
-        self.feedView = .init()
+        self.feedView = .init(shouldHideTitle: presenter.isOnUserProfile)
         
         super.init(nibName: nil, bundle: nil)
         

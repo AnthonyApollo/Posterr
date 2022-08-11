@@ -25,6 +25,7 @@ protocol FeedViewProtocol: UIViewController {
 protocol FeedPresenterProtocol: AnyObject {
     
     var view: FeedViewProtocol? { get set }
+    var isOnUserProfile: Bool { get }
     
     func setup()
     func updatePostCreationViewIfNeeded(for: Int)

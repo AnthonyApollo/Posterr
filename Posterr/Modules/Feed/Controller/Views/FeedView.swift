@@ -10,6 +10,17 @@ import SnapKit
 
 final class FeedView: UIView {
     
+    private let shouldDisplayTitle: Bool
+    
+    private lazy var appTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Posterr"
+        label.font = .boldSystemFont(ofSize: 36)
+        label.numberOfLines = 1
+     
+        return label
+    }()
+    
     lazy var postCreationView: PostCreationView = .init()
     
     lazy var postsTableView: UITableView = {
@@ -23,7 +34,9 @@ final class FeedView: UIView {
         return tableView
     }()
     
-    init() {
+    init(shouldHideTitle: Bool = true) {
+        self.shouldDisplayTitle = !shouldHideTitle
+        
         super.init(frame: .zero)
         
         setupViews()
@@ -71,14 +84,31 @@ extension FeedView: CodableView {
     }
     
     func buildViews() {
+        if shouldDisplayTitle {
+            addSubview(appTitleLabel)
+        }
         addSubviews(postCreationView, postsTableView)
     }
     
     func configConstraints() {
-        postCreationView.snp.makeConstraints { make in
-            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(8)
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
-            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(8)
+        if shouldDisplayTitle {
+            appTitleLabel.snp.makeConstraints { make in
+                make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(8)
+                make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
+                make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(8)
+            }
+            
+            postCreationView.snp.makeConstraints { make in
+                make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(8)
+                make.top.equalTo(appTitleLabel.snp.bottom).offset(8)
+                make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(8)
+            }
+        } else {
+            postCreationView.snp.makeConstraints { make in
+                make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(8)
+                make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
+                make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(8)
+            }
         }
         
         postsTableView.snp.makeConstraints { make in
