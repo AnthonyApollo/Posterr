@@ -27,8 +27,6 @@
 		156A6FAF2899F70A003F75AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FAE2899F70A003F75AE /* SceneDelegate.swift */; };
 		156A6FB62899F70B003F75AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156A6FB52899F70B003F75AE /* Assets.xcassets */; };
 		156A6FB92899F70B003F75AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156A6FB72899F70B003F75AE /* LaunchScreen.storyboard */; };
-		156A6FCE2899F70C003F75AE /* PosterrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCD2899F70C003F75AE /* PosterrUITests.swift */; };
-		156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */; };
 		156B5F2F289EE49700BB8795 /* PostMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F2E289EE49700BB8795 /* PostMessageView.swift */; };
 		156B5F31289EF1AE00BB8795 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F30289EF1AE00BB8795 /* UIViewController+Alert.swift */; };
 		156B5F34289EFAE900BB8795 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B5F33289EFAE900BB8795 /* PostType.swift */; };
@@ -84,19 +82,11 @@
 		15F7973F28A326BE006066E4 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7973E28A326BE006066E4 /* UserProfileInteractor.swift */; };
 		15F7974328A33C1E006066E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7974228A33C1E006066E4 /* Post.swift */; };
 		31C63398FABE7D9BAE7B9E22 /* Pods_PosterrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B92FC237162CA7C189F065 /* Pods_PosterrTests.framework */; };
-		A52B6294DD066D7274DD89E2 /* Pods_Posterr_PosterrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC736BEB9CB33B014895516E /* Pods_Posterr_PosterrUITests.framework */; };
 		FB5B831A5C5722B02B067406 /* Pods_Posterr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284319B73AE17F3E2A7EAA6C /* Pods_Posterr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		156A6FC02899F70C003F75AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 156A6FA12899F70A003F75AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 156A6FA82899F70A003F75AE;
-			remoteInfo = Posterr;
-		};
-		156A6FCA2899F70C003F75AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 156A6FA12899F70A003F75AE /* Project object */;
 			proxyType = 1;
@@ -128,9 +118,6 @@
 		156A6FB82899F70B003F75AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156A6FBA2899F70B003F75AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		156A6FBF2899F70C003F75AE /* PosterrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PosterrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		156A6FC92899F70C003F75AE /* PosterrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PosterrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		156A6FCD2899F70C003F75AE /* PosterrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITests.swift; sourceTree = "<group>"; };
-		156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		156B5F2E289EE49700BB8795 /* PostMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageView.swift; sourceTree = "<group>"; };
 		156B5F30289EF1AE00BB8795 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		156B5F33289EFAE900BB8795 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
@@ -211,14 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31C63398FABE7D9BAE7B9E22 /* Pods_PosterrTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		156A6FC62899F70C003F75AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A52B6294DD066D7274DD89E2 /* Pods_Posterr_PosterrUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +286,6 @@
 			children = (
 				156A6FAB2899F70A003F75AE /* Posterr */,
 				156A6FC22899F70C003F75AE /* PosterrTests */,
-				156A6FCC2899F70C003F75AE /* PosterrUITests */,
 				156A6FAA2899F70A003F75AE /* Products */,
 				7A54428C6DAD479F5DF1D07E /* Pods */,
 				68E6C44989A5BD67EAC6CBD5 /* Frameworks */,
@@ -319,7 +297,6 @@
 			children = (
 				156A6FA92899F70A003F75AE /* Posterr.app */,
 				156A6FBF2899F70C003F75AE /* PosterrTests.xctest */,
-				156A6FC92899F70C003F75AE /* PosterrUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,15 +322,6 @@
 				1587787B28A45496006B3B01 /* TestHelpers */,
 			);
 			path = PosterrTests;
-			sourceTree = "<group>";
-		};
-		156A6FCC2899F70C003F75AE /* PosterrUITests */ = {
-			isa = PBXGroup;
-			children = (
-				156A6FCD2899F70C003F75AE /* PosterrUITests.swift */,
-				156A6FCF2899F70C003F75AE /* PosterrUITestsLaunchTests.swift */,
-			);
-			path = PosterrUITests;
 			sourceTree = "<group>";
 		};
 		156B5F37289F03C800BB8795 /* Cells */ = {
@@ -797,26 +765,6 @@
 			productReference = 156A6FBF2899F70C003F75AE /* PosterrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		156A6FC82899F70C003F75AE /* PosterrUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 156A6FD92899F70C003F75AE /* Build configuration list for PBXNativeTarget "PosterrUITests" */;
-			buildPhases = (
-				1AD460F400E1C493FC0DDC4E /* [CP] Check Pods Manifest.lock */,
-				156A6FC52899F70C003F75AE /* Sources */,
-				156A6FC62899F70C003F75AE /* Frameworks */,
-				156A6FC72899F70C003F75AE /* Resources */,
-				0C5B9CEF7E08EF4339B8AA61 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				156A6FCB2899F70C003F75AE /* PBXTargetDependency */,
-			);
-			name = PosterrUITests;
-			productName = PosterrUITests;
-			productReference = 156A6FC92899F70C003F75AE /* PosterrUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -831,10 +779,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					156A6FBE2899F70C003F75AE = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 156A6FA82899F70A003F75AE;
-					};
-					156A6FC82899F70C003F75AE = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 156A6FA82899F70A003F75AE;
 					};
@@ -858,7 +802,6 @@
 			targets = (
 				156A6FA82899F70A003F75AE /* Posterr */,
 				156A6FBE2899F70C003F75AE /* PosterrTests */,
-				156A6FC82899F70C003F75AE /* PosterrUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -882,33 +825,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		156A6FC72899F70C003F75AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C5B9CEF7E08EF4339B8AA61 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Posterr-PosterrUITests/Pods-Posterr-PosterrUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Posterr-PosterrUITests/Pods-Posterr-PosterrUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Posterr-PosterrUITests/Pods-Posterr-PosterrUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		15E9B90A28A1F6EF00C0F444 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -927,28 +846,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
-		1AD460F400E1C493FC0DDC4E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Posterr-PosterrUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		2C34A4A28A70C8A799C05E31 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1114,15 +1011,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		156A6FC52899F70C003F75AE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				156A6FD02899F70C003F75AE /* PosterrUITestsLaunchTests.swift in Sources */,
-				156A6FCE2899F70C003F75AE /* PosterrUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1130,11 +1018,6 @@
 			isa = PBXTargetDependency;
 			target = 156A6FA82899F70A003F75AE /* Posterr */;
 			targetProxy = 156A6FC02899F70C003F75AE /* PBXContainerItemProxy */;
-		};
-		156A6FCB2899F70C003F75AE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 156A6FA82899F70A003F75AE /* Posterr */;
-			targetProxy = 156A6FCA2899F70C003F75AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1362,44 +1245,6 @@
 			};
 			name = Release;
 		};
-		156A6FDA2899F70C003F75AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 954AA7AAC5512AFE0D85B750 /* Pods-Posterr-PosterrUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9M7D6BTNY5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.anthony.apollo.PosterrUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Posterr;
-			};
-			name = Debug;
-		};
-		156A6FDB2899F70C003F75AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9320D403AB66537D69BD2812 /* Pods-Posterr-PosterrUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9M7D6BTNY5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.anthony.apollo.PosterrUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Posterr;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1426,15 +1271,6 @@
 			buildConfigurations = (
 				156A6FD72899F70C003F75AE /* Debug */,
 				156A6FD82899F70C003F75AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		156A6FD92899F70C003F75AE /* Build configuration list for PBXNativeTarget "PosterrUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				156A6FDA2899F70C003F75AE /* Debug */,
-				156A6FDB2899F70C003F75AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
