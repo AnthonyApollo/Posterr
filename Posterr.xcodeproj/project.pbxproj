@@ -460,10 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				15C41A3528A34B3A00F2213A /* UserDummy.swift */,
-				1587787C28A454D5006B3B01 /* FeedRouterStub.swift */,
-				1587788028A459D0006B3B01 /* FeedInteractorStub.swift */,
 				1587788228A45DF0006B3B01 /* PostDummy.swift */,
-				1587788428A463E8006B3B01 /* FeedInteractorSpy.swift */,
 				1587788F28A46D05006B3B01 /* AppDataSourceStub.swift */,
 			);
 			path = TestHelpers;
@@ -473,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				1587788928A466C5006B3B01 /* Spy */,
+				1587789C28A48049006B3B01 /* Stub */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -480,6 +478,7 @@
 		1587788928A466C5006B3B01 /* Spy */ = {
 			isa = PBXGroup;
 			children = (
+				1587788428A463E8006B3B01 /* FeedInteractorSpy.swift */,
 				1587788A28A466DD006B3B01 /* UserProfilePresenterSpy.swift */,
 				1587788C28A467CA006B3B01 /* UserProfileViewSpy.swift */,
 				1587789328A47052006B3B01 /* UserProfileInteractorOutputSpy.swift */,
@@ -503,6 +502,15 @@
 				1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1587789C28A48049006B3B01 /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				1587788028A459D0006B3B01 /* FeedInteractorStub.swift */,
+				1587787C28A454D5006B3B01 /* FeedRouterStub.swift */,
+			);
+			path = Stub;
 			sourceTree = "<group>";
 		};
 		158E320228A3178600A17E86 /* Models */ = {
