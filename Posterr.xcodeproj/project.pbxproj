@@ -53,6 +53,9 @@
 		1587789028A46D05006B3B01 /* AppDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587788F28A46D05006B3B01 /* AppDataSourceStub.swift */; };
 		1587789228A46EEF006B3B01 /* UserProfileInteractorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789128A46EEF006B3B01 /* UserProfileInteractorTestCase.swift */; };
 		1587789428A47052006B3B01 /* UserProfileInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789328A47052006B3B01 /* UserProfileInteractorOutputSpy.swift */; };
+		1587789728A47966006B3B01 /* UserProfilePresenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */; };
+		1587789928A47A8E006B3B01 /* UserProfileInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789828A47A8E006B3B01 /* UserProfileInteractorSpy.swift */; };
+		1587789B28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587789A28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift */; };
 		158E320428A3179900A17E86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E320328A3179900A17E86 /* User.swift */; };
 		1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */; };
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
@@ -146,6 +149,9 @@
 		1587788F28A46D05006B3B01 /* AppDataSourceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSourceStub.swift; sourceTree = "<group>"; };
 		1587789128A46EEF006B3B01 /* UserProfileInteractorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorTestCase.swift; sourceTree = "<group>"; };
 		1587789328A47052006B3B01 /* UserProfileInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorOutputSpy.swift; sourceTree = "<group>"; };
+		1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenterTestCase.swift; sourceTree = "<group>"; };
+		1587789828A47A8E006B3B01 /* UserProfileInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorSpy.swift; sourceTree = "<group>"; };
+		1587789A28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewProtocolSpy.swift; sourceTree = "<group>"; };
 		158E320328A3179900A17E86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
@@ -477,6 +483,8 @@
 				1587788A28A466DD006B3B01 /* UserProfilePresenterSpy.swift */,
 				1587788C28A467CA006B3B01 /* UserProfileViewSpy.swift */,
 				1587789328A47052006B3B01 /* UserProfileInteractorOutputSpy.swift */,
+				1587789828A47A8E006B3B01 /* UserProfileInteractorSpy.swift */,
+				1587789A28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -487,6 +495,14 @@
 				1587789128A46EEF006B3B01 /* UserProfileInteractorTestCase.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1587789528A4792C006B3B01 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1587789628A47966006B3B01 /* UserProfilePresenterTestCase.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		158E320228A3178600A17E86 /* Models */ = {
@@ -555,6 +571,7 @@
 			children = (
 				15C41A2C28A348EC00F2213A /* Controller */,
 				1587788E28A46CA9006B3B01 /* Interactor */,
+				1587789528A4792C006B3B01 /* Presenter */,
 				1587788828A466B9006B3B01 /* TestDoubles */,
 			);
 			path = UserProfile;
@@ -997,17 +1014,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1587789928A47A8E006B3B01 /* UserProfileInteractorSpy.swift in Sources */,
 				1587789028A46D05006B3B01 /* AppDataSourceStub.swift in Sources */,
 				1587788B28A466DD006B3B01 /* UserProfilePresenterSpy.swift in Sources */,
 				15C41A3628A34B3A00F2213A /* UserDummy.swift in Sources */,
 				1587787A28A45179006B3B01 /* UserProfileViewTestCase.swift in Sources */,
 				15C41A3228A34A8E00F2213A /* PostCountViewTestCase.swift in Sources */,
+				1587789B28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift in Sources */,
 				1587788328A45DF0006B3B01 /* PostDummy.swift in Sources */,
 				1587789228A46EEF006B3B01 /* UserProfileInteractorTestCase.swift in Sources */,
 				1587787D28A454D5006B3B01 /* FeedRouterStub.swift in Sources */,
 				1587788528A463E8006B3B01 /* FeedInteractorSpy.swift in Sources */,
 				1587788728A46514006B3B01 /* UserProfileViewControllerTestCase.swift in Sources */,
 				1587788128A459D0006B3B01 /* FeedInteractorStub.swift in Sources */,
+				1587789728A47966006B3B01 /* UserProfilePresenterTestCase.swift in Sources */,
 				1587788D28A467CA006B3B01 /* UserProfileViewSpy.swift in Sources */,
 				15C41A3928A3533700F2213A /* UserInfoViewTestCase.swift in Sources */,
 				1587789428A47052006B3B01 /* UserProfileInteractorOutputSpy.swift in Sources */,
