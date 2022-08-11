@@ -15,6 +15,7 @@ class PostReplyMenuTestCase: XCTestCase {
     var delegateSpy: PostReplyMenuDelegateSpy!
     
     override func setUp() {
+        super.setUp()
         delegateSpy = .init()
         sut = .init(with: delegateSpy)
         sut.frame = CGRect(x: 0, y: 0, width: 382, height: 80)

@@ -15,6 +15,7 @@ class PostTableViewCellTestCase: XCTestCase {
     var delegateSpy: PostTableViewCellDelegateSpy!
     
     override func setUp() {
+        super.setUp()
         delegateSpy = .init()
         
         sut = .init()

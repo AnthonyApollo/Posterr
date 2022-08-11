@@ -15,6 +15,8 @@ class UserProfileInteractorTestCase: XCTestCase {
     var outputSpy: UserProfileInteractorOutputSpy!
     
     override func setUp() {
+        super.setUp()
+        
         dataSourceStub = .init()
         outputSpy = .init()
         

@@ -15,6 +15,8 @@ class UserProfileViewTestCase: XCTestCase {
     var feedRouterStub: FeedRouterStub!
     
     override func setUp() {
+        super.setUp()
+        
         feedRouterStub = .init()
         
         sut = .init(user: .dummy(), feedRouter: feedRouterStub)

@@ -16,6 +16,7 @@ class UserProfileViewControllerTestCase: XCTestCase {
     var viewSpy: UserProfileViewSpy!
     
     override func setUp() {
+        super.setUp()
         presenterSpy = .init()
         routerStub = .init()
         viewSpy = .init(user: .dummy(), feedRouter: routerStub)

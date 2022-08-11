@@ -15,6 +15,8 @@ class UserProfilePresenterTestCase: XCTestCase {
     var viewSpy: UserProfileViewProtocolSpy!
     
     override func setUp() {
+        super.setUp()
+        
         interactorSpy = .init()
         viewSpy = .init()
         

@@ -14,6 +14,7 @@ class UserInfoViewTestCase: XCTestCase {
     var sut: UserInfoView!
     
     override func setUp() {
+        super.setUp()
         sut = .init(user: .dummy())
         sut.frame = CGRect(x: 0, y: 0, width: 382, height: 150)
     }
