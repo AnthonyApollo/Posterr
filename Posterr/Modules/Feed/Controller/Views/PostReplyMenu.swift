@@ -48,11 +48,11 @@ final class PostReplyMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func didTouchRepostButton() {
+    @objc func didTouchRepostButton() {
         delegate?.didTapRepost()
     }
     
-    @objc private func didTouchQuoteButton() {
+    @objc func didTouchQuoteButton() {
         delegate?.didTapQuote()
     }
     
