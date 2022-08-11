@@ -32,6 +32,7 @@ extension PostTableViewCell: CodableView {
     
     func configViews() {
         backgroundColor = .clear
+        selectionStyle = .none
     }
     
     func buildViews() {

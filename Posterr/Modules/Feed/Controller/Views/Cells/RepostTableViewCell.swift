@@ -33,6 +33,7 @@ extension RepostTableViewCell: CodableView {
     
     func configViews() {
         backgroundColor = .clear
+        selectionStyle = .none
     }
     
     func buildViews() {

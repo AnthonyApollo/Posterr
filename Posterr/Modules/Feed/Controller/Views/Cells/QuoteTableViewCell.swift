@@ -33,6 +33,7 @@ extension QuoteTableViewCell: CodableView {
     
     func configViews() {
         backgroundColor = .clear
+        selectionStyle = .none
     }
     
     func buildViews() {
