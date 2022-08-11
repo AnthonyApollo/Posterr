@@ -81,7 +81,7 @@ final class PostMessageView: UIView {
         setupViews()
     }
     
-    @objc private func didTouchCloseButton() {
+    @objc func didTouchCloseButton() {
         delegate?.didTouchCloseButton()
     }
     

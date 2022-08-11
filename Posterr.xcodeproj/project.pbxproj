@@ -62,6 +62,8 @@
 		158778AE28A48D29006B3B01 /* PostReplyMenuDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158778AD28A48D29006B3B01 /* PostReplyMenuDelegateSpy.swift */; };
 		158E320428A3179900A17E86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E320328A3179900A17E86 /* User.swift */; };
 		1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */; };
+		15ACD66028A493C600920A4B /* PostMessageViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */; };
+		15ACD66228A4A72400920A4B /* PostMessageViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */; };
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
 		15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */; };
 		15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */; };
@@ -153,6 +155,8 @@
 		158778AD28A48D29006B3B01 /* PostReplyMenuDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyMenuDelegateSpy.swift; sourceTree = "<group>"; };
 		158E320328A3179900A17E86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewTestCase.swift; sourceTree = "<group>"; };
+		15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewDelegateSpy.swift; sourceTree = "<group>"; };
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
 		15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
 		15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 			children = (
 				158778A028A480CB006B3B01 /* Cells */,
 				158778AB28A48BB7006B3B01 /* PostReplyMenuTestCase.swift */,
+				15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 			children = (
 				158778A528A48341006B3B01 /* PostTableViewCellDelegateSpy.swift */,
 				158778AD28A48D29006B3B01 /* PostReplyMenuDelegateSpy.swift */,
+				15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -994,7 +1000,9 @@
 				15C41A3228A34A8E00F2213A /* PostCountViewTestCase.swift in Sources */,
 				1587789B28A47B50006B3B01 /* UserProfileViewProtocolSpy.swift in Sources */,
 				1587788328A45DF0006B3B01 /* PostDummy.swift in Sources */,
+				15ACD66228A4A72400920A4B /* PostMessageViewDelegateSpy.swift in Sources */,
 				1587789228A46EEF006B3B01 /* UserProfileInteractorTestCase.swift in Sources */,
+				15ACD66028A493C600920A4B /* PostMessageViewTestCase.swift in Sources */,
 				1587787D28A454D5006B3B01 /* FeedRouterStub.swift in Sources */,
 				1587788528A463E8006B3B01 /* FeedInteractorSpy.swift in Sources */,
 				1587788728A46514006B3B01 /* UserProfileViewControllerTestCase.swift in Sources */,
