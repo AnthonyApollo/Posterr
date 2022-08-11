@@ -64,6 +64,8 @@
 		1592931F289F5D1C00AB9F16 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */; };
 		15ACD66028A493C600920A4B /* PostMessageViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */; };
 		15ACD66228A4A72400920A4B /* PostMessageViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */; };
+		15ACD66428A4AA0500920A4B /* PostCreationViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD66328A4AA0500920A4B /* PostCreationViewTestCase.swift */; };
+		15ACD66628A4ACCA00920A4B /* PostCreationViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ACD66528A4ACCA00920A4B /* PostCreationViewDelegateSpy.swift */; };
 		15C0B265289DE43F007C54B8 /* Application+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B264289DE43F007C54B8 /* Application+Protocols.swift */; };
 		15C0B268289DE5C4007C54B8 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */; };
 		15C0B26B289DE65E007C54B8 /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */; };
@@ -157,6 +159,8 @@
 		1592931E289F5D1C00AB9F16 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewTestCase.swift; sourceTree = "<group>"; };
 		15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewDelegateSpy.swift; sourceTree = "<group>"; };
+		15ACD66328A4AA0500920A4B /* PostCreationViewTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewTestCase.swift; sourceTree = "<group>"; };
+		15ACD66528A4ACCA00920A4B /* PostCreationViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewDelegateSpy.swift; sourceTree = "<group>"; };
 		15C0B264289DE43F007C54B8 /* Application+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Protocols.swift"; sourceTree = "<group>"; };
 		15C0B267289DE5C4007C54B8 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
 		15C0B26A289DE65E007C54B8 /* ApplicationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
@@ -520,6 +524,7 @@
 				158778A028A480CB006B3B01 /* Cells */,
 				158778AB28A48BB7006B3B01 /* PostReplyMenuTestCase.swift */,
 				15ACD65F28A493C600920A4B /* PostMessageViewTestCase.swift */,
+				15ACD66328A4AA0500920A4B /* PostCreationViewTestCase.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				158778A528A48341006B3B01 /* PostTableViewCellDelegateSpy.swift */,
 				158778AD28A48D29006B3B01 /* PostReplyMenuDelegateSpy.swift */,
 				15ACD66128A4A72400920A4B /* PostMessageViewDelegateSpy.swift */,
+				15ACD66528A4ACCA00920A4B /* PostCreationViewDelegateSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -1009,7 +1015,9 @@
 				158778A828A48785006B3B01 /* RepostTableViewCellTestCase.swift in Sources */,
 				158778AA28A4892D006B3B01 /* QuoteTableViewCellTestCase.swift in Sources */,
 				1587788128A459D0006B3B01 /* FeedInteractorStub.swift in Sources */,
+				15ACD66628A4ACCA00920A4B /* PostCreationViewDelegateSpy.swift in Sources */,
 				158778A628A48341006B3B01 /* PostTableViewCellDelegateSpy.swift in Sources */,
+				15ACD66428A4AA0500920A4B /* PostCreationViewTestCase.swift in Sources */,
 				1587789728A47966006B3B01 /* UserProfilePresenterTestCase.swift in Sources */,
 				1587788D28A467CA006B3B01 /* UserProfileViewSpy.swift in Sources */,
 				15C41A3928A3533700F2213A /* UserInfoViewTestCase.swift in Sources */,

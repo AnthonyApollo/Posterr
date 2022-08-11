@@ -14,3 +14,5 @@
 "repost.icon" = "plus.bubble";
 "quote.icon" = "quote.bubble";
 "close.icon" = "xmark.circle.fill";
+"send.icon.disabled" = "paperplane.circle";
+"send.icon.enabled" = "paperplane.circle.fill";

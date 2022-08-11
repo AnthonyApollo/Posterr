@@ -21,18 +21,18 @@ final class PostCreationView: UIView {
     weak var delegate: PostCreationViewDelegate?
     private var post: Post?
     
-    private lazy var titleLabel: UILabel = {
+    internal private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "What's on your mind?"
+        label.text = Strings.textViewTitle()
         label.font = .boldSystemFont(ofSize: 24)
         label.numberOfLines = 1
      
         return label
     }()
     
-    private lazy var quoteMessageView: PostMessageView = .init(type: .quotePost, delegate: self, shouldDisplayCloseButton: true)
+    internal private(set) lazy var quoteMessageView: PostMessageView = .init(type: .quotePost, delegate: self, shouldDisplayCloseButton: true)
     
-    private lazy var textView: UITextView = {
+    internal private(set) lazy var textView: UITextView = {
         let textView = UITextView()
         textView.delegate = self
         textView.font = .systemFont(ofSize: 16)
@@ -40,7 +40,7 @@ final class PostCreationView: UIView {
         return textView
     }()
     
-    private lazy var remainingCharactersLabel: UILabel = {
+    internal private(set) lazy var remainingCharactersLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16)
         label.textColor = .systemGray
@@ -48,11 +48,11 @@ final class PostCreationView: UIView {
         return label
     }()
     
-    private lazy var postButton: UIButton = {
+    internal private(set) lazy var postButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didTouchPostButton), for: .touchUpInside)
-        button.setImage(.init(systemName: "paperplane.circle"), for: .disabled)
-        button.setImage(.init(systemName: "paperplane.circle.fill"), for: .normal)
+        button.setImage(.init(systemName: SystemIcons.sendIconDisabled()), for: .disabled)
+        button.setImage(.init(systemName: SystemIcons.sendIconEnabled()), for: .normal)
         
         return button
     }()
