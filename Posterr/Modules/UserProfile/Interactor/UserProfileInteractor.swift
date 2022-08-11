@@ -15,7 +15,7 @@ final class UserProfileInteractor: UserProfileInteractorProtocol {
     }
     
     func getUser() {
-        appDataSource.getUser(with: "regularJohn22") { [weak self] result in
+        appDataSource.getUser(with: "johnDoe22") { [weak self] result in
             switch result {
             case .success(let user):
                 self?.output?.getUserSucceeded(with: user)
