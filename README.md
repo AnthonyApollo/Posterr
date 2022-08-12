@@ -1,3 +1,5 @@
+# Anthony Apollo
+
 # Posterr
 
 Posterr is a Twitter-like application developed for the Strider Technical Assessment. The app was developed in Swift using ViewCode, along with the [Snapkit](https://github.com/SnapKit/SnapKit), [R.swift](https://github.com/mac-cain13/R.swift) and [SnapshotTesting](https://github.com/pointfreeco/swift-snapshot-testing) libraries. Posterr also uses CoreData to save Posts and Users directly to device memory and was implemented following the V.I.P.E.R. architectural pattern.
