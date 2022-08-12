@@ -19,9 +19,11 @@ The `ApplicationInteractor` class has a function called `injectMockedData()` use
 ### Improvements
 
 <kbd style="background-color: lightgrey">
-📎 Reflect on this project, and write what you would improve if you had more time.
+- Reflect on this project, and write what you would improve if you had more time.
 
 </kbd>
+
+<br>
 
 With more time, I would like to improve the code coverage of the unit tests as this is something I think is very important for a real application. This adds a layer of security to the app development, preventing potential bugs that would be generated in the development of new features.
 
@@ -34,8 +36,10 @@ There could be a button that scrolls back to the top of the posts list.
 ### Error Handling
 
 <kbd style="background-color: lightgrey">
-📎 Assuming you've got multiple crash reports and reviews saying the app is not working properly and is slow for specific models, what would be your strategy to tackle the problem? (assuming the app is supposed to work well for these models)
+- Assuming you've got multiple crash reports and reviews saying the app is not working properly and is slow for specific models, what would be your strategy to tackle the problem? (assuming the app is supposed to work well for these models)
 </kbd>
+
+<br>
 
 For unexpected crashes, I think the best approach would be to implement some crash reporting tool that can give us more details about what's happening (eg Firebase Crashlytics). With such a tool it would be easier to reproduce the problems and find better solutions.
 
@@ -44,8 +48,10 @@ For slowness, I would scan the application for any possible retain cycles using 
 ### Scalability
 
 <kbd style="background-color: lightgrey">
-📎 Assuming your app has now thousands of users thus a lot of posts to show in the feed. What do you believe should be improved in this initial version and what strategies/proposals you could formulate for such a challenge?
+- Assuming your app has now thousands of users thus a lot of posts to show in the feed. What do you believe should be improved in this initial version and what strategies/proposals you could formulate for such a challenge?
 
 </kbd>
+
+<br>
 
 I think performance is key for large scale applications, so I would invest in implementing asynchronous programming using Combine in addition to SwiftUI. Combine is really useful for increasing an application's performance and SwiftUI's reactiveness makes the most of it by reducing screen refresh overhead, making code simpler.
